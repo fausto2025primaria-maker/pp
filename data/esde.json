@@ -1,0 +1,51 @@
+[
+  {
+    "categoria": "ESDE",
+    "nom": "Simulador del Regne V3.3",
+    "fitxer": "apps/esde/simulador_regne/esde_simulador_regne_v33.html",
+    "origen": "V33b.html",
+    "estat": "ultima_versio_detectada"
+  },
+  {
+    "categoria": "ESDE",
+    "nom": "Tauler i Setges V5 Narrativa",
+    "fitxer": "apps/esde/tauler_setges/esde_tauler_setges_v5_narrativa.html",
+    "origen": "tauler_setge_pro_v5_narrativa.html",
+    "estat": "ultima_versio_detectada"
+  },
+  {
+    "categoria": "ESDE",
+    "nom": "Masmorres V10",
+    "fitxer": "apps/esde/masmorres/esde_masmorres_v10.html",
+    "origen": "masm2.html",
+    "estat": "ultima_versio_detectada"
+  },
+  {
+    "categoria": "ESDE",
+    "nom": "Trivial Medi Tema 9 amb Rus",
+    "fitxer": "apps/esde/trivials/esde_trivial_medi_tema9_rus.html",
+    "origen": "Trivialmedirus.html",
+    "estat": "ultima_versio_detectada"
+  },
+  {
+    "categoria": "ESDE",
+    "nom": "Trivial Matemàtiques PRO",
+    "fitxer": "apps/esde/trivials/esde_trivial_matematiques_pro.html",
+    "origen": "TriviaMate.html",
+    "estat": "ultima_versio_detectada"
+  },
+  {
+    "categoria": "ESDE",
+    "nom": "Generador de Trivials Local",
+    "fitxer": "apps/esde/generadors/esde_generador_trivials_local.html",
+    "origen": "generador_trivials_esde_local.html",
+    "estat": "ultima_versio_detectada"
+  },
+  {
+    "categoria": "ESDE",
+    "nom": "Portal Antic",
+    "fitxer": "apps/esde/portal_antic/esde_portal_antic.html",
+    "origen": "index.html",
+    "estat": "ultima_versio_detectada"
+  }
+]

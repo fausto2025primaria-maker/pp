@@ -1,0 +1,382 @@
+[
+  {
+    "id": "esc_s01e01_edat_mitjana",
+    "title": "Escape Room · Edat Mitjana del País Valencià",
+    "type": "app",
+    "category": "Escape Rooms",
+    "description": "Escape room amb selector Valencià / Castellà / Rus.",
+    "thumbnail": "assets/thumbnails/escape_rooms.jpg",
+    "banner": "assets/banners/escape_rooms.jpg",
+    "url": "apps/escape_room/temporada1/esc_s01e01_edat_mitjana.html"
+  },
+  {
+    "id": "esc_s01e02_valencia_romana",
+    "title": "Escape Room · València Romana",
+    "type": "app",
+    "category": "Escape Rooms",
+    "description": "Escape room amb selector Valencià / Castellà / Rus.",
+    "thumbnail": "assets/thumbnails/escape_rooms.jpg",
+    "banner": "assets/banners/escape_rooms.jpg",
+    "url": "apps/escape_room/temporada1/esc_s01e02_valencia_romana.html"
+  },
+  {
+    "id": "esc_s01e03_tresor_sant_marcelli",
+    "title": "Escape Room · El Tresor de Sant Marcel·lí",
+    "type": "app",
+    "category": "Escape Rooms",
+    "description": "Escape room amb selector Valencià / Castellà / Rus.",
+    "thumbnail": "assets/thumbnails/escape_rooms.jpg",
+    "banner": "assets/banners/escape_rooms.jpg",
+    "url": "apps/escape_room/temporada1/esc_s01e03_tresor_sant_marcelli.html"
+  },
+  {
+    "id": "esde_generador_trivials_local",
+    "title": "ESDE · Trivials",
+    "type": "app",
+    "category": "ESDE",
+    "description": "App del sistema ESDE per a la simulació medieval de classe.",
+    "thumbnail": "assets/thumbnails/esde_trivials.jpg",
+    "banner": "assets/banners/esde_trivials.jpg",
+    "url": "apps/esde/generadors/esde_generador_trivials_local.html"
+  },
+  {
+    "id": "esde_masmorres_v10",
+    "title": "ESDE · Masmorres",
+    "type": "app",
+    "category": "ESDE",
+    "description": "App del sistema ESDE per a la simulació medieval de classe.",
+    "thumbnail": "assets/thumbnails/esde_masmorres.jpg",
+    "banner": "assets/banners/esde_masmorres.jpg",
+    "url": "apps/esde/masmorres/esde_masmorres_v10.html"
+  },
+  {
+    "id": "esde_portal_antic",
+    "title": "ESDE · Portal Antic",
+    "type": "app",
+    "category": "ESDE",
+    "description": "App del sistema ESDE per a la simulació medieval de classe.",
+    "thumbnail": "assets/thumbnails/esde_trivials.jpg",
+    "banner": "assets/banners/esde_trivials.jpg",
+    "url": "apps/esde/portal_antic/esde_portal_antic.html"
+  },
+  {
+    "id": "esde_simulador_regne_v33",
+    "title": "ESDE · Simulador del Regne",
+    "type": "app",
+    "category": "ESDE",
+    "description": "App del sistema ESDE per a la simulació medieval de classe.",
+    "thumbnail": "assets/thumbnails/esde_simulador_regne.jpg",
+    "banner": "assets/banners/esde_simulador_regne.jpg",
+    "url": "apps/esde/simulador_regne/esde_simulador_regne_v33.html"
+  },
+  {
+    "id": "esde_tauler_setges_v5_narrativa",
+    "title": "ESDE · Tauler i Setges",
+    "type": "app",
+    "category": "ESDE",
+    "description": "App del sistema ESDE per a la simulació medieval de classe.",
+    "thumbnail": "assets/thumbnails/esde_tauler_setges.jpg",
+    "banner": "assets/banners/esde_tauler_setges.jpg",
+    "url": "apps/esde/tauler_setges/esde_tauler_setges_v5_narrativa.html"
+  },
+  {
+    "id": "esde_trivial_matematiques_pro",
+    "title": "ESDE · Trivials",
+    "type": "app",
+    "category": "ESDE",
+    "description": "App del sistema ESDE per a la simulació medieval de classe.",
+    "thumbnail": "assets/thumbnails/esde_trivials.jpg",
+    "banner": "assets/banners/esde_trivials.jpg",
+    "url": "apps/esde/trivials/esde_trivial_matematiques_pro.html"
+  },
+  {
+    "id": "esde_trivial_medi_tema9_rus",
+    "title": "ESDE · Trivials",
+    "type": "app",
+    "category": "ESDE",
+    "description": "App del sistema ESDE per a la simulació medieval de classe.",
+    "thumbnail": "assets/thumbnails/esde_trivials.jpg",
+    "banner": "assets/banners/esde_trivials.jpg",
+    "url": "apps/esde/trivials/esde_trivial_medi_tema9_rus.html"
+  },
+  {
+    "id": "mill_s01e01_alpha",
+    "title": "El Gran Millonari · Megamix Alpha",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e01_alpha.html"
+  },
+  {
+    "id": "mill_s01e02_beta",
+    "title": "El Gran Millonari · Megamix Beta",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e02_beta.html"
+  },
+  {
+    "id": "mill_s01e03_gamma",
+    "title": "El Gran Millonari · Megamix Gamma",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e03_gamma.html"
+  },
+  {
+    "id": "mill_s01e04_delta",
+    "title": "El Gran Millonari · Megamix Delta",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e04_delta.html"
+  },
+  {
+    "id": "mill_s01e05_epsilon",
+    "title": "El Gran Millonari · Megamix Èpsilon",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e05_epsilon.html"
+  },
+  {
+    "id": "mill_s01e06_zeta",
+    "title": "El Gran Millonari · Megamix Zeta",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e06_zeta.html"
+  },
+  {
+    "id": "mill_s01e07_eta",
+    "title": "El Gran Millonari · Megamix Èta",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e07_eta.html"
+  },
+  {
+    "id": "mill_s01e08_theta",
+    "title": "El Gran Millonari · Megamix Èta",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e08_theta.html"
+  },
+  {
+    "id": "mill_s01e09_iota",
+    "title": "El Gran Millonari · Megamix Iota",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e09_iota.html"
+  },
+  {
+    "id": "mill_s01e10_gran_final",
+    "title": "El Gran Millonari · La Gran Final",
+    "type": "app",
+    "category": "El Gran Millonari",
+    "description": "Temporada 1 · Concurs de preguntes per equips.",
+    "thumbnail": "assets/thumbnails/millionari.jpg",
+    "banner": "assets/banners/millionari.jpg",
+    "url": "apps/millionari/temporada1/mill_s01e10_gran_final.html"
+  },
+  {
+    "id": "pasa_especial_castella_rus",
+    "title": "Pasapalabra · Especial Castella Rus",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Especial · Pasapalabra amb suport lingüístic.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/especials/pasa_especial_castella_rus.html"
+  },
+  {
+    "id": "pasa_especial_castella_rus_toggle",
+    "title": "Pasapalabra · Especial Castella Rus Toggle",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Especial · Pasapalabra amb suport lingüístic.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/especials/pasa_especial_castella_rus_toggle.html"
+  },
+  {
+    "id": "pasa_especial_saber_rus_docent",
+    "title": "Pasapalabra · Especial Saber Rus Docent",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Especial · Pasapalabra amb suport lingüístic.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/especials/pasa_especial_saber_rus_docent.html"
+  },
+  {
+    "id": "pasa_s01e01_general_5e",
+    "title": "Pasapalabra · General 5é",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e01_general_5e.html"
+  },
+  {
+    "id": "pasa_s01e02_matematiques",
+    "title": "Pasapalabra · Matemàtiques",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e02_matematiques.html"
+  },
+  {
+    "id": "pasa_s01e03_llengua_castellana",
+    "title": "Pasapalabra · Llengua Castellana",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e03_llengua_castellana.html"
+  },
+  {
+    "id": "pasa_s01e04_medi",
+    "title": "Pasapalabra · Coneixement del Medi",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e04_medi.html"
+  },
+  {
+    "id": "pasa_s01e05_historia_valenciana",
+    "title": "Pasapalabra · Història Valenciana",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e05_historia_valenciana.html"
+  },
+  {
+    "id": "pasa_s01e06_ciencia_natura",
+    "title": "Pasapalabra · Ciència i Natura",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e06_ciencia_natura.html"
+  },
+  {
+    "id": "pasa_s01e07_esport_salut",
+    "title": "Pasapalabra · Esport i Salut",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e07_esport_salut.html"
+  },
+  {
+    "id": "pasa_s01e08_art_cultura",
+    "title": "Pasapalabra · Art i Cultura",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e08_art_cultura.html"
+  },
+  {
+    "id": "pasa_s01e09_geografia_mon",
+    "title": "Pasapalabra · Geografia del Món",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e09_geografia_mon.html"
+  },
+  {
+    "id": "pasa_s01e10_olimpiades_saber",
+    "title": "Pasapalabra · Olimpiades Saber",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 1 · Rosca curricular amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada1/pasa_s01e10_olimpiades_saber.html"
+  },
+  {
+    "id": "pasa_s02e01_megamix_alpha",
+    "title": "Pasapalabra · Megamix Juvenil · Alpha",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 2 · Megamix juvenil amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada2/pasa_s02e01_megamix_alpha.html"
+  },
+  {
+    "id": "pasa_s02e02_megamix_beta",
+    "title": "Pasapalabra · Megamix Juvenil · Beta",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 2 · Megamix juvenil amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada2/pasa_s02e02_megamix_beta.html"
+  },
+  {
+    "id": "pasa_s02e03_megamix_gamma",
+    "title": "Pasapalabra · Megamix Juvenil · Gamma",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 2 · Megamix juvenil amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada2/pasa_s02e03_megamix_gamma.html"
+  },
+  {
+    "id": "pasa_s02e04_megamix_delta",
+    "title": "Pasapalabra · Megamix Juvenil · Delta",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 2 · Megamix juvenil amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada2/pasa_s02e04_megamix_delta.html"
+  },
+  {
+    "id": "pasa_s02e05_megamix_final_boss",
+    "title": "Pasapalabra · Megamix Juvenil · Final Boss",
+    "type": "app",
+    "category": "Pasapalabra",
+    "description": "Temporada 2 · Megamix juvenil amb selector d’idioma.",
+    "thumbnail": "assets/thumbnails/pasapalabra.jpg",
+    "banner": "assets/banners/pasapalabra.jpg",
+    "url": "apps/pasapalabra/temporada2/pasa_s02e05_megamix_final_boss.html"
+  }
+]

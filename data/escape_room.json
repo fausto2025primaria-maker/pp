@@ -1,0 +1,74 @@
+[
+  {
+    "id": "esc_s01e01_edat_mitjana",
+    "serie": "Escape Rooms",
+    "temporada": 1,
+    "episodi": 1,
+    "nom": "Escape Room · Edat Mitjana del País Valencià",
+    "categoria": "escape_room",
+    "subcategoria": "Història Valenciana",
+    "idiomes": [
+      "valencià",
+      "castellà",
+      "rus"
+    ],
+    "fitxer": "apps/escape_room/temporada1/esc_s01e01_edat_mitjana.html",
+    "curs": "5é-6é",
+    "duracio": "30-45 min",
+    "mode": "individual o parelles",
+    "tags": [
+      "escape room",
+      "investigació",
+      "competència digital",
+      "història"
+    ]
+  },
+  {
+    "id": "esc_s01e02_valencia_romana",
+    "serie": "Escape Rooms",
+    "temporada": 1,
+    "episodi": 2,
+    "nom": "Escape Room · València Romana",
+    "categoria": "escape_room",
+    "subcategoria": "Història Valenciana",
+    "idiomes": [
+      "valencià",
+      "castellà",
+      "rus"
+    ],
+    "fitxer": "apps/escape_room/temporada1/esc_s01e02_valencia_romana.html",
+    "curs": "5é-6é",
+    "duracio": "30-45 min",
+    "mode": "individual o parelles",
+    "tags": [
+      "escape room",
+      "investigació",
+      "competència digital",
+      "història"
+    ]
+  },
+  {
+    "id": "esc_s01e03_tresor_sant_marcelli",
+    "serie": "Escape Rooms",
+    "temporada": 1,
+    "episodi": 3,
+    "nom": "Escape Room · El Tresor de Sant Marcel·lí",
+    "categoria": "escape_room",
+    "subcategoria": "Història Valenciana",
+    "idiomes": [
+      "valencià",
+      "castellà",
+      "rus"
+    ],
+    "fitxer": "apps/escape_room/temporada1/esc_s01e03_tresor_sant_marcelli.html",
+    "curs": "5é-6é",
+    "duracio": "30-45 min",
+    "mode": "individual o parelles",
+    "tags": [
+      "escape room",
+      "investigació",
+      "competència digital",
+      "història"
+    ]
+  }
+]

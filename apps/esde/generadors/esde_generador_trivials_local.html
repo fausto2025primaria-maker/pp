@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESDE · Generador de Trivials Local</title>
+  <style>
+    :root{
+      --bg:#16100b; --panel:#26190f; --panel2:#342417; --gold:#f0c66a; --gold2:#ffdf8a;
+      --text:#fff7df; --muted:#d3bf91; --red:#b84b3f; --green:#4f9c5d; --blue:#5278b8;
+      --line:rgba(240,198,106,.35); --shadow:rgba(0,0,0,.4);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Georgia,'Times New Roman',serif;background:radial-gradient(circle at top,#4b2c18 0,#17100b 48%,#090604 100%);color:var(--text);min-height:100vh}
+    header{padding:28px 20px;text-align:center;border-bottom:2px solid var(--line);background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.05))}
+    header h1{margin:0;color:var(--gold2);font-size:clamp(28px,5vw,52px);text-shadow:0 4px 0 #000;letter-spacing:.5px}
+    header p{margin:10px auto 0;max-width:900px;color:var(--muted);font-size:18px}
+    main{max-width:1280px;margin:0 auto;padding:22px;display:grid;gap:18px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{background:linear-gradient(145deg,rgba(52,36,23,.96),rgba(24,15,9,.96));border:2px solid var(--line);border-radius:18px;box-shadow:0 16px 32px var(--shadow);padding:18px}
+    .span4{grid-column:span 4}.span6{grid-column:span 6}.span8{grid-column:span 8}.span12{grid-column:span 12}
+    h2,h3{color:var(--gold2);margin:0 0 12px} h2{font-size:26px} h3{font-size:21px}
+    label{display:block;color:var(--gold);font-weight:bold;margin:12px 0 6px}
+    input,select,textarea{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#140d08;color:var(--text);font-size:16px;font-family:Arial,sans-serif}
+    textarea{min-height:150px;resize:vertical;line-height:1.35}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.row .auto{flex:0 0 auto}
+    button{border:0;border-radius:12px;padding:11px 15px;font-weight:bold;cursor:pointer;color:#1b1108;background:linear-gradient(180deg,var(--gold2),var(--gold));box-shadow:0 5px 0 #8b6125;font-size:15px}
+    button:hover{transform:translateY(-1px)} button:active{transform:translateY(2px);box-shadow:0 2px 0 #8b6125}
+    button.secondary{background:linear-gradient(180deg,#e9dfc7,#bcae8a);box-shadow:0 5px 0 #6e6046}
+    button.danger{background:linear-gradient(180deg,#e08374,#b84b3f);box-shadow:0 5px 0 #6a2722;color:#fff}
+    button.good{background:linear-gradient(180deg,#94d79a,#4f9c5d);box-shadow:0 5px 0 #2e5e37;color:#071509}
+    .pill{display:inline-block;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin:3px;background:rgba(0,0,0,.18)}
+    .small{font-size:13px;color:var(--muted)} .notice{background:rgba(240,198,106,.1);border:1px dashed var(--line);padding:12px;border-radius:12px;color:#ffe9ad}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{background:#1b120b;color:var(--gold);border:1px solid var(--line);box-shadow:none}.tab.active{background:var(--gold);color:#1b1108}
+    .hidden{display:none!important}
+    .qItem{padding:12px;border:1px solid var(--line);border-radius:12px;margin:10px 0;background:rgba(0,0,0,.18)}
+    .qItem strong{color:var(--gold2)}
+    .langBlock{border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px;margin:8px 0;background:rgba(255,255,255,.03)}
+    .questionBox{text-align:center;padding:22px;border:2px solid var(--line);border-radius:16px;background:rgba(0,0,0,.22)}
+    .questionMain{font-size:28px;color:#fff8dc;margin-bottom:8px}.translation{color:#aee0ff;font-family:Arial,sans-serif;margin:4px 0}.translation.rus{color:#c7d0ff}.translation.ara{color:#b8f2cc;direction:rtl}
+    .answers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.answerBtn{min-height:72px;font-size:18px;text-align:left}.correct{outline:4px solid var(--green)}.wrong{outline:4px solid var(--red)}
+    .scoreboard{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.score{background:#140d08;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}.score b{display:block;color:var(--gold2);font-size:24px}
+    .fileName{font-family:Arial,sans-serif;color:#ffe9ad}.footer{text-align:center;color:var(--muted);padding:24px}
+    @media(max-width:900px){.span4,.span6,.span8{grid-column:span 12}.answers{grid-template-columns:1fr}.scoreboard{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>⚜ Generador Universal de Trivials ESDE ⚜</h1>
+  <p>Versió local: crea, importa, edita, juga i exporta trivials sense API. Ideal per generar preguntes en ChatGPT i enganxar-les ací.</p>
+</header>
+<main>
+  <section class="card span12">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('config', this)">1. Configuració</button>
+      <button class="tab" onclick="showTab('import', this)">2. Importar preguntes</button>
+      <button class="tab" onclick="showTab('editor', this)">3. Editor</button>
+      <button class="tab" onclick="showTab('play', this)">4. Jugar</button>
+      <button class="tab" onclick="showTab('export', this)">5. Exportar HTML</button>
+    </div>
+  </section>
+
+  <section id="config" class="tabPage grid">
+    <div class="card span6">
+      <h2>Entrada del contingut</h2>
+      <label>Ruta de treball</label>
+      <select id="inputMode">
+        <option value="tema">Introduir temàtica</option>
+        <option value="pdf">Pujar PDF / tema del llibre</option>
+      </select>
+      <div id="temaBox">
+        <label>Temàtica</label>
+        <textarea id="tema" placeholder="Ex.: divisions amb decimals, Edat Mitjana, relleu del País Valencià..."></textarea>
+      </div>
+      <div id="pdfBox" class="hidden">
+        <label>PDF del tema</label>
+        <input type="file" id="pdfFile" accept="application/pdf" />
+        <p class="small">Aquesta versió guarda el nom del PDF com a referència. Per extraure text automàticament caldria afegir PDF.js o fer-ho abans amb ChatGPT.</p>
+        <p class="fileName" id="pdfName"></p>
+      </div>
+    </div>
+    <div class="card span6">
+      <h2>Paràmetres del trivia</h2>
+      <div class="row">
+        <div><label>Assignatura</label><input id="assignatura" value="Matemàtiques" /></div>
+        <div><label>Tema</label><input id="temaCurt" value="Decimals" /></div>
+      </div>
+      <div class="row">
+        <div><label>Curs / nivell</label><input id="nivell" value="5é de Primària" /></div>
+        <div><label>Dificultat</label><select id="dificultat"><option>Fàcil</option><option selected>Normal</option><option>Difícil</option><option>Pro</option></select></div>
+      </div>
+      <div class="row">
+        <div><label>Nombre de preguntes desitjat</label><input id="numPreguntes" type="number" min="1" value="20" /></div>
+        <div><label>Mode visual</label><select id="modeVisual"><option value="aula">Aula inclusiva</option><option value="bilingue">Bilingüe</option><option value="unic">Un idioma</option></select></div>
+      </div>
+      <label>Idiomes visibles</label>
+      <div class="row">
+        <label class="pill"><input type="checkbox" class="lang" value="val" checked /> Valencià</label>
+        <label class="pill"><input type="checkbox" class="lang" value="cas" checked /> Castellà</label>
+        <label class="pill"><input type="checkbox" class="lang" value="rus" /> Rus</label>
+        <label class="pill"><input type="checkbox" class="lang" value="ara" /> Àrab</label>
+      </div>
+      <button onclick="guardarConfig()">Guardar configuració</button>
+    </div>
+    <div class="card span12">
+      <h2>Prompt ràpid per a ChatGPT</h2>
+      <p class="notice">Copia aquest prompt, pega’l en ChatGPT, i després enganxa el JSON generat en la pestanya “Importar preguntes”.</p>
+      <textarea id="promptBox"></textarea>
+      <div class="row"><button onclick="generarPrompt()">Actualitzar prompt</button><button class="secondary" onclick="copiar('promptBox')">Copiar prompt</button></div>
+    </div>
+  </section>
+
+  <section id="import" class="tabPage grid hidden">
+    <div class="card span8">
+      <h2>Importar preguntes des de ChatGPT</h2>
+      <p>Enganxa ací un array JSON amb preguntes multilingües.</p>
+      <textarea id="importBox" placeholder='[{"pregunta":{"val":"...","cas":"..."},"opcions":{"val":["..."],"cas":["..."]},"correcta":0}]'></textarea>
+      <div class="row">
+        <button class="good" onclick="importarPreguntes()">Importar JSON</button>
+        <button onclick="carregarDemo()">Carregar demo</button>
+        <button class="secondary" onclick="exportarJSON()">Exportar JSON actual</button>
+      </div>
+      <p id="importStatus" class="notice hidden"></p>
+    </div>
+    <div class="card span4">
+      <h3>Format esperat</h3>
+      <pre class="small" style="white-space:pre-wrap">[
+  {
+    "pregunta": {"val":"...", "cas":"...", "rus":"...", "ara":"..."},
+    "opcions": {"val":["A","B","C","D"], "cas":["A","B","C","D"]},
+    "correcta": 0,
+    "categoria": "Decimals",
+    "dificultat": "Normal"
+  }
+]</pre>
+    </div>
+  </section>
+
+  <section id="editor" class="tabPage grid hidden">
+    <div class="card span12">
+      <h2>Editor de preguntes</h2>
+      <div class="row"><button onclick="novaPregunta()">Afegir pregunta</button><button class="secondary" onclick="renderEditor()">Refrescar</button><button class="danger" onclick="netejarPreguntes()">Buidar banc</button></div>
+      <div id="questionList"></div>
+    </div>
+  </section>
+
+  <section id="play" class="tabPage grid hidden">
+    <div class="card span12">
+      <h2>Mode joc</h2>
+      <div class="scoreboard">
+        <div class="score">Pregunta <b id="sPregunta">0/0</b></div>
+        <div class="score">Encerts <b id="sEncerts">0</b></div>
+        <div class="score">Errades <b id="sErrades">0</b></div>
+        <div class="score">Punts regne <b id="sPunts">0</b></div>
+      </div>
+      <div id="gameArea" style="margin-top:18px"></div>
+      <div class="row" style="margin-top:14px"><button onclick="iniciarJoc()">Iniciar / reiniciar</button><button class="secondary" onclick="seguentPregunta()">Següent</button></div>
+    </div>
+  </section>
+
+  <section id="export" class="tabPage grid hidden">
+    <div class="card span12">
+      <h2>Exportar HTML final</h2>
+      <p>Genera un fitxer HTML independent amb el trivia acabat. No necessita IA ni aquesta app per funcionar.</p>
+      <div class="row"><button class="good" onclick="generarHTMLFinal()">Generar HTML final</button><button class="secondary" onclick="copiar('htmlFinal')">Copiar HTML</button><button onclick="descarregarHTML()">Descarregar fitxer</button></div>
+      <label>HTML generat</label>
+      <textarea id="htmlFinal" style="min-height:360px"></textarea>
+    </div>
+  </section>
+</main>
+<div class="footer">ESDE · Generador local de trivials · Sense API · Sense servidor</div>
+<script>
+let config = {assignatura:'Matemàtiques', temaCurt:'Decimals', nivell:'5é de Primària', dificultat:'Normal', idiomes:['val','cas'], modeVisual:'aula'};
+let preguntes = [];
+let partida = {index:0, encerts:0, errades:0, punts:0, ordre:[], bloquejat:false};
+const langNames={val:'Valencià',cas:'Castellà',rus:'Rus',ara:'Àrab'};
+
+document.getElementById('inputMode').addEventListener('change',e=>{document.getElementById('temaBox').classList.toggle('hidden',e.target.value!=='tema');document.getElementById('pdfBox').classList.toggle('hidden',e.target.value!=='pdf');});
+document.getElementById('pdfFile').addEventListener('change',e=>{document.getElementById('pdfName').textContent=e.target.files[0]? 'PDF seleccionat: '+e.target.files[0].name:'';});
+
+function showTab(id, btn){document.querySelectorAll('.tabPage').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active'); if(id==='editor') renderEditor();}
+function guardarConfig(){config={assignatura:val('assignatura'),temaCurt:val('temaCurt'),nivell:val('nivell'),dificultat:val('dificultat'),modeVisual:val('modeVisual'),idiomes:[...document.querySelectorAll('.lang:checked')].map(x=>x.value)}; if(!config.idiomes.length) config.idiomes=['val']; localStorage.setItem('esdeTriviaConfig',JSON.stringify(config)); generarPrompt(); alert('Configuració guardada.');}
+function val(id){return document.getElementById(id).value;}
+function setStatus(msg){const s=document.getElementById('importStatus');s.textContent=msg;s.classList.remove('hidden');}
+function copiar(id){const el=document.getElementById(id);el.select();document.execCommand('copy');}
+function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+
+function generarPrompt(){guardarConfigSilenci(); const tema=val('tema')||config.temaCurt; const langs=config.idiomes.map(l=>langNames[l]).join(', '); document.getElementById('promptBox').value=`Genera ${val('numPreguntes')} preguntes tipus test per a un trivia escolar.\nAssignatura: ${config.assignatura}.\nTema: ${tema}.\nNivell: ${config.nivell}.\nDificultat: ${config.dificultat}.\nIdiomes: ${langs}.\n\nVull únicament un array JSON vàlid, sense explicacions ni markdown.\nCada pregunta ha de tindre aquesta estructura exacta:\n{\n  "pregunta": {"val":"...", "cas":"...", "rus":"...", "ara":"..."},\n  "opcions": {"val":["...","...","...","..."], "cas":["...","...","...","..."], "rus":["...","...","...","..."], "ara":["...","...","...","..."]},\n  "correcta": 0,\n  "categoria": "${config.temaCurt}",\n  "dificultat": "${config.dificultat}"\n}\nNormes: 4 opcions per pregunta, només una correcta, correcta és l'índex 0-3, llenguatge adequat a ${config.nivell}.`;}
+function guardarConfigSilenci(){config={assignatura:val('assignatura'),temaCurt:val('temaCurt'),nivell:val('nivell'),dificultat:val('dificultat'),modeVisual:val('modeVisual'),idiomes:[...document.querySelectorAll('.lang:checked')].map(x=>x.value)}; if(!config.idiomes.length) config.idiomes=['val'];}
+
+generarPrompt();
+
+function validarPregunta(q){return q && q.pregunta && q.opcions && typeof q.correcta==='number' && Object.values(q.opcions)[0]?.length>=2;}
+function importarPreguntes(){try{let txt=val('importBox').trim(); if(txt.startsWith('```')) txt=txt.replace(/^```json/i,'').replace(/^```/,'').replace(/```$/,'').trim(); const data=JSON.parse(txt); if(!Array.isArray(data)) throw new Error('El JSON ha de ser un array.'); const bones=data.filter(validarPregunta); if(!bones.length) throw new Error('No he trobat preguntes vàlides.'); preguntes=bones; localStorage.setItem('esdePreguntes',JSON.stringify(preguntes)); setStatus('Importades '+preguntes.length+' preguntes correctament.'); renderEditor(); }catch(e){setStatus('Error important JSON: '+e.message);} }
+function exportarJSON(){document.getElementById('importBox').value=JSON.stringify(preguntes,null,2); setStatus('JSON actual copiat al camp.');}
+function carregarDemo(){preguntes=[{pregunta:{val:'Quant és 3,5 + 2,7?',cas:'¿Cuánto es 3,5 + 2,7?',rus:'Сколько будет 3,5 + 2,7?',ara:'كم يساوي 3,5 + 2,7؟'},opcions:{val:['6,2','5,8','7,1','6,5'],cas:['6,2','5,8','7,1','6,5'],rus:['6,2','5,8','7,1','6,5'],ara:['6,2','5,8','7,1','6,5']},correcta:0,categoria:'Decimals',dificultat:'Normal'},{pregunta:{val:'Un rectangle fa 8 cm de llarg i 5 cm d’ample. Quina àrea té?',cas:'Un rectángulo mide 8 cm de largo y 5 cm de ancho. ¿Qué área tiene?',rus:'Прямоугольник имеет длину 8 см и ширину 5 см. Какова его площадь?',ara:'مستطيل طوله 8 سم وعرضه 5 سم. ما مساحته؟'},opcions:{val:['40 cm²','26 cm²','13 cm²','45 cm²'],cas:['40 cm²','26 cm²','13 cm²','45 cm²'],rus:['40 см²','26 см²','13 см²','45 см²'],ara:['40 سم²','26 سم²','13 سم²','45 سم²']},correcta:0,categoria:'Àrees',dificultat:'Normal'}]; document.getElementById('importBox').value=JSON.stringify(preguntes,null,2); localStorage.setItem('esdePreguntes',JSON.stringify(preguntes)); setStatus('Demo carregada.'); renderEditor();}
+
+function renderEditor(){const box=document.getElementById('questionList'); if(!preguntes.length){box.innerHTML='<p class="notice">Encara no hi ha preguntes. Importa un JSON o carrega la demo.</p>';return;} box.innerHTML=preguntes.map((q,i)=>`<div class="qItem"><strong>Pregunta ${i+1}</strong> <button class="danger auto" onclick="eliminarPregunta(${i})">Eliminar</button><div class="row"><div><label>Categoria</label><input onchange="edit(${i},'categoria',this.value)" value="${escapeHtml(q.categoria||'')}"></div><div><label>Dificultat</label><input onchange="edit(${i},'dificultat',this.value)" value="${escapeHtml(q.dificultat||'')}"></div><div><label>Correcta (0-3)</label><input type="number" min="0" max="3" onchange="edit(${i},'correcta',Number(this.value))" value="${q.correcta}"></div></div>${['val','cas','rus','ara'].map(l=>`<div class="langBlock"><h3>${langNames[l]}</h3><label>Pregunta</label><input onchange="editLang(${i},'pregunta','${l}',this.value)" value="${escapeHtml(q.pregunta?.[l]||'')}">${[0,1,2,3].map(n=>`<label>Opció ${n}</label><input onchange="editOpcio(${i},'${l}',${n},this.value)" value="${escapeHtml(q.opcions?.[l]?.[n]||'')}">`).join('')}</div>`).join('')}</div>`).join('');}
+function edit(i,k,v){preguntes[i][k]=v;save();}
+function editLang(i,sec,l,v){preguntes[i][sec]=preguntes[i][sec]||{};preguntes[i][sec][l]=v;save();}
+function editOpcio(i,l,n,v){preguntes[i].opcions=preguntes[i].opcions||{};preguntes[i].opcions[l]=preguntes[i].opcions[l]||['','','',''];preguntes[i].opcions[l][n]=v;save();}
+function eliminarPregunta(i){preguntes.splice(i,1);save();renderEditor();}
+function novaPregunta(){preguntes.push({pregunta:{val:'Nova pregunta',cas:'Nueva pregunta',rus:'',ara:''},opcions:{val:['Opció correcta','Opció 2','Opció 3','Opció 4'],cas:['Opción correcta','Opción 2','Opción 3','Opción 4'],rus:['','','',''],ara:['','','','']},correcta:0,categoria:config.temaCurt,dificultat:config.dificultat});save();renderEditor();}
+function netejarPreguntes(){if(confirm('Buidar totes les preguntes?')){preguntes=[];save();renderEditor();}}
+function save(){localStorage.setItem('esdePreguntes',JSON.stringify(preguntes));}
+
+function iniciarJoc(){if(!preguntes.length){document.getElementById('gameArea').innerHTML='<p class="notice">No hi ha preguntes.</p>';return;} partida={index:0,encerts:0,errades:0,punts:0,ordre:shuffle([...Array(preguntes.length).keys()]),bloquejat:false}; mostrarPregunta();}
+function preguntaText(q,l){return q.pregunta?.[l]||q.pregunta?.val||q.pregunta?.cas||''}
+function opcionsText(q,l){return q.opcions?.[l]||q.opcions?.val||q.opcions?.cas||[]}
+function mostrarPregunta(){actualitzarScore(); const area=document.getElementById('gameArea'); if(partida.index>=partida.ordre.length){area.innerHTML=`<div class="questionBox"><h2>Final del trivia</h2><p>Encerts: ${partida.encerts}. Errades: ${partida.errades}. Punts per al regne: ${partida.punts}.</p></div>`;return;} const q=preguntes[partida.ordre[partida.index]]; const base=config.idiomes[0]||'val'; const opts=opcionsText(q,base); area.innerHTML=`<div class="questionBox"><div class="questionMain">${escapeHtml(preguntaText(q,base))}</div>${config.idiomes.slice(1).map(l=>`<div class="translation ${l}">${escapeHtml(preguntaText(q,l))}</div>`).join('')}<div class="answers">${opts.map((o,i)=>`<button class="answerBtn" onclick="respondre(${i},this)"><b>${String.fromCharCode(65+i)}.</b> ${escapeHtml(o)}${config.modeVisual!=='unic'?config.idiomes.slice(1).map(l=>`<br><span class='small'>${escapeHtml(opcionsText(q,l)[i]||'')}</span>`).join(''):''}</button>`).join('')}</div></div>`;}
+function respondre(i,btn){if(partida.bloquejat)return; partida.bloquejat=true; const q=preguntes[partida.ordre[partida.index]]; const ok=i===q.correcta; btn.classList.add(ok?'correct':'wrong'); if(!ok){document.querySelectorAll('.answerBtn')[q.correcta]?.classList.add('correct'); partida.errades++;} else {partida.encerts++; partida.punts+=10;} actualitzarScore();}
+function seguentPregunta(){if(!partida.ordre.length) iniciarJoc(); else {partida.index++; partida.bloquejat=false; mostrarPregunta();}}
+function actualitzarScore(){document.getElementById('sPregunta').textContent=(Math.min(partida.index+1,partida.ordre.length||0))+'/'+(partida.ordre.length||preguntes.length);document.getElementById('sEncerts').textContent=partida.encerts;document.getElementById('sErrades').textContent=partida.errades;document.getElementById('sPunts').textContent=partida.punts;}
+
+function generarHTMLFinal(){guardarConfigSilenci(); const data=JSON.stringify({config,preguntes}); const html=`<!DOCTYPE html><html lang="ca"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Trivia ESDE - ${escapeHtml(config.temaCurt)}</title><style>body{margin:0;font-family:Georgia,serif;background:radial-gradient(circle at top,#4b2c18,#090604);color:#fff7df;min-height:100vh}main{max-width:1000px;margin:auto;padding:24px}.card{background:rgba(30,18,10,.94);border:2px solid rgba(240,198,106,.35);border-radius:18px;padding:22px;box-shadow:0 16px 32px rgba(0,0,0,.4)}h1,h2{color:#ffdf8a;text-align:center}.score{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.score div{background:#140d08;border:1px solid rgba(240,198,106,.35);border-radius:12px;padding:10px;text-align:center}.score b{display:block;font-size:24px;color:#ffdf8a}.q{text-align:center;font-size:28px;margin:18px 0}.tr{font-family:Arial,sans-serif;color:#aee0ff;margin:6px}.ara{direction:rtl;color:#b8f2cc}.ans{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.ans button{padding:16px;border:0;border-radius:12px;background:linear-gradient(180deg,#ffdf8a,#f0c66a);font-weight:bold;font-size:18px;text-align:left;cursor:pointer}.small{font-size:13px;color:#4b321d}.correct{outline:5px solid #4f9c5d}.wrong{outline:5px solid #b84b3f}.bar{display:flex;gap:10px;justify-content:center;margin-top:18px}button.ctrl{padding:12px 18px;border:0;border-radius:12px;background:#ffdf8a;font-weight:bold;cursor:pointer}@media(max-width:800px){.ans{grid-template-columns:1fr}.score{grid-template-columns:repeat(2,1fr)}}</style></head><body><main><div class="card"><h1>⚜ Trivia ESDE ⚜</h1><h2>${escapeHtml(config.assignatura)} · ${escapeHtml(config.temaCurt)}</h2><div class="score"><div>Pregunta<b id="sp">0/0</b></div><div>Encerts<b id="se">0</b></div><div>Errades<b id="sr">0</b></div><div>Punts<b id="su">0</b></div></div><div id="game"></div><div class="bar"><button class="ctrl" onclick="start()">Iniciar</button><button class="ctrl" onclick="next()">Següent</button></div></div></main><script>const DB=${data};let cfg=DB.config, qs=DB.preguntes, st={i:0,e:0,r:0,p:0,o:[],lock:false};function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}function sh(a){return [...a].sort(()=>Math.random()-.5)}function qt(q,l){return q.pregunta?.[l]||q.pregunta?.val||q.pregunta?.cas||''}function ot(q,l){return q.opcions?.[l]||q.opcions?.val||q.opcions?.cas||[]}function score(){sp.textContent=(Math.min(st.i+1,st.o.length||0))+'/'+(st.o.length||qs.length);se.textContent=st.e;sr.textContent=st.r;su.textContent=st.p}function start(){st={i:0,e:0,r:0,p:0,o:sh([...Array(qs.length).keys()]),lock:false};show()}function show(){score();if(st.i>=st.o.length){game.innerHTML='<h2>Final del trivia</h2><p style="text-align:center">Encerts: '+st.e+' · Errades: '+st.r+' · Punts: '+st.p+'</p>';return}let q=qs[st.o[st.i]], base=cfg.idiomes[0]||'val', opts=ot(q,base);game.innerHTML='<div class="q">'+esc(qt(q,base))+'</div>'+cfg.idiomes.slice(1).map(l=>'<div class="tr '+l+'">'+esc(qt(q,l))+'</div>').join('')+'<div class="ans">'+opts.map((o,i)=>'<button onclick="ans('+i+',this)"><b>'+String.fromCharCode(65+i)+'.</b> '+esc(o)+(cfg.modeVisual!=='unic'?cfg.idiomes.slice(1).map(l=>'<br><span class=small>'+esc((ot(q,l)[i]||''))+'</span>').join(''):'')+'</button>').join('')+'</div>'}function ans(i,b){if(st.lock)return;st.lock=true;let q=qs[st.o[st.i]],ok=i===q.correcta;b.classList.add(ok?'correct':'wrong');if(ok){st.e++;st.p+=10}else{st.r++;document.querySelectorAll('.ans button')[q.correcta]?.classList.add('correct')}score()}function next(){if(!st.o.length)start();else{st.i++;st.lock=false;show()}}start();<\/script></body></html>`; document.getElementById('htmlFinal').value=html;}
+function descarregarHTML(){if(!val('htmlFinal')) generarHTMLFinal(); const blob=new Blob([val('htmlFinal')],{type:'text/html'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='trivia_esde_'+(config.temaCurt||'tema').toLowerCase().replace(/[^a-z0-9]+/gi,'_')+'.html'; a.click(); URL.revokeObjectURL(a.href);}
+
+try{const old=localStorage.getItem('esdePreguntes'); if(old) preguntes=JSON.parse(old); const c=localStorage.getItem('esdeTriviaConfig'); if(c){config=JSON.parse(c); ['assignatura','temaCurt','nivell','dificultat','modeVisual'].forEach(k=>{if(document.getElementById(k)) document.getElementById(k).value=config[k]||document.getElementById(k).value}); document.querySelectorAll('.lang').forEach(x=>x.checked=config.idiomes?.includes(x.value));}}catch(e){}
+</script>
+</body>
+</html>

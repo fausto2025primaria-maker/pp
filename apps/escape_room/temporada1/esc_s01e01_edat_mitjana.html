@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escape Room · Edat Mitjana del País Valencià</title>
+  <style>
+
+:root{
+  --gold:#f6c763; --gold2:#b5792a; --deep:#06111f; --panel:#071421;
+  --paper:#f2dfb7; --ink:#24170c; --accent:#7e2418;
+  --ok:#2b8a45; --bad:#b32626; --line:rgba(246,199,99,.55);
+  --app-bg:url("assets/ui/fons_app_neutre.png");
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;color:var(--ink)}
+body{min-height:100vh;background:#07111c;overflow-x:hidden}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:var(--app-bg) center top/100% auto no-repeat;
+  opacity:1;filter:saturate(1.04) contrast(1.02)
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(circle at 20% 5%,rgba(255,220,120,.10),transparent 25%),
+    radial-gradient(circle at 80% 10%,rgba(40,120,255,.08),transparent 28%),
+    linear-gradient(to bottom,rgba(255,244,210,.03),rgba(0,0,0,.30) 78%,rgba(0,0,0,.62))
+}
+header{color:var(--gold);text-align:center;padding:34px 16px 18px;position:relative}
+header h1{
+  margin:0 auto;max-width:1100px;font-size:clamp(2.3rem,5.2vw,5rem);
+  line-height:.92;letter-spacing:2px;text-transform:uppercase;
+  text-shadow:0 4px 0 #4b2607,0 8px 30px rgba(0,0,0,.85),0 0 42px rgba(0,0,0,.95),4px 4px 12px rgba(0,0,0,.95)
+}
+header p{
+  display:inline-block;font-size:1.08rem;margin:18px auto 0;max-width:940px;line-height:1.45;
+  color:#ffe7a1;font-weight:900;background:rgba(3,10,19,.76);
+  border:1px solid var(--line);border-radius:999px;padding:10px 28px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 10px 26px rgba(0,0,0,.36);
+  text-shadow:0 2px 8px #000
+}
+.languageBox{max-width:1120px;margin:0 auto 16px;padding:0 16px;text-align:center}
+.languageBox span{color:#ffe7a1;margin-right:10px;font-weight:950;text-shadow:0 2px 8px #000;text-transform:uppercase;letter-spacing:.8px}
+main{max-width:1120px;margin:0 auto;padding:0 16px 52px}
+.card{
+  background:linear-gradient(180deg,rgba(255,246,218,.96),rgba(233,210,158,.95));
+  border:3px solid #0d243a;border-radius:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,.45),0 0 0 1px rgba(246,199,99,.45) inset;
+  margin:22px 0;padding:26px;position:relative;overflow:hidden
+}
+.card:before{content:"";position:absolute;inset:11px;border:2px solid rgba(181,121,42,.46);border-radius:13px;pointer-events:none}
+.card:after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 10% 0%,rgba(255,255,255,.45),transparent 28%),linear-gradient(135deg,rgba(255,255,255,.22),transparent 45%);
+  pointer-events:none;opacity:.45
+}
+.content{position:relative;z-index:1}
+h2{
+  color:#6f1d1b;margin:0 0 12px;font-size:1.9rem;text-transform:uppercase;letter-spacing:.8px;
+  text-shadow:0 1px 0 #fff4cf,0 3px 10px rgba(0,0,0,.20)
+}
+h3{margin:18px 0 8px;color:#4b2712}
+p,li{font-size:1.08rem;line-height:1.55}
+.mission{
+  background:rgba(255,248,223,.92);border:1px solid rgba(181,121,42,.70);border-left:8px solid var(--gold2);
+  padding:14px 18px;border-radius:12px;margin:16px 0;font-size:1.08rem;line-height:1.55;
+  box-shadow:0 8px 20px rgba(0,0,0,.10)
+}
+.hint{
+  background:#fff3c8;border:2px solid var(--gold2);border-radius:14px;padding:13px 16px;margin-top:10px;
+  display:none;font-size:1.05rem;line-height:1.5;box-shadow:0 10px 20px rgba(0,0,0,.13)
+}
+button{
+  border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#842111,#4a0c06);
+  color:#ffe9ae;padding:12px 18px;font-weight:950;cursor:pointer;
+  box-shadow:0 5px 0 rgba(0,0,0,.40),0 12px 25px rgba(0,0,0,.28);
+  margin:6px 6px 6px 0;font-size:1rem;font-family:inherit;text-transform:uppercase;letter-spacing:.3px
+}
+button:hover{filter:brightness(1.08)}
+button.secondary{background:linear-gradient(180deg,#0f345b,#07182a);color:#b9ddff}
+button.lang{background:linear-gradient(180deg,#123a29,#071b13);color:#e9ffd5}
+input{
+  font-size:1.12rem;padding:13px 15px;border:2px solid var(--gold2);border-radius:10px;background:#fffdf5;
+  max-width:280px;width:100%;font-family:inherit;box-shadow:inset 0 2px 8px rgba(0,0,0,.10)
+}
+.result{font-weight:bold;margin-top:12px;font-size:1.12rem;min-height:30px}
+.ok{color:var(--ok)} .bad{color:var(--bad)}
+.progress{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:22px 0}
+.step{
+  background:linear-gradient(180deg,#0e233b,#071422);color:#ffe9b3;border:1px solid var(--line);border-radius:12px;
+  padding:12px 10px;text-align:center;font-weight:950;box-shadow:0 6px 0 rgba(0,0,0,.35),0 12px 24px rgba(0,0,0,.28);
+  text-shadow:0 2px 8px #000
+}
+.step:before{content:"⚜️ ";filter:drop-shadow(0 2px 2px #000)}
+.small{font-size:.98rem;opacity:.95}
+footer{text-align:center;color:#ffe9b3;padding:22px;font-weight:900;text-shadow:0 2px 8px #000}
+.seal{font-size:3.4rem;text-align:center;margin:12px 0;filter:drop-shadow(0 5px 5px rgba(0,0,0,.40))}
+.hiddenFinal{display:none}
+a{color:#701508;font-weight:bold}
+#final{background:linear-gradient(180deg,rgba(255,246,218,.97),rgba(230,204,145,.96));border-color:#7b4a18}
+#final h2:before{content:"🔐 "}
+@media(max-width:650px){
+  header{padding-top:24px}
+  header p{border-radius:16px}
+  .progress{grid-template-columns:1fr}
+  .card{padding:20px}
+  .languageBox{text-align:center}
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <h1 data-ca="El Segell Perdut del Regne" data-es="El Sello Perdido del Reino" data-ru="Потерянная печать королевства">El Segell Perdut del Regne</h1>
+    <p data-ca="Escape room digital per a 5é de Primària. Investiga l'Edat Mitjana al País Valencià, supera cinc proves i recupera el segell que pot salvar el regne." data-es="Escape room digital para 5º de Primaria. Investiga la Edad Media en el País Valenciano, supera cinco pruebas y recupera el sello que puede salvar el reino." data-ru="Цифровой escape room для 5 класса. Исследуй Средневековье в Валенсийском крае, пройди пять испытаний и верни печать, которая может спасти королевство.">Escape room digital per a 5é de Primària. Investiga l'Edat Mitjana al País Valencià, supera cinc proves i recupera el segell que pot salvar el regne.</p>
+  </header>
+
+  <div class="languageBox">
+    <span data-ca="Idioma:" data-es="Idioma:" data-ru="Язык:">Idioma:</span>
+    <button class="lang" onclick="setLang('ca')">Valencià</button>
+    <button class="lang" onclick="setLang('es')">Castellà</button>
+    <button class="lang" onclick="setLang('ru')">Русский</button>
+  </div>
+
+  <main>
+    <section class="card">
+      <div class="content">
+        <h2 data-ca="Missió inicial" data-es="Misión inicial" data-ru="Начальная миссия">Missió inicial</h2>
+        <p data-ca="Un escrivà ha trobat una carta mig cremada en un antic arxiu. La carta parla d'un segell reial amagat després d'una revolta. Sense aquest segell, cap decret del regne tindrà validesa." data-es="Un escribano ha encontrado una carta medio quemada en un antiguo archivo. La carta habla de un sello real escondido después de una revuelta. Sin este sello, ningún decreto del reino tendrá validez." data-ru="Писарь нашёл в старом архиве наполовину сгоревшее письмо. В письме говорится о королевской печати, спрятанной после восстания. Без этой печати ни один указ королевства не будет действительным.">Un escrivà ha trobat una carta mig cremada en un antic arxiu. La carta parla d'un segell reial amagat després d'una revolta. Sense aquest segell, cap decret del regne tindrà validesa.</p>
+        <p data-ca="Per recuperar-lo hauràs de superar cinc proves. Cada prova et donarà una xifra. Quan tingues totes les xifres, escriu el codi final." data-es="Para recuperarlo tendrás que superar cinco pruebas. Cada prueba te dará una cifra. Cuando tengas todas las cifras, escribe el código final." data-ru="Чтобы вернуть её, тебе нужно пройти пять испытаний. Каждое испытание даст одну цифру. Когда соберёшь все цифры, введи финальный код.">Per recuperar-lo hauràs de superar cinc proves. Cada prova et donarà una xifra. Quan tingues totes les xifres, escriu el codi final.</p>
+        <div class="progress">
+          <div class="step" data-ca="Prova I" data-es="Prueba I" data-ru="Испытание I">Prova I</div>
+          <div class="step" data-ca="Prova II" data-es="Prueba II" data-ru="Испытание II">Prova II</div>
+          <div class="step" data-ca="Prova III" data-es="Prueba III" data-ru="Испытание III">Prova III</div>
+          <div class="step" data-ca="Prova IV" data-es="Prueba IV" data-ru="Испытание IV">Prova IV</div>
+          <div class="step" data-ca="Prova V" data-es="Prueba V" data-ru="Испытание V">Prova V</div>
+        </div>
+        <p class="small" data-ca="Normes: busca amb calma, llig abans de respondre, comprova que la informació parla del període medieval i no copies sense entendre." data-es="Normas: busca con calma, lee antes de responder, comprueba que la información habla del periodo medieval y no copies sin entender." data-ru="Правила: ищи спокойно, читай перед ответом, проверяй, что информация относится к Средневековью, и не копируй без понимания."><strong>Normes:</strong> busca amb calma, llig abans de respondre, comprova que la informació parla del període medieval i no copies sense entendre.</p>
+      </div>
+    </section>
+
+    <section class="card" id="p1">
+      <div class="content">
+        <h2 data-ca="Prova I: El rei que entrà a la ciutat" data-es="Prueba I: El rey que entró en la ciudad" data-ru="Испытание I: король, вошедший в город">Prova I: El rei que entrà a la ciutat</h2>
+        <div class="mission" data-ca="Missió: investiga quin rei va conquerir la ciutat de València en el segle XIII." data-es="Misión: investiga qué rey conquistó la ciudad de València en el siglo XIII." data-ru="Миссия: выясни, какой король завоевал город Валенсию в XIII веке."><strong>Missió:</strong> investiga quin rei va conquerir la ciutat de València en el segle XIII.</div>
+        <p data-ca="Com obtindre la xifra: compta les lletres del nom propi del rei. No comptes el numeral romà ni espais." data-es="Cómo obtener la cifra: cuenta las letras del nombre propio del rey. No cuentes el numeral romano ni espacios." data-ru="Как получить цифру: посчитай буквы собственного имени короля. Не считай римскую цифру и пробелы."><strong>Com obtindre la xifra:</strong> compta les lletres del nom propi del rei. No comptes el numeral romà ni espais.</p>
+        <button class="secondary hintBtn" onclick="toggleHint('h1')">Mostrar pista</button>
+        <div class="hint" id="h1" data-ca="Busca informació sobre la conquesta cristiana de València. Revisa que la font parle de la ciutat i del segle XIII." data-es="Busca información sobre la conquista cristiana de València. Revisa que la fuente hable de la ciudad y del siglo XIII." data-ru="Ищи информацию о христианском завоевании Валенсии. Проверь, что источник говорит именно о городе и о XIII веке.">Busca informació sobre la conquesta cristiana de València. Revisa que la font parle de la ciutat i del segle XIII.</div>
+      </div>
+    </section>
+
+    <section class="card" id="p2">
+      <div class="content">
+        <h2 data-ca="Prova II: L'any de la conquesta" data-es="Prueba II: El año de la conquista" data-ru="Испытание II: год завоевания">Prova II: L'any de la conquesta</h2>
+        <div class="mission" data-ca="Missió: descobreix en quin any va entrar el rei conqueridor a la ciutat de València." data-es="Misión: descubre en qué año entró el rey conquistador en la ciudad de València." data-ru="Миссия: выясни, в каком году король-завоеватель вошёл в город Валенсию."><strong>Missió:</strong> descobreix en quin any va entrar el rei conqueridor a la ciutat de València.</div>
+        <p data-ca="Com obtindre la xifra: suma totes les xifres de l'any." data-es="Cómo obtener la cifra: suma todas las cifras del año." data-ru="Как получить цифру: сложи все цифры года."><strong>Com obtindre la xifra:</strong> suma totes les xifres de l'any.</p>
+        <button class="secondary hintBtn" onclick="toggleHint('h2')">Mostrar pista</button>
+        <div class="hint" id="h2" data-ca="Usa paraules de cerca relacionades amb l'entrada del rei a València. No et quedes només amb el títol: obri una font i comprova la data." data-es="Usa palabras de búsqueda relacionadas con la entrada del rey en València. No te quedes solo con el título: abre una fuente y comprueba la fecha." data-ru="Используй слова для поиска, связанные с входом короля в Валенсию. Не смотри только на заголовок: открой источник и проверь дату.">Usa paraules de cerca relacionades amb l'entrada del rei a València. No et quedes només amb el títol: obri una font i comprova la data.</div>
+      </div>
+    </section>
+
+    <section class="card" id="p3">
+      <div class="content">
+        <h2 data-ca="Prova III: La llei del regne" data-es="Prueba III: La ley del reino" data-ru="Испытание III: закон королевства">Prova III: La llei del regne</h2>
+        <div class="mission" data-ca="Missió: troba com s'anomenava el conjunt de lleis pròpies del Regne de València en època medieval." data-es="Misión: encuentra cómo se llamaba el conjunto de leyes propias del Reino de València en época medieval." data-ru="Миссия: найди, как назывался свод собственных законов Королевства Валенсия в Средние века."><strong>Missió:</strong> troba com s'anomenava el conjunt de lleis pròpies del Regne de València en època medieval.</div>
+        <p data-ca="Com obtindre la xifra: compta les lletres de la paraula principal de la resposta. No comptes articles ni espais." data-es="Cómo obtener la cifra: cuenta las letras de la palabra principal de la respuesta. No cuentes artículos ni espacios." data-ru="Как получить цифру: посчитай буквы главного слова в ответе. Не считай артикли и пробелы."><strong>Com obtindre la xifra:</strong> compta les lletres de la paraula principal de la resposta. No comptes articles ni espais.</p>
+        <button class="secondary hintBtn" onclick="toggleHint('h3')">Mostrar pista</button>
+        <div class="hint" id="h3" data-ca="Busca informació sobre les institucions i les lleis medievals valencianes. La resposta és un nom curt, no una frase llarga." data-es="Busca información sobre las instituciones y las leyes medievales valencianas. La respuesta es un nombre corto, no una frase larga." data-ru="Ищи информацию об учреждениях и средневековых законах Валенсии. Ответ — короткое название, а не длинная фраза.">Busca informació sobre les institucions i les lleis medievals valencianes. La resposta és un nom curt, no una frase llarga.</div>
+      </div>
+    </section>
+
+    <section class="card" id="p4">
+      <div class="content">
+        <h2 data-ca="Prova IV: La sala del comerç" data-es="Prueba IV: La sala del comercio" data-ru="Испытание IV: зал торговли">Prova IV: La sala del comerç</h2>
+        <div class="mission" data-ca="Missió: investiga quin edifici gòtic de València estava relacionat amb el comerç de la seda i els mercaders." data-es="Misión: investiga qué edificio gótico de València estaba relacionado con el comercio de la seda y los mercaderes." data-ru="Миссия: выясни, какое готическое здание Валенсии было связано с торговлей шёлком и купцами."><strong>Missió:</strong> investiga quin edifici gòtic de València estava relacionat amb el comerç de la seda i els mercaders.</div>
+        <p data-ca="Com obtindre la xifra: compta les paraules del nom complet de l'edifici." data-es="Cómo obtener la cifra: cuenta las palabras del nombre completo del edificio." data-ru="Как получить цифру: посчитай слова в полном названии здания."><strong>Com obtindre la xifra:</strong> compta les paraules del nom complet de l'edifici.</p>
+        <button class="secondary hintBtn" onclick="toggleHint('h4')">Mostrar pista</button>
+        <div class="hint" id="h4" data-ca="Cerca edificis gòtics valencians relacionats amb mercaders. Fixa't en el nom complet de l'edifici, no sols en una paraula solta." data-es="Busca edificios góticos valencianos relacionados con mercaderes. Fíjate en el nombre completo del edificio, no solo en una palabra suelta." data-ru="Ищи готические здания Валенсии, связанные с купцами. Обрати внимание на полное название здания, а не только на одно слово.">Cerca edificis gòtics valencians relacionats amb mercaders. Fixa't en el nom complet de l'edifici, no sols en una paraula solta.</div>
+      </div>
+    </section>
+
+    <section class="card" id="p5">
+      <div class="content">
+        <h2 data-ca="Prova V: El poeta cavaller" data-es="Prueba V: El poeta caballero" data-ru="Испытание V: поэт-рыцарь">Prova V: El poeta cavaller</h2>
+        <div class="mission" data-ca="Missió: descobreix el cognom del gran poeta valencià medieval autor de poemes d'amor i també cavaller." data-es="Misión: descubre el apellido del gran poeta valenciano medieval, autor de poemas de amor y también caballero." data-ru="Миссия: узнай фамилию великого средневекового валенсийского поэта, автора любовных стихов, который также был рыцарем."><strong>Missió:</strong> descobreix el cognom del gran poeta valencià medieval autor de poemes d'amor i també cavaller.</div>
+        <p data-ca="Com obtindre la xifra: compta les lletres del seu cognom. No comptes accents ni espais." data-es="Cómo obtener la cifra: cuenta las letras de su apellido. No cuentes acentos ni espacios." data-ru="Как получить цифру: посчитай буквы его фамилии. Не считай ударения и пробелы."><strong>Com obtindre la xifra:</strong> compta les lletres del seu cognom. No comptes accents ni espais.</p>
+        <button class="secondary hintBtn" onclick="toggleHint('h5')">Mostrar pista</button>
+        <div class="hint" id="h5" data-ca="Busca poetes valencians del segle XV. Necessites un autor medieval, no un escriptor modern." data-es="Busca poetas valencianos del siglo XV. Necesitas un autor medieval, no un escritor moderno." data-ru="Ищи валенсийских поэтов XV века. Тебе нужен средневековый автор, а не современный писатель.">Busca poetes valencians del segle XV. Necessites un autor medieval, no un escriptor modern.</div>
+      </div>
+    </section>
+
+    <section class="card" id="final">
+      <div class="content">
+        <h2 data-ca="El cofre del segell" data-es="El cofre del sello" data-ru="Сундук с печатью">El cofre del segell</h2>
+        <p data-ca="Escriu les cinc xifres seguides, sense espais ni guions." data-es="Escribe las cinco cifras seguidas, sin espacios ni guiones." data-ru="Введи пять цифр подряд, без пробелов и дефисов.">Escriu les cinc xifres seguides, sense espais ni guions.</p>
+        <input id="code" inputmode="numeric" placeholder="Codi final" data-ca-placeholder="Codi final" data-es-placeholder="Código final" data-ru-placeholder="Финальный код" />
+        <button onclick="checkCode()" id="openBtn" data-ca="Obrir el cofre" data-es="Abrir el cofre" data-ru="Открыть сундук">Obrir el cofre</button>
+        <div class="result" id="result"></div>
+        <div class="hiddenFinal" id="treasure">
+          <div class="seal">🏰📜⚜️</div>
+          <h2 data-ca="Missió completada!" data-es="¡Misión completada!" data-ru="Миссия выполнена!">Missió completada!</h2>
+          <p data-ca="Has recuperat el Segell Perdut del Regne. El consell reconeix el teu treball com a investigador o investigadora de l'Edat Mitjana valenciana." data-es="Has recuperado el Sello Perdido del Reino. El consejo reconoce tu trabajo como investigador o investigadora de la Edad Media valenciana." data-ru="Ты вернул Потерянную печать королевства. Совет признаёт твою работу исследователя Средневековой Валенсии.">Has recuperat el Segell Perdut del Regne. El consell reconeix el teu treball com a investigador o investigadora de l'Edat Mitjana valenciana.</p>
+          <p data-ca="Has treballat: cerca d'informació, comprensió lectora, història medieval, patrimoni valencià i competència digital." data-es="Has trabajado: búsqueda de información, comprensión lectora, historia medieval, patrimonio valenciano y competencia digital." data-ru="Ты потренировал: поиск информации, понимание текста, средневековую историю, валенсийское наследие и цифровую компетентность."><strong>Has treballat:</strong> cerca d'informació, comprensió lectora, història medieval, patrimoni valencià i competència digital.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-ca="CEIP Fausto Martínez · Activitat d'informàtica · 5é de Primària" data-es="CEIP Fausto Martínez · Actividad de informática · 5º de Primaria" data-ru="CEIP Fausto Martínez · Занятие по информатике · 5 класс">CEIP Fausto Martínez · Activitat d'informàtica · 5é de Primària</footer>
+
+<script>
+let currentLang='ca';
+const labels={
+  ca:{hint:'Mostrar pista', hide:'Amagar pista', ok:"Codi correcte. El cofre s'ha obert!", bad:'El codi no és correcte. Revisa les cinc proves i torna-ho a intentar.'},
+  es:{hint:'Mostrar pista', hide:'Ocultar pista', ok:'Código correcto. ¡El cofre se ha abierto!', bad:'El código no es correcto. Revisa las cinco pruebas y vuelve a intentarlo.'},
+  ru:{hint:'Показать подсказку', hide:'Скрыть подсказку', ok:'Код правильный. Сундук открыт!', bad:'Код неправильный. Проверь пять испытаний и попробуй снова.'}
+};
+function setLang(lang){
+  currentLang=lang;
+  document.documentElement.lang = lang === 'ru' ? 'ru' : (lang === 'es' ? 'es' : 'ca');
+  document.querySelectorAll('[data-ca]').forEach(el=>{
+    el.innerHTML = el.dataset[lang];
+  });
+  document.querySelectorAll('[data-ca-placeholder]').forEach(el=>{
+    el.placeholder = el.dataset[lang+'Placeholder'];
+  });
+  document.querySelectorAll('.hintBtn').forEach(btn=>{
+    const next=btn.nextElementSibling;
+    btn.textContent = next && next.style.display === 'block' ? labels[lang].hide : labels[lang].hint;
+  });
+  document.getElementById('result').textContent='';
+}
+function toggleHint(id){
+  const el=document.getElementById(id);
+  const btn=el.previousElementSibling;
+  const open = el.style.display==='block';
+  el.style.display = open ? 'none':'block';
+  btn.textContent = open ? labels[currentLang].hint : labels[currentLang].hide;
+}
+function checkCode(){
+  const input=document.getElementById('code').value.replace(/\s|-/g,'');
+  const result=document.getElementById('result');
+  const treasure=document.getElementById('treasure');
+  const correct='514445';
+  if(input===correct){
+    result.textContent=labels[currentLang].ok;
+    result.className='result ok';
+    treasure.style.display='block';
+  }else{
+    result.textContent=labels[currentLang].bad;
+    result.className='result bad';
+    treasure.style.display='none';
+  }
+}
+setLang('ca');
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasapalabra · Olimpíades del Saber</title>
+  <style>
+    :root{
+      --bg:#101828; --panel:#1d2939; --panel2:#344054; --text:#f9fafb; --muted:#d0d5dd;
+      --blue:#2e90fa; --green:#12b76a; --red:#f04438; --orange:#f79009; --gray:#667085;
+      --yellow:#fdb022;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#344054 0,#101828 55%);color:var(--text);min-height:100vh;}
+    header{text-align:center;padding:22px 16px 8px}
+    h1{margin:0;font-size:clamp(2rem,4vw,4rem);letter-spacing:1px;text-transform:uppercase;color:#fff;text-shadow:0 3px 0 #0005}
+    .subtitle{color:var(--muted);font-size:1.1rem;margin-top:6px}
+    main{max-width:1180px;margin:0 auto;padding:12px 18px 28px;display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+    .card{background:#1d2939dd;border:1px solid #ffffff22;border-radius:22px;box-shadow:0 18px 50px #0008;padding:20px;backdrop-filter: blur(4px)}
+    .rosco-wrap{position:relative;min-height:610px;display:flex;align-items:center;justify-content:center}
+    .letter{position:absolute;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.35rem;background:var(--blue);border:3px solid #fff;box-shadow:0 8px 15px #0007;transition:.2s transform,.2s background}
+    .letter.current{transform:scale(1.25);background:var(--yellow);color:#101828;z-index:2}
+    .letter.ok{background:var(--green)}
+    .letter.bad{background:var(--red)}
+    .letter.pass{background:var(--orange)}
+    .center{width:min(360px,78vw);min-height:310px;border-radius:28px;background:linear-gradient(180deg,#475467,#1d2939);border:1px solid #ffffff33;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:24px;box-shadow:inset 0 0 25px #0006,0 20px 60px #0008}
+    .current-letter{font-size:5rem;font-weight:1000;line-height:1;color:var(--yellow);text-shadow:0 4px 0 #0006}
+    .starts{font-size:1rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+    .definition{font-size:1.35rem;line-height:1.35;margin-top:18px}
+    .answer{width:100%;padding:15px 16px;font-size:1.2rem;border-radius:14px;border:2px solid #ffffff22;background:#101828;color:#fff;outline:none;margin-top:12px}
+    .answer:focus{border-color:var(--blue)}
+    .buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
+    button{border:0;border-radius:14px;padding:13px 14px;font-weight:800;font-size:1rem;cursor:pointer;color:white;box-shadow:0 6px 0 #0005;transition:.05s transform,.05s box-shadow,.2s opacity}
+    button:active{transform:translateY(3px);box-shadow:0 3px 0 #0005}
+    button:disabled{opacity:.45;cursor:not-allowed}
+    .btn-ok{background:var(--green)} .btn-bad{background:var(--red)} .btn-pass{background:var(--orange)}
+    .btn-main{background:var(--blue);width:100%;margin-top:10px}
+    .btn-secondary{background:var(--panel2);width:100%;margin-top:10px}
+    .score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+    .score{background:#101828;border:1px solid #ffffff1f;border-radius:16px;padding:13px;text-align:center}
+    .score .num{display:block;font-size:2rem;font-weight:1000}.score .label{font-size:.85rem;color:var(--muted)}
+    .timer{font-size:3rem;font-weight:1000;text-align:center;background:#101828;border-radius:20px;padding:18px;margin:12px 0;color:var(--yellow);font-variant-numeric:tabular-nums}
+    .rules{color:var(--muted);line-height:1.45}.rules b{color:#fff}
+    details{margin-top:14px;background:#101828;border-radius:16px;padding:12px;border:1px solid #ffffff18}summary{cursor:pointer;font-weight:800}
+    textarea{width:100%;min-height:210px;background:#0b1220;color:#e5e7eb;border:1px solid #ffffff2b;border-radius:12px;padding:12px;font-family:ui-monospace,Consolas,monospace;font-size:.86rem;margin-top:10px}
+    .small{font-size:.9rem;color:var(--muted)}
+    .team-input{display:flex;gap:10px;margin:10px 0}.team-input input{flex:1;padding:12px;border-radius:12px;border:1px solid #ffffff22;background:#101828;color:white;font-size:1rem}
+    .hidden{display:none!important}
+    @media(max-width:900px){main{grid-template-columns:1fr}.rosco-wrap{min-height:560px}.letter{width:46px;height:46px;font-size:1.1rem}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pasapalabra 5é</h1>
+    <div class="subtitle">Olimpíades del Saber · CEIP Fausto Martínez</div>
+  </header>
+  <main>
+    <section class="card rosco-wrap" id="roscoWrap">
+      <div class="center">
+        <div id="screenStart">
+          <div class="current-letter">🏆</div>
+          <div class="definition"><b>Preparats per al rosco?</b><br>Escriviu el nom de l'equip i comenceu.</div>
+          <div class="team-input"><input id="teamName" placeholder="Nom de l'equip" value="Equip 1"></div>
+          <button class="btn-main" onclick="startGame()">Començar partida</button>
+        </div>
+        <div id="screenGame" class="hidden">
+          <div class="current-letter" id="currentLetter">A</div>
+          <div class="starts" id="startsText">Comença per A</div>
+          <div class="definition" id="definitionText"></div>
+          <input class="answer" id="answerInput" placeholder="Resposta de l'equip" onkeydown="if(event.key==='Enter')checkAnswer()">
+          <div class="buttons">
+            <button class="btn-ok" onclick="checkAnswer()">Encert</button>
+            <button class="btn-pass" onclick="passWord()">Passa</button>
+            <button class="btn-bad" onclick="markBad()">Error</button>
+          </div>
+        </div>
+        <div id="screenEnd" class="hidden">
+          <div class="current-letter">🎉</div>
+          <div class="definition"><b>Rosco acabat!</b><br><span id="finalText"></span></div>
+          <button class="btn-main" onclick="resetGame()">Nova partida</button>
+        </div>
+      </div>
+    </section>
+    <aside class="card">
+      <h2 style="margin-top:0">Marcador</h2>
+      <div class="timer" id="timer">05:00</div>
+      <div class="score-grid">
+        <div class="score"><span class="num" id="okCount">0</span><span class="label">encerts</span></div>
+        <div class="score"><span class="num" id="badCount">0</span><span class="label">errors</span></div>
+        <div class="score"><span class="num" id="leftCount">27</span><span class="label">pendents</span></div>
+      </div>
+      <button class="btn-main" onclick="toggleTimer()" id="timerBtn">Iniciar / Pausar temps</button>
+      <button class="btn-secondary" onclick="nextTurn()">Passar al següent equip</button>
+      <button class="btn-secondary" onclick="resetGame()">Reiniciar</button>
+      <div class="rules">
+        <h3>Normes ràpides</h3>
+        <p><b>Encert:</b> la lletra es posa verda i suma 1 punt.</p>
+        <p><b>Passa:</b> la lletra queda taronja i tornarà a eixir.</p>
+        <p><b>Error:</b> la lletra es posa roja i ja no torna.</p>
+        <p>Es pot jugar amb projector: cada equip respon en veu alta i el mestre controla el rosco.</p>
+      </div>
+      <details>
+        <summary>Zona mestre: respostes i edició</summary>
+        <p class="small">Les respostes són editables dins del codi. També pots copiar el JSON, canviar preguntes i tornar a carregar la pàgina.</p>
+        <textarea id="jsonBox"></textarea>
+        <button class="btn-main" onclick="loadFromJson()">Carregar preguntes editades</button>
+      </details>
+    </aside>
+  </main>
+  <script>
+    const defaultQuestions = [
+      {l:'A', mode:'Comença per A', q:'Animal invertebrat que fabrica mel.', a:['abella','abeja']},
+      {l:'B', mode:'Comença per B', q:'Tipus de text que conta fets reals de la vida d’una persona.', a:['biografia','biografía']},
+      {l:'C', mode:'Comença per C', q:'Figura geomètrica amb tots els punts a la mateixa distància del centre.', a:['cercle','circulo','círculo']},
+      {l:'D', mode:'Comença per D', q:'Operació contrària a multiplicar.', a:['dividir','divisio','división']},
+      {l:'E', mode:'Comença per E', q:'Conjunt de persones que treballen juntes per aconseguir un objectiu.', a:['equip','equipo']},
+      {l:'F', mode:'Comença per F', q:'Part de la planta que sol tindre pètals i pot donar fruit.', a:['flor']},
+      {l:'G', mode:'Comença per G', q:'Representació de la Terra o d’una part d’ella en un pla.', a:['mapa','globus','globo']},
+      {l:'H', mode:'Comença per H', q:'Persona que estudia els fets del passat.', a:['historiador','historiadora']},
+      {l:'I', mode:'Comença per I', q:'Territori envoltat d’aigua per totes bandes.', a:['illa','isla']},
+      {l:'J', mode:'Comença per J', q:'Conjunt de normes que indiquen com es juga a una activitat.', a:['joc','juego']},
+      {l:'K', mode:'Conté la K', q:'Unitat de massa que equival a mil grams.', a:['quilo','kilogram','kilogramo','quilogram']},
+      {l:'L', mode:'Comença per L', q:'Satèl·lit natural de la Terra.', a:['lluna','luna']},
+      {l:'M', mode:'Comença per M', q:'Ciència que estudia nombres, formes i mesures.', a:['matematiques','matemáticas','mates']},
+      {l:'N', mode:'Comença per N', q:'Paraula que serveix per anomenar persones, animals, coses o llocs.', a:['nom','nombre','sustantiu','sustantivo']},
+      {l:'O', mode:'Comença per O', q:'Metall preciós de color groc.', a:['or','oro']},
+      {l:'P', mode:'Comença per P', q:'Text escrit en versos.', a:['poema','poesia','poesía']},
+      {l:'Q', mode:'Conté la Q', q:'Lloc on es venen i es compren productes.', a:['mercat','mercado']},
+      {l:'R', mode:'Comença per R', q:'Corrent d’aigua natural que desemboca en la mar, en un llac o en un altre corrent.', a:['riu','río','rio']},
+      {l:'S', mode:'Comença per S', q:'Sistema format pel Sol i els planetes que giren al seu voltant.', a:['sistema solar']},
+      {l:'T', mode:'Comença per T', q:'Polígon de tres costats.', a:['triangle','triángulo','triangulo']},
+      {l:'U', mode:'Comença per U', q:'Nombre que va abans del dos.', a:['u','uno','un']},
+      {l:'V', mode:'Comença per V', q:'Llengua pròpia de la Comunitat Valenciana juntament amb el castellà.', a:['valencia','valencià','valenciano']},
+      {l:'W', mode:'Conté la W', q:'Pàgina o conjunt de pàgines d’Internet.', a:['web']},
+      {l:'X', mode:'Conté la X', q:'Aparell que serveix per escriure, buscar informació i treballar en informàtica.', a:['ordinador','ordenador','pc','computadora']},
+      {l:'Y', mode:'Conté la Y', q:'Paraula anglesa molt usada en jocs que significa “sí”.', a:['yes']},
+      {l:'Z', mode:'Conté la Z', q:'Animal salvatge semblant a un cavall, amb ratlles blanques i negres.', a:['zebra','cebra']},
+      {l:'NY', mode:'Conté NY', q:'So valencià que apareix en la paraula “muntanya”. Escriu una altra paraula que el tinga.', a:['pinya','canya','banya','senyor','castanya','muntanya']}
+    ];
+    let questions = JSON.parse(JSON.stringify(defaultQuestions));
+    let status = questions.map(()=> 'pending');
+    let current = 0;
+    let seconds = 300;
+    let timer = null;
+    const wrap = document.getElementById('roscoWrap');
+    function normalize(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+    function renderRosco(){
+      document.querySelectorAll('.letter').forEach(e=>e.remove());
+      const W = wrap.clientWidth, H = wrap.clientHeight;
+      const cx = W/2, cy = H/2;
+      const r = Math.min(W,H)*0.43;
+      questions.forEach((it,i)=>{
+        const angle = -Math.PI/2 + i*(2*Math.PI/questions.length);
+        const el = document.createElement('div');
+        el.className = 'letter ' + (status[i] || 'pending') + (i===current && !isFinished()? ' current':'');
+        el.textContent = it.l;
+        el.style.left = (cx + r*Math.cos(angle) - 27) + 'px';
+        el.style.top = (cy + r*Math.sin(angle) - 27) + 'px';
+        wrap.appendChild(el);
+      });
+    }
+    function startGame(){
+      document.getElementById('screenStart').classList.add('hidden');
+      document.getElementById('screenEnd').classList.add('hidden');
+      document.getElementById('screenGame').classList.remove('hidden');
+      current = findNext(0);
+      updateQuestion(); renderRosco();
+    }
+    function updateQuestion(){
+      if(isFinished()){endGame();return;}
+      const it = questions[current];
+      document.getElementById('currentLetter').textContent = it.l;
+      document.getElementById('startsText').textContent = it.mode;
+      document.getElementById('definitionText').textContent = it.q;
+      document.getElementById('answerInput').value='';
+      document.getElementById('answerInput').focus();
+      updateScore(); renderRosco();
+    }
+    function findNext(from){
+      for(let k=0;k<questions.length;k++){
+        const idx=(from+k)%questions.length;
+        if(status[idx]==='pending' || status[idx]==='pass') return idx;
+      }
+      return 0;
+    }
+    function moveNext(){current=findNext(current+1);updateQuestion();}
+    function checkAnswer(){
+      const val=normalize(document.getElementById('answerInput').value);
+      const ok=questions[current].a.some(x=>normalize(x)===val);
+      status[current]=ok?'ok':'bad';
+      moveNext();
+    }
+    function passWord(){status[current]='pass';moveNext();}
+    function markBad(){status[current]='bad';moveNext();}
+    function nextTurn(){passWord();}
+    function isFinished(){return status.every(s=>s==='ok'||s==='bad');}
+    function endGame(){
+      clearInterval(timer); timer=null;
+      document.getElementById('screenGame').classList.add('hidden');
+      document.getElementById('screenEnd').classList.remove('hidden');
+      const team=document.getElementById('teamName').value || 'Equip';
+      document.getElementById('finalText').textContent = `${team}: ${count('ok')} encerts i ${count('bad')} errors.`;
+      updateScore(); renderRosco();
+    }
+    function count(s){return status.filter(x=>x===s).length}
+    function updateScore(){
+      document.getElementById('okCount').textContent=count('ok');
+      document.getElementById('badCount').textContent=count('bad');
+      document.getElementById('leftCount').textContent=status.filter(s=>s==='pending'||s==='pass').length;
+    }
+    function resetGame(){
+      status=questions.map(()=> 'pending'); current=0; seconds=300; clearInterval(timer); timer=null;
+      document.getElementById('screenStart').classList.remove('hidden');
+      document.getElementById('screenGame').classList.add('hidden');
+      document.getElementById('screenEnd').classList.add('hidden');
+      updateTimer(); updateScore(); renderRosco();
+    }
+    function updateTimer(){
+      const m=String(Math.floor(seconds/60)).padStart(2,'0'); const s=String(seconds%60).padStart(2,'0');
+      document.getElementById('timer').textContent=`${m}:${s}`;
+      if(seconds===0) endGame();
+    }
+    function toggleTimer(){
+      if(timer){clearInterval(timer);timer=null;return;}
+      timer=setInterval(()=>{if(seconds>0){seconds--;updateTimer();}else endGame();},1000);
+    }
+    function loadFromJson(){
+      try{
+        const data=JSON.parse(document.getElementById('jsonBox').value);
+        if(!Array.isArray(data) || !data.length) throw new Error('JSON no vàlid');
+        questions=data; resetGame(); alert('Preguntes carregades.');
+      }catch(e){alert('No s’ha pogut carregar. Revisa el JSON.');}
+    }
+    document.getElementById('jsonBox').value=JSON.stringify(defaultQuestions,null,2);
+    window.addEventListener('resize',renderRosco);
+    updateTimer(); updateScore(); renderRosco();
+  </script>
+
+<style id="portalFarLangStyle">
+.portal-far-lang{position:fixed;right:14px;bottom:14px;z-index:99999;background:rgba(15,23,42,.96);color:white;border:2px solid rgba(255,255,255,.25);border-radius:16px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.45);font-family:Arial,Helvetica,sans-serif;display:flex;gap:6px;align-items:center;flex-wrap:wrap}.portal-far-lang span{font-weight:900;color:#ffd166;margin-right:4px}.portal-far-lang button{border:0;border-radius:10px;padding:7px 9px;font-weight:900;cursor:pointer;background:#334155;color:white}.portal-far-lang button.active{background:#b7791f}.portal-far-lang-note{font-size:11px;opacity:.8;flex-basis:100%;text-align:right}.portal-lang-va .portalTranslate[data-va]{font-size:0}.portal-lang-va .portalTranslate[data-va]::after{content:attr(data-va);font-size:initial}.portal-lang-ru .portalTranslate[data-ru]{font-size:0}.portal-lang-ru .portalTranslate[data-ru]::after{content:attr(data-ru);font-size:initial}
+</style>
+<script id="portalFarLangScript">
+(function(){
+  function setLang(lang){
+    document.body.classList.remove('portal-lang-es','portal-lang-va','portal-lang-ru');
+    document.body.classList.add('portal-lang-'+lang);
+    document.querySelectorAll('.portal-far-lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    if(lang==='ru'){
+      if(!document.body.classList.contains('show-ru') && typeof toggleRussian==='function') toggleRussian();
+      if(typeof lang !== 'undefined' && typeof toggleLang==='function') { try{ if(window.lang==='es') toggleLang(); }catch(e){} }
+    } else {
+      if(document.body.classList.contains('show-ru') && typeof toggleRussian==='function') toggleRussian();
+      try{ if(window.lang==='ru' && typeof toggleLang==='function') toggleLang(); }catch(e){}
+    }
+    localStorage.setItem('portalFarLang', lang);
+  }
+  function labelize(){
+    const map={
+      'Empezar partida':['Començar partida','Начать игру'],
+      'Reiniciar':['Reiniciar','Начать заново'],
+      'Instrucciones':['Instruccions','Инструкция'],
+      'Mestres':['Mestres','Учителю'],
+      'Mostrar ruso':['Mostrar rus','Показать русский'],
+      'Ocultar ruso':['Ocultar rus','Скрыть русский'],
+      'Comprobar':['Comprovar','Проверить'],
+      'Pasapalabra':['Pasapalabra','Пасапалабра'],
+      'Marcar fallo':['Marcar errada','Отметить ошибку'],
+      'Siguiente':['Següent','Следующий']
+    };
+    document.querySelectorAll('button, h1, .subtitle, .themeLabel, label').forEach(el=>{
+      const txt=(el.textContent||'').trim();
+      if(map[txt]){ el.classList.add('portalTranslate'); el.dataset.va=map[txt][0]; el.dataset.ru=map[txt][1]; }
+    });
+  }
+  function init(){
+    if(document.getElementById('portalFarLangBar')) return;
+    labelize();
+    const bar=document.createElement('div');
+    bar.id='portalFarLangBar'; bar.className='portal-far-lang';
+    bar.innerHTML='<span>Idioma</span><button data-lang="es">Castellà</button><button data-lang="va">Valencià</button><button data-lang="ru">Rus</button><div class="portal-far-lang-note">Portal Far</div>';
+    document.body.appendChild(bar);
+    bar.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+    setLang(localStorage.getItem('portalFarLang')||'es');
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+
+</body>
+</html>

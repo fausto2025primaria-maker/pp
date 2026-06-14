@@ -1,0 +1,254 @@
+[
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "General 5é",
+    "titol": "Pasapalabra · General 5é",
+    "tema": "General 5é",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e01_general_5e.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Matemàtiques",
+    "titol": "Pasapalabra · Matemàtiques",
+    "tema": "Matemàtiques",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e02_matematiques.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Llengua Castellana",
+    "titol": "Pasapalabra · Llengua Castellana",
+    "tema": "Llengua Castellana",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e03_llengua_castellana.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Coneixement del Medi",
+    "titol": "Pasapalabra · Coneixement del Medi",
+    "tema": "Coneixement del Medi",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e04_medi.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Història Valenciana",
+    "titol": "Pasapalabra · Història Valenciana",
+    "tema": "Història Valenciana",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e05_historia_valenciana.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Ciència i Natura",
+    "titol": "Pasapalabra · Ciència i Natura",
+    "tema": "Ciència i Natura",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e06_ciencia_natura.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Esport i Salut",
+    "titol": "Pasapalabra · Esport i Salut",
+    "tema": "Esport i Salut",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e07_esport_salut.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Art i Cultura",
+    "titol": "Pasapalabra · Art i Cultura",
+    "tema": "Art i Cultura",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e08_art_cultura.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Geografia del Món",
+    "titol": "Pasapalabra · Geografia del Món",
+    "tema": "Geografia del Món",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e09_geografia_mon.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 1",
+    "nom": "Olimpíades del Saber",
+    "titol": "Pasapalabra · Olimpíades del Saber",
+    "tema": "Olimpíades del Saber",
+    "fitxer": "apps/pasapalabra/temporada1/pasa_s01e10_olimpiades_saber.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 2",
+    "nom": "Megamix Juvenil Alpha",
+    "titol": "Pasapalabra · Megamix Juvenil Alpha",
+    "tema": "Megamix Juvenil",
+    "fitxer": "apps/pasapalabra/temporada2/pasa_s02e01_megamix_alpha.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 2",
+    "nom": "Megamix Juvenil Beta",
+    "titol": "Pasapalabra · Megamix Juvenil Beta",
+    "tema": "Megamix Juvenil",
+    "fitxer": "apps/pasapalabra/temporada2/pasa_s02e02_megamix_beta.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 2",
+    "nom": "Megamix Juvenil Gamma",
+    "titol": "Pasapalabra · Megamix Juvenil Gamma",
+    "tema": "Megamix Juvenil",
+    "fitxer": "apps/pasapalabra/temporada2/pasa_s02e03_megamix_gamma.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 2",
+    "nom": "Megamix Juvenil Delta",
+    "titol": "Pasapalabra · Megamix Juvenil Delta",
+    "tema": "Megamix Juvenil",
+    "fitxer": "apps/pasapalabra/temporada2/pasa_s02e04_megamix_delta.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Temporada 2",
+    "nom": "Megamix Juvenil Final Boss",
+    "titol": "Pasapalabra · Megamix Juvenil Final Boss",
+    "tema": "Megamix Juvenil",
+    "fitxer": "apps/pasapalabra/temporada2/pasa_s02e05_megamix_final_boss.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Especials",
+    "nom": "Castellà/Rus",
+    "titol": "Pasapalabra · Castellà/Rus",
+    "tema": "Castellà/Rus",
+    "fitxer": "apps/pasapalabra/especials/pasa_especial_castella_rus.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Especials",
+    "nom": "Castellà/Rus Toggle",
+    "titol": "Pasapalabra · Castellà/Rus Toggle",
+    "tema": "Castellà/Rus Toggle",
+    "fitxer": "apps/pasapalabra/especials/pasa_especial_castella_rus_toggle.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  },
+  {
+    "serie": "Pasapalabra",
+    "temporada": "Especials",
+    "nom": "Saber amb suport rus",
+    "titol": "Pasapalabra · Saber amb suport rus",
+    "tema": "Saber amb suport rus",
+    "fitxer": "apps/pasapalabra/especials/pasa_especial_saber_rus_docent.html",
+    "idiomes": [
+      "castella",
+      "valencia",
+      "rus"
+    ],
+    "tipus": "pasapalabra"
+  }
+]

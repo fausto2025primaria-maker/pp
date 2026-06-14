@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>El Gran Millonari · Megamix Beta</title>
+<style>
+:root{--bg1:#2a0f45;--bg2:#6d28d9;--panel:#0b2348;--gold:#ffd166;--white:#fff;--ok:#22c55e;--bad:#ef4444;--blue:#2563eb;--purple:#7c3aed;}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,#164d96,var(--bg1));color:white;min-height:100vh}.wrap{max-width:1200px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.title{font-size:42px;font-weight:900;color:var(--gold);text-shadow:3px 3px 0 #000;margin:0}.subtitle{font-size:18px;opacity:.9}.btn{border:0;border-radius:14px;padding:12px 18px;font-weight:800;cursor:pointer;color:white;background:#334155;box-shadow:0 5px 0 rgba(0,0,0,.35);transition:.1s}.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.35)}.btn.gold{background:#b7791f}.btn.blue{background:#2563eb}.btn.green{background:#16a34a}.btn.red{background:#dc2626}.btn.purple{background:#7c3aed}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:18px}.panel{background:rgba(6,20,45,.88);border:2px solid rgba(255,255,255,.18);border-radius:22px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cat{background:linear-gradient(160deg,#1d4ed8,#0f172a);border:2px solid rgba(255,255,255,.25);border-radius:18px;padding:16px;min-height:105px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer}.cat.used{opacity:.35;filter:grayscale(1);cursor:not-allowed}.cat .icon{font-size:34px}.cat .name{font-weight:900;margin-top:8px}.cat .money{color:var(--gold);font-size:22px;font-weight:900;margin-top:6px}.questionBox{display:none}.crumb{font-weight:900;color:var(--gold);font-size:22px}.question{font-size:30px;font-weight:900;line-height:1.25;margin:16px 0}.ru{display:none;color:#dbeafe;font-size:.75em;margin-top:6px;font-weight:600;opacity:.9}.showRu .ru{display:block}.answers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.ans{background:#123d82;color:#fff;border:3px solid rgba(255,255,255,.2);border-radius:18px;padding:18px;font-size:20px;font-weight:900;text-align:left;cursor:pointer;min-height:76px}.ans:hover{background:#1d5fd0}.ans.disabled{pointer-events:none;opacity:.85}.ans.correct{background:#15803d!important;border-color:#86efac}.ans.wrong{background:#991b1b!important;border-color:#fecaca}.feedback{display:none;margin-top:18px;padding:18px;border-radius:18px;font-size:24px;font-weight:900;text-align:center}.feedback.ok{display:block;background:rgba(34,197,94,.25);border:2px solid #86efac}.feedback.bad{display:block;background:rgba(239,68,68,.25);border:2px solid #fecaca}.sideTitle{color:var(--gold);font-size:24px;font-weight:900;margin-bottom:10px}.teams{display:grid;gap:10px}.team{display:grid;grid-template-columns:1fr 92px 40px 40px;align-items:center;gap:8px;background:rgba(255,255,255,.09);padding:9px;border-radius:14px}.team input{width:100%;padding:8px;border-radius:10px;border:0;font-weight:800}.score{font-size:20px;font-weight:900;color:var(--gold);text-align:right}.smallBtn{border:0;border-radius:10px;padding:8px;color:white;font-weight:900;cursor:pointer;background:#334155}.lifelines{display:grid;grid-template-columns:1fr 1fr;gap:10px}.life{background:#4c1d95}.life.used{opacity:.35;text-decoration:line-through;cursor:not-allowed}.lifeNote{background:rgba(255,255,255,.1);border-radius:14px;padding:12px;margin-top:12px;min-height:50px;font-weight:800}.teacher{display:none;margin-top:15px;background:rgba(0,0,0,.25);border-radius:16px;padding:14px}.teacher ul{columns:2}.footer{margin-top:14px;opacity:.85;font-size:14px}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:10;align-items:center;justify-content:center;padding:20px}.modalContent{background:#0f172a;color:white;border:2px solid var(--gold);border-radius:22px;padding:24px;max-width:760px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.6)}.modalContent h2{color:var(--gold);margin-top:0}.modalContent input{padding:12px;border-radius:12px;border:0;width:100%;font-size:18px;margin:8px 0;color:#111}.hidden{display:none!important}@media(max-width:850px){.grid{grid-template-columns:1fr}.answers,.categories{grid-template-columns:1fr}.title{font-size:30px}.question{font-size:23px}.teacher ul{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <div class="top">
+    <div><h1 class="title">🏆 EL GRAN MILLONARIO DE 5º</h1><div class="subtitle">Olimpíadas del Saber · V3 funcional</div></div>
+    <div>
+      <button class="btn purple" id="toggleRu">Mostrar ruso</button>
+      <button class="btn gold" id="teacherBtn">Mestres</button>
+      <button class="btn red" id="resetBtn">Reiniciar</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <main class="panel">
+      <div id="home">
+        <div class="sideTitle">Elige una categoría</div>
+        <div class="categories" id="categories"></div>
+        <div class="footer">Regla recomendada: todos los equipos escriben A, B, C o D en una pizarra. Después se pulsa la opción elegida por el equipo que tiene el turno.</div>
+      </div>
+      <div class="questionBox" id="questionBox">
+        <div class="crumb" id="crumb"></div>
+        <div class="question" id="question"></div>
+        <div class="ru" id="questionRu"></div>
+        <div class="answers" id="answers"></div>
+        <div id="feedback" class="feedback"></div>
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn blue" id="nextBtn" style="display:none">Siguiente pregunta</button>
+          <button class="btn" id="backBtn">Volver al tablero</button>
+        </div>
+      </div>
+    </main>
+
+    <aside class="panel">
+      <div class="sideTitle">Marcador</div>
+      <div class="teams" id="teams"></div>
+      <hr style="border-color:rgba(255,255,255,.18);margin:18px 0">
+      <div class="sideTitle">Comodines</div>
+      <div class="lifelines" id="lifelines"></div>
+      <div class="lifeNote" id="lifeNote">Los comodines afectan a la pregunta actual. Se bloquean tras usarlos.</div>
+      <hr style="border-color:rgba(255,255,255,.18);margin:18px 0">
+      <button class="btn green" id="addPoints">Sumar puntos al equipo seleccionado</button>
+      <p class="footer">Selecciona equipo haciendo clic sobre su nombre.</p>
+    </aside>
+  </div>
+
+  <section class="panel teacher" id="teacherPanel">
+    <div class="sideTitle">Zona Mestres · Respuestas correctas</div>
+    <ul id="teacherList"></ul>
+  </section>
+</div>
+
+<div class="modal" id="passModal">
+  <div class="modalContent">
+    <h2>Zona Mestres</h2>
+    <p>Introduce la contraseña.</p>
+    <input type="password" id="passInput" placeholder="Contraseña">
+    <div style="display:flex;gap:10px;margin-top:10px">
+      <button class="btn gold" id="passOk">Entrar</button>
+      <button class="btn" id="passCancel">Cancelar</button>
+    </div>
+    <p id="passError" style="color:#fecaca;font-weight:900"></p>
+  </div>
+</div>
+
+<script>const QUESTIONS=[
+{cat:'➗ Matemáticas',money:100,q:'¿Cuánto es 12 × 5?',ru:'Сколько будет 12 × 5?',a:['50','55','60','70'],ok:2},
+{cat:'🎮 Cultura juvenil',money:100,q:'¿Qué personaje azul corre muy rápido?',ru:'Какой синий персонаж очень быстро бегает?',a:['Sonic','Mario','Pikachu','Luffy'],ok:0},
+{cat:'📚 Lengua',money:100,q:'¿Qué palabra es un verbo?',ru:'Какое слово является глаголом?',a:['mesa','correr','azul','tres'],ok:1},
+{cat:'🌍 Medio',money:100,q:'¿Qué parte de la planta absorbe agua?',ru:'Какая часть растения впитывает воду?',a:['flor','hoja','raíz','fruto'],ok:2},
+{cat:'🌍 Geografía',money:100,q:'¿En qué país está Roma?',ru:'В какой стране находится Рим?',a:['Italia','Grecia','Francia','Portugal'],ok:0},
+{cat:'🎨 Arte',money:100,q:'¿Qué instrumento tiene teclas blancas y negras?',ru:'У какого инструмента белые и чёрные клавиши?',a:['guitarra','piano','flauta','tambor'],ok:1},
+{cat:'🏛 Historia',money:500,q:'¿Cómo se llamaban los soldados de la antigua Roma?',ru:'Как назывались солдаты Древнего Рима?',a:['samuráis','legionarios','piratas','vikingos'],ok:1},
+{cat:'💻 Tecnología',money:500,q:'¿Qué tecla sirve para escribir en mayúsculas continuas?',ru:'Какая клавиша включает заглавные буквы?',a:['Enter','Bloq Mayús','Tab','Esc'],ok:1},
+{cat:'📚 Lengua',money:500,q:'¿Qué signo usamos al final de una pregunta?',ru:'Какой знак ставится в конце вопроса?',a:['coma','punto','interrogación','guion'],ok:2},
+{cat:'🌍 Medio',money:500,q:'¿Qué animal es un mamífero?',ru:'Какое животное является млекопитающим?',a:['sardina','delfín','rana','lagarto'],ok:1},
+{cat:'🏃 Deporte',money:500,q:'¿Qué deporte se juega con una canasta?',ru:'В каком спорте есть корзина?',a:['tenis','baloncesto','rugby','natación'],ok:1},
+{cat:'🎮 Cultura juvenil',money:500,q:'¿Cómo se llama el cómic japonés?',ru:'Как называется японский комикс?',a:['manga','novela','cuento','fábula'],ok:0},
+{cat:'➗ Matemáticas',money:1000,q:'¿Cuántos centímetros tiene un metro?',ru:'Сколько сантиметров в одном метре?',a:['10','50','100','1000'],ok:2},
+{cat:'🏙 Valencia',money:1000,q:'¿Cómo se llama el antiguo cauce convertido en jardín?',ru:'Как называется старое русло, превращённое в сад?',a:['Turia','Ebro','Tajo','Segura'],ok:0},
+{cat:'🌍 Medio',money:1000,q:'¿Qué cambio convierte sólido en líquido?',ru:'Как называется переход из твёрдого в жидкое?',a:['evaporación','fusión','condensación','filtración'],ok:1},
+{cat:'🎮 Cultura juvenil',money:1000,q:'¿Qué héroe de videojuegos es fontanero?',ru:'Какой герой видеоигр является сантехником?',a:['Mario','Sonic','Link','Kirby'],ok:0},
+{cat:'📚 Lengua',money:1000,q:'¿Qué palabra está en plural?',ru:'Какое слово стоит во множественном числе?',a:['casa','libro','libros','mesa'],ok:2},
+{cat:'🌍 Geografía',money:1000,q:'¿Cuál es el océano más grande?',ru:'Какой океан самый большой?',a:['Atlántico','Índico','Pacífico','Ártico'],ok:2}
+];;
+const lifelines=[
+{name:'50:50',ru:'убрать 2 ответа',fn:'fifty'},
+{name:'Pista',ru:'подсказка',fn:'hint'},
+{name:'Clase',ru:'помощь класса',fn:'class'},
+{name:'Google 30s',ru:'поиск 30 секунд',fn:'google'}
+];
+let usedQuestions=new Set();let current=null;let selectedTeam=0;let ru=false;let usedLife=new Set();let scores=[0,0,0,0,0];
+const $=id=>document.getElementById(id);
+function renderCats(){const box=$('categories');box.innerHTML='';QUESTIONS.forEach((x,i)=>{let d=document.createElement('div');d.className='cat '+(usedQuestions.has(i)?'used':'');d.innerHTML=`<div class="icon">${x.cat.split(' ')[0]}</div><div class="name">${x.cat.replace(/^\S+ /,'')}</div><div class="money">${x.money} €</div>`;d.onclick=()=>{if(!usedQuestions.has(i))openQ(i)};box.appendChild(d)})}
+function renderTeams(){const box=$('teams');box.innerHTML='';for(let i=0;i<5;i++){let d=document.createElement('div');d.className='team';d.style.outline=i===selectedTeam?'3px solid #ffd166':'none';d.innerHTML=`<input value="Equipo ${i+1}" data-i="${i}"><div class="score">${scores[i]}€</div><button class="smallBtn" data-add="${i}">+</button><button class="smallBtn" data-sub="${i}">−</button>`;d.onclick=(e)=>{selectedTeam=i;renderTeams()};box.appendChild(d)}document.querySelectorAll('[data-add]').forEach(b=>b.onclick=e=>{e.stopPropagation();scores[+b.dataset.add]+=100;renderTeams()});document.querySelectorAll('[data-sub]').forEach(b=>b.onclick=e=>{e.stopPropagation();scores[+b.dataset.sub]=Math.max(0,scores[+b.dataset.sub]-100);renderTeams()})}
+function renderLife(){const box=$('lifelines');box.innerHTML='';lifelines.forEach((l,i)=>{let b=document.createElement('button');b.className='btn life '+(usedLife.has(i)?'used':'');b.innerHTML=`${l.name}<span class="ru"><br>${l.ru}</span>`;b.onclick=()=>useLife(i);box.appendChild(b)})}
+function openQ(i){current=i;const x=QUESTIONS[i];$('home').style.display='none';$('questionBox').style.display='block';$('crumb').textContent=`${x.cat} · ${x.money} €`;$('question').textContent=x.q;$('questionRu').textContent=x.ru;$('answers').innerHTML='';$('feedback').className='feedback';$('feedback').style.display='none';$('nextBtn').style.display='none';x.a.forEach((ans,idx)=>{let b=document.createElement('button');b.className='ans';b.innerHTML=`<b>${'ABCD'[idx]}.</b> ${ans}`;b.onclick=()=>answer(idx);$('answers').appendChild(b)});$('lifeNote').textContent='Puedes usar un comodín antes de responder.';document.body.classList.toggle('showRu',ru)}
+function answer(idx){const x=QUESTIONS[current];const buttons=[...document.querySelectorAll('.ans')];buttons.forEach(b=>b.classList.add('disabled'));buttons[x.ok].classList.add('correct');usedQuestions.add(current);if(idx===x.ok){buttons[idx].classList.add('correct');scores[selectedTeam]+=x.money;$('feedback').textContent=`✅ ¡Correcto! Equipo ${selectedTeam+1} gana ${x.money} €`;$('feedback').className='feedback ok';}else{buttons[idx].classList.add('wrong');$('feedback').textContent=`❌ Incorrecto. La respuesta correcta era ${'ABCD'[x.ok]}: ${x.a[x.ok]}`;$('feedback').className='feedback bad';}$('feedback').style.display='block';$('nextBtn').style.display='inline-block';renderTeams();renderCats();}
+function useLife(i){if(usedLife.has(i)||current===null)return;usedLife.add(i);const x=QUESTIONS[current];if(lifelines[i].fn==='fifty'){let wrong=[0,1,2,3].filter(n=>n!==x.ok);wrong.sort(()=>Math.random()-.5).slice(0,2).forEach(n=>{document.querySelectorAll('.ans')[n].style.visibility='hidden'});$('lifeNote').textContent='Comodín 50:50 usado. Han desaparecido dos errores.'}
+if(lifelines[i].fn==='hint'){$('lifeNote').textContent='Pista: descarta primero la opción que seguro no pertenece al tema de la pregunta.'}
+if(lifelines[i].fn==='class'){$('lifeNote').textContent='Comodín Clase: el equipo puede consultar a otro equipo durante 20 segundos.'}
+if(lifelines[i].fn==='google'){$('lifeNote').textContent='Comodín Google: podéis buscar durante 30 segundos. El profesor controla el tiempo.'}
+renderLife();document.body.classList.toggle('showRu',ru)}
+function back(){current=null;$('questionBox').style.display='none';$('home').style.display='block';renderCats();}
+function teacherList(){const ul=$('teacherList');ul.innerHTML='';QUESTIONS.forEach((q,i)=>{let li=document.createElement('li');li.innerHTML=`<b>${q.cat} ${q.money}€:</b> ${q.a[q.ok]}`;ul.appendChild(li)})}
+$('backBtn').onclick=back;$('nextBtn').onclick=back;$('addPoints').onclick=()=>{if(current!==null){scores[selectedTeam]+=QUESTIONS[current].money}else{scores[selectedTeam]+=100}renderTeams()};
+$('toggleRu').onclick=()=>{ru=!ru;document.body.classList.toggle('showRu',ru);$('toggleRu').textContent=ru?'Ocultar ruso':'Mostrar ruso'};
+$('resetBtn').onclick=()=>{if(confirm('¿Reiniciar partida?')){usedQuestions.clear();usedLife.clear();scores=[0,0,0,0,0];back();renderTeams();renderLife();}};
+$('teacherBtn').onclick=()=>{$('passModal').style.display='flex';$('passInput').value='';$('passError').textContent=''};$('passCancel').onclick=()=>{$('passModal').style.display='none'};$('passOk').onclick=()=>{if($('passInput').value==='fausto'){$('passModal').style.display='none';$('teacherPanel').style.display='block';teacherList();$('teacherPanel').scrollIntoView({behavior:'smooth'});}else{$('passError').textContent='Contraseña incorrecta.'}};
+renderCats();renderTeams();renderLife();
+</script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESDE · Tauler i Setges V5 Narrativa</title>
+<style>
+body{margin:0;font-family:Georgia,"Times New Roman",serif;background:linear-gradient(135deg,#26170e,#100907);color:white;text-align:center}
+h1{margin:14px 0 4px;font-size:42px;color:#ffe2a1;text-shadow:0 3px 0 #000}
+.subtitle{color:#d8bd80;margin-bottom:10px}
+.toolbar{margin:10px}
+button,select,input{font-family:Georgia,"Times New Roman",serif}
+button{margin:4px;padding:8px 12px;border-radius:10px;border:2px solid #5b3418;background:linear-gradient(#ffe09a,#c58a2c);font-weight:bold;cursor:pointer}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:12px}
+.card{background:#f3dfb5;color:#241408;border:5px solid #5b3418;border-radius:18px;padding:10px;box-shadow:0 8px 18px rgba(0,0,0,.4)}
+.card.leader{outline:6px solid gold}
+.escut{width:105px;height:125px;object-fit:cover;border:4px solid #1c0d06;border-radius:12px;background:#111}
+.nom{font-size:22px;font-weight:bold;margin:8px 0;background:#7b2d1e;color:#fff2c6;padding:6px;border-radius:10px}
+.recursos{background:#fff4d2;border:2px solid #8a5a2b;border-radius:12px;padding:8px;margin:8px 0}
+.recurs{display:flex;justify-content:space-between;align-items:center;margin:5px 0;font-size:18px}
+.recurs input{width:62px;text-align:center;font-size:18px;border:2px solid #5b3418;border-radius:8px;padding:3px}
+.risc{background:#ffcfca;border-radius:8px;padding:3px;color:#8b1e13;font-weight:bold}
+.edificis{margin-top:10px;background:#fff8df;border:2px solid #8a5a2b;border-radius:12px;padding:8px;min-height:120px}
+.edificis h3{margin:0 0 6px}
+.edifici{display:flex;justify-content:space-between;align-items:center;background:#ead09b;border:2px solid #7d5029;border-radius:10px;margin:5px 0;padding:5px 7px;font-weight:bold}
+.remove{background:#9e2f24;color:white;border:1px solid #4a100b;box-shadow:none;padding:3px 7px;border-radius:7px}
+.add-box{margin-top:8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.add-box select{max-width:135px;padding:5px;border-radius:8px}
+.total{margin-top:8px;font-weight:bold;font-size:18px;color:#5b241c}
+.info{margin:8px 12px 20px;background:#fff1cc;color:#251508;border:4px solid #5b3418;border-radius:16px;padding:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:1000px){.board{grid-template-columns:repeat(2,1fr)}.info{grid-template-columns:1fr}}
+@media(max-width:600px){.board{grid-template-columns:1fr}}
+
+/* SETGE PRO V3 CORREGIT */
+.setge-panel{display:none;margin:16px 12px 22px;background:#fff1cc;color:#251508;border:5px solid #5b3418;border-radius:18px;padding:14px;box-shadow:0 10px 25px rgba(0,0,0,.45)}
+.setge-panel h2{margin:4px 0 10px;color:#7b2d1e;font-size:34px}
+.setge-top{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin:8px 0 14px}
+.setge-top select{padding:8px;border-radius:10px;border:2px solid #5b3418;background:#fff8df;font-weight:bold}
+.setge-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.setge-box{background:#f3dfb5;border:4px solid #7d5029;border-radius:16px;padding:12px;box-shadow:0 5px 14px rgba(0,0,0,.25)}
+.setge-box h3{margin:0 0 8px;color:#5b241c}
+.setge-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.stat-pill{background:#fff8df;border:2px solid #8a5a2b;border-radius:12px;padding:7px;font-weight:bold}
+.badge{display:inline-block;background:#7b2d1e;color:#fff2c6;border-radius:999px;padding:4px 8px;margin:2px;font-size:13px}
+.setge-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:8px}
+.setge-actions button{background:linear-gradient(#ffe09a,#d49a39);border:2px solid #6d3b19;border-radius:12px;padding:8px;min-height:58px}
+.setge-actions button.selected{outline:4px solid #7b2d1e;background:linear-gradient(#fff2b8,#f1bc54)}
+.setge-actions button:disabled{opacity:.45;cursor:not-allowed}
+.mini-help{display:block;font-size:11px;font-weight:normal;margin-top:3px;line-height:1.15}
+.setge-controls{margin:12px 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.setge-log{background:#2a160c;color:#ffe9b7;border:3px solid #8a5a2b;border-radius:14px;padding:10px;margin-top:12px;text-align:left;max-height:260px;overflow:auto}
+.log-line{border-bottom:1px solid rgba(255,255,255,.16);padding:7px 0}
+.victoria{background:#7b2d1e;color:#fff2c6;border:3px solid #3a160d;border-radius:14px;padding:14px;margin:10px;font-size:22px;font-weight:bold}
+.torn-pill{display:inline-block;background:#5b241c;color:#fff2c6;border-radius:999px;padding:6px 10px;margin:4px;font-weight:bold}
+.event-card{background:#fff8df;color:#251508;border:3px dashed #7b2d1e;border-radius:14px;padding:10px;margin:10px auto;max-width:760px;font-size:18px}
+@media(max-width:900px){.setge-grid{grid-template-columns:1fr}.setge-actions{grid-template-columns:1fr}.setge-stats{grid-template-columns:1fr}}
+
+
+/* ===============================
+   V4 VISUAL PRO — Castell nocturn + pergamí
+   =============================== */
+:root{--or:#f3c866;--or2:#b77a24;--fosc:#120906;--sang:#7b2d1e;--perg:#f5dfad;--tinta:#261407;}
+body{min-height:100vh;background:radial-gradient(circle at 50% 8%, rgba(255,198,94,.20), transparent 32%),radial-gradient(circle at 14% 18%, rgba(180,62,25,.16), transparent 24%),linear-gradient(135deg,#2a170c 0%,#130905 50%,#070303 100%);background-attachment:fixed;color:#fff4cf;}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(45deg,rgba(255,255,255,.045) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.045) 50%,rgba(255,255,255,.045) 75%,transparent 75%,transparent);background-size:34px 34px;mix-blend-mode:overlay;}
+h1{font-size:46px;letter-spacing:.5px;color:#ffe3a0;text-shadow:0 4px 0 #000,0 0 24px rgba(255,190,75,.45);}.subtitle{font-size:18px;color:#f0d08f;text-shadow:0 2px 6px #000;}
+.toolbar{position:sticky;top:0;z-index:10;margin:0;padding:10px;background:linear-gradient(180deg,rgba(18,9,6,.94),rgba(18,9,6,.72));backdrop-filter:blur(6px);border-bottom:2px solid rgba(243,200,102,.35);}
+button{font-size:15px;border:2px solid #3b1b0d;background:linear-gradient(#fff0b7,#d39a37 50%,#9a5d1d);box-shadow:0 4px 0 #3b1b0d,0 8px 18px rgba(0,0,0,.25);transition:transform .12s, filter .12s;}button:hover{transform:translateY(-2px);filter:brightness(1.08);}button:active{transform:translateY(1px);box-shadow:0 2px 0 #3b1b0d;}
+.board{gap:16px;padding:18px;}.card{position:relative;background:linear-gradient(180deg,#fff1c5,#e8c987);border:4px solid #3b1b0d;outline:2px solid var(--or);border-radius:22px;padding:12px;box-shadow:0 14px 28px rgba(0,0,0,.55), inset 0 0 0 2px rgba(255,255,255,.22);transition:transform .15s, box-shadow .15s;}.card:hover{transform:translateY(-4px);box-shadow:0 20px 34px rgba(0,0,0,.62), inset 0 0 0 2px rgba(255,255,255,.24);}.card.leader{outline:4px solid #ffd85f;box-shadow:0 0 0 5px rgba(255,216,95,.2),0 0 30px rgba(255,216,95,.55),0 16px 30px rgba(0,0,0,.55);}.card.leader:before{content:"👑";position:absolute;top:-18px;right:12px;font-size:34px;filter:drop-shadow(0 3px 2px #000);}
+.escut{width:122px;height:142px;object-fit:contain;border:none;border-radius:0;background:transparent;filter:drop-shadow(0 7px 7px rgba(0,0,0,.75));}.nom{background:linear-gradient(90deg,#5d1e15,#8b3324,#5d1e15);border:1px solid #f3c866;color:#fff1ba;text-shadow:0 2px 0 #000;}
+.recursos,.edificis{background:rgba(255,248,223,.82);border:2px solid #805127;box-shadow:inset 0 0 12px rgba(100,55,20,.12);}.recurs{display:block;text-align:left;background:rgba(255,255,255,.25);border-radius:10px;padding:6px;margin:6px 0;}.recurs-main{display:flex;justify-content:space-between;align-items:center;font-size:17px;font-weight:bold;}.recurs input{background:#fff7df;}.recurs-bar{height:9px;background:#d2b26d;border:1px solid #7d5029;border-radius:99px;margin-top:5px;overflow:hidden;}.recurs-bar div{height:100%;background:linear-gradient(90deg,#7b2d1e,#d59a34,#ffe09a);border-radius:99px;}.risc{background:#ffd2cc!important;color:#7b160c;}.edifici{background:linear-gradient(180deg,#f2dba5,#d9b773);}.total{background:#5b241c;color:#fff1ba;border-radius:999px;padding:6px;border:1px solid #d7ad53;}.info{background:linear-gradient(180deg,#fff1c5,#e1bd79);box-shadow:0 10px 24px rgba(0,0,0,.38);}
+.setge-panel{background:linear-gradient(180deg,#fff1c5,#e4c07e);border:5px solid #3b1b0d;outline:2px solid var(--or);box-shadow:0 18px 45px rgba(0,0,0,.65);}.setge-panel h2{font-size:40px;color:#5b1f15;text-shadow:0 1px 0 #ffd987;}.setge-top{background:rgba(70,31,14,.12);border:1px solid rgba(91,52,24,.3);border-radius:16px;padding:8px;}.setge-box{background:linear-gradient(180deg,#fff4cf,#e5c483);border:4px solid #4a220f;outline:1px solid var(--or);}.setge-box h3{font-size:24px;}.setge-actions button{min-height:68px;font-size:15px;}.setge-actions button:nth-child(odd){background:linear-gradient(#ffe8a2,#c67a2b);}.setge-actions button.selected{outline:4px solid #ffd85f;filter:brightness(1.08);}.stat-pill{background:#fff8df;border:2px solid #6e411d;}.badge{background:linear-gradient(90deg,#6c2419,#8d3827);border:1px solid #e6bd62;}.torn-pill{background:linear-gradient(#6c2419,#3b120c);border:1px solid #e6bd62;}.event-card{background:linear-gradient(180deg,#fff8df,#ead09b);box-shadow:0 6px 18px rgba(0,0,0,.25);}.setge-log{background:linear-gradient(180deg,#fff2c5,#d9b773);color:#2b170a;border:4px solid #5b3418;box-shadow:inset 0 0 18px rgba(91,52,24,.22);font-size:16px;}.log-line{border-bottom:1px solid rgba(80,45,18,.28);}.victoria{background:linear-gradient(90deg,#671d14,#9d3b27,#671d14);border-color:#ffd85f;box-shadow:0 8px 22px rgba(0,0,0,.35);}
+@media(max-width:1000px){h1{font-size:36px}.toolbar{position:relative}.board{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.board{grid-template-columns:1fr}.setge-panel h2{font-size:30px}}
+
+/* V5 — imatges narratives del setge */
+.setge-visual{max-width:980px;margin:14px auto 12px;background:#1b0d07;border:5px solid #3b1b0d;outline:2px solid #f3c866;border-radius:18px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.55);}
+.setge-visual img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;background:#080302;}
+.setge-caption{padding:9px 12px;background:linear-gradient(90deg,#5b241c,#8b3324,#5b241c);color:#fff1ba;font-weight:bold;text-align:left;border-top:1px solid #f3c866;}
+
+</style>
+</head>
+<body>
+<h1>🏰 Tauler dels Regnes</h1>
+<div class="subtitle">Setge PRO V5 · imatges narratives per torn, recursos, escuts PNG i edificis</div>
+<div class="toolbar">
+<button onclick="guardar(true)">💾 Guardar</button>
+<button onclick="mostrarSetge()">⚔️ Setge PRO V5</button>
+<button onclick="pantallaCompleta()">⛶ Pantalla completa</button>
+<button onclick="nouTorn()">🔄 Nou torn</button>
+<button onclick="marcarLider()">👑 Líder</button>
+<button onclick="reiniciar()">🧹 Reiniciar</button>
+</div>
+<div id="board" class="board"></div>
+
+<div id="setgePanel" class="setge-panel">
+  <h2>⚔️ Simulador de Setge PRO V5</h2>
+  <div class="setge-top">
+    <label><b>Atacant:</b> <select id="setgeAtacant"></select></label>
+    <label><b>Defensor:</b> <select id="setgeDefensor"></select></label>
+    <label><input type="checkbox" id="setgeIA" checked> 🤖 Defensor IA</label>
+    <button onclick="comencarSetgePro()">▶️ Començar setge</button>
+    <button onclick="tancarSetgePro()">❌ Tancar</button>
+  </div>
+  <div id="setgeArena"><div class="setge-log"><b>📜 Preparació:</b> tria atacant i defensor. Les dades venen del tauler actual.</div></div>
+</div>
+
+<div class="info">
+<div><b>🏗️ Edificis:</b> cada regne pot afegir construccions.</div>
+<div><b>💾 Guardat:</b> es conserva en aquest navegador.</div>
+<div><b>🔄 Nou torn:</b> aplica producció dels edificis i consum de menjar.</div>
+</div>
+<script>
+const escuts=["escut1.png","escut2.png","escut3.png","escut4.png","escut5.png"];
+
+const edificisDisponibles=[
+{id:"granja",nom:"🌾 Granja",cost:20,efecte:"+5 menjar/torn"},
+{id:"cases",nom:"🏠 Cases",cost:15,efecte:"+5 població"},
+{id:"torre",nom:"🛡️ Torre",cost:15,efecte:"+5 força"},
+{id:"fusta",nom:"🌲 Tala de fusta",cost:10,efecte:"+5 or/torn"},
+{id:"cami",nom:"🛤️ Camí",cost:10,efecte:"+5 or/torn"},
+{id:"esglesia",nom:"⛪ Església",cost:20,efecte:"protecció"},
+{id:"moli",nom:"🌾 Molí",cost:30,efecte:"+10 menjar/torn"},
+{id:"vila",nom:"🏘️ Vila",cost:30,efecte:"+10 població"},
+{id:"muralla",nom:"🏰 Muralla",cost:40,efecte:"+15 força"},
+{id:"mercat",nom:"🛒 Mercat",cost:35,efecte:"+10 or/torn"},
+{id:"biblioteca",nom:"📚 Biblioteca",cost:30,efecte:"bonus activitats"},
+{id:"castell",nom:"🏰 Castell",cost:60,efecte:"+20 força"},
+{id:"ciutat",nom:"🌆 Ciutat",cost:60,efecte:"+20 població"},
+{id:"banc",nom:"🏦 Banc",cost:50,efecte:"+20 or/torn"},
+{id:"universitat",nom:"🎓 Universitat",cost:50,efecte:"+15 punts"},
+{id:"caserna",nom:"⚔️ Caserna",cost:50,efecte:"+10 força/torn"}
+];
+
+const inicial=[
+{nom:"Regne 1",menjar:20,or:50,forca:10,poblacio:15,edificis:[]},
+{nom:"Regne 2",menjar:20,or:50,forca:10,poblacio:15,edificis:[]},
+{nom:"Regne 3",menjar:20,or:50,forca:10,poblacio:15,edificis:[]},
+{nom:"Regne 4",menjar:20,or:50,forca:10,poblacio:15,edificis:[]},
+{nom:"Regne 5",menjar:20,or:50,forca:10,poblacio:15,edificis:[]}
+];
+
+let regnes=JSON.parse(localStorage.getItem("taulerRegnesEdificis"))||JSON.parse(JSON.stringify(inicial));
+
+function render(){
+let html="";
+regnes.forEach((r,i)=>{
+const total=r.menjar+r.or+r.forca*2+r.poblacio*3;
+html+=`
+<div class="card" id="card${i}">
+<img class="escut" src="${escuts[i]}" onerror="this.style.display='none'">
+<div class="nom" contenteditable="true" oninput="canviarNom(${i},this.innerText)">${r.nom}</div>
+<div class="recursos">
+${inputRecurs(i,"menjar","🌾 Menjar",r.menjar)}
+${inputRecurs(i,"or","💰 Or",r.or)}
+${inputRecurs(i,"forca","🛡️ Força",r.forca)}
+${inputRecurs(i,"poblacio","👥 Població",r.poblacio)}
+</div>
+<div class="edificis">
+<h3>🏗️ Edificis</h3>
+${llistaEdificis(i)}
+<div class="add-box">
+<select id="select${i}">
+${edificisDisponibles.map(e=>`<option value="${e.id}">${e.nom} (${e.cost} or)</option>`).join("")}
+</select>
+<button onclick="afegirEdifici(${i})">+ Afegir</button>
+</div>
+</div>
+<div class="total">Valor total: ${total}</div>
+</div>`;
+});
+document.getElementById("board").innerHTML=html;
+marcarLider(false);
+guardar(false);
+}
+
+function inputRecurs(i,camp,label,valor){
+const risc=valor<5?"risc":"";
+const max=Math.max(100,valor);
+const pct=Math.max(0,Math.min(100,(valor/max)*100));
+return `<div class="recurs ${risc}"><div class="recurs-main"><span>${label}</span><input type="number" value="${valor}" onchange="canviarRecurs(${i},'${camp}',this.value)"></div><div class="recurs-bar"><div style="width:${pct}%"></div></div></div>`;
+}
+
+function llistaEdificis(i){
+if(!regnes[i].edificis||regnes[i].edificis.length===0)return `<p>Encara no hi ha edificis.</p>`;
+return regnes[i].edificis.map((id,idx)=>{
+const e=edificisDisponibles.find(x=>x.id===id);
+if(!e)return "";
+return `<div class="edifici"><span title="${e.efecte}">${e.nom}</span><button class="remove" onclick="llevarEdifici(${i},${idx})">x</button></div>`;
+}).join("");
+}
+
+function canviarNom(i,valor){
+regnes[i].nom=valor.trim();
+guardar(false);
+}
+
+function canviarRecurs(i,camp,valor){
+regnes[i][camp]=Math.max(0,parseInt(valor)||0);
+render();
+}
+
+function afegirEdifici(i){
+const id=document.getElementById("select"+i).value;
+const edifici=edificisDisponibles.find(e=>e.id===id);
+if(!edifici)return;
+const ok=confirm(`Construir ${edifici.nom}?\nCost: ${edifici.cost} or\nEfecte: ${edifici.efecte}\n\nEs restarà el cost automàticament.`);
+if(!ok)return;
+if(regnes[i].or<edifici.cost){alert("No tens prou or per construir aquest edifici.");return;}
+regnes[i].or-=edifici.cost;
+regnes[i].edificis.push(id);
+aplicarEfecteInstantani(i,id);
+render();
+}
+
+function llevarEdifici(i,idx){
+if(confirm("Vols llevar aquest edifici? No es retornarà el cost.")){
+regnes[i].edificis.splice(idx,1);
+render();
+}
+}
+
+function aplicarEfecteInstantani(i,id){
+if(id==="cases")regnes[i].poblacio+=5;
+if(id==="torre")regnes[i].forca+=5;
+if(id==="vila")regnes[i].poblacio+=10;
+if(id==="muralla")regnes[i].forca+=15;
+if(id==="castell")regnes[i].forca+=20;
+if(id==="ciutat")regnes[i].poblacio+=20;
+if(id==="universitat")regnes[i].or+=15;
+}
+
+function nouTorn(){
+regnes.forEach(r=>{
+r.edificis.forEach(id=>{
+if(id==="granja")r.menjar+=5;
+if(id==="fusta")r.or+=5;
+if(id==="cami")r.or+=5;
+if(id==="moli")r.menjar+=10;
+if(id==="mercat")r.or+=10;
+if(id==="banc")r.or+=20;
+if(id==="caserna")r.forca+=10;
+});
+const consum=Math.ceil(r.poblacio/5)*2;
+r.menjar-=consum;
+if(r.menjar<0){
+r.menjar=0;
+r.poblacio=Math.max(0,r.poblacio-5);
+}
+});
+render();
+alert("Nou torn aplicat: producció dels edificis + consum de menjar.");
+}
+
+function totalRegne(r){return r.menjar+r.or+r.forca*2+r.poblacio*3;}
+
+function marcarLider(mostrar=true){
+document.querySelectorAll(".card").forEach(c=>c.classList.remove("leader"));
+let millor=0;
+regnes.forEach((r,i)=>{if(totalRegne(r)>totalRegne(regnes[millor]))millor=i;});
+const card=document.getElementById("card"+millor);
+if(card)card.classList.add("leader");
+if(mostrar)alert("👑 Líder actual: "+regnes[millor].nom);
+}
+
+function guardar(mostrar=true){
+localStorage.setItem("taulerRegnesEdificis",JSON.stringify(regnes));
+if(mostrar)alert("Dades guardades.");
+}
+
+function reiniciar(){
+if(confirm("Segur que vols reiniciar tot?")){
+localStorage.removeItem("taulerRegnesEdificis");
+regnes=JSON.parse(JSON.stringify(inicial));
+render();
+}
+}
+
+/* SETGE PRO V3 CORREGIT */
+const accionsAtacant=[
+{id:"assalt",nom:"⚔️ Assalt frontal",tip:"Dany fort a força i població."},
+{id:"catapultes",nom:"🪨 Catapultes",tip:"Dany a força; pot destruir edificis."},
+{id:"subministraments",nom:"🍞 Tallar subministraments",tip:"Redueix menjar del defensor."},
+{id:"incendi",nom:"🔥 Incendi nocturn",tip:"Crema menjar i causa pànic."},
+{id:"tunel",nom:"🕳️ Excavar túnel",tip:"Gran dany si funciona."},
+{id:"intimidar",nom:"💀 Intimidar",tip:"Provoca fugues de població."},
+{id:"granges",nom:"🌾 Atacar granges",tip:"Roba menjar exterior."},
+{id:"espionatge",nom:"🕵️ Espionatge",tip:"Bonus al pròxim atac."}
+];
+const accionsDefensor=[
+{id:"muralles",nom:"🏰 Reforçar muralles",tip:"Redueix el dany entrant."},
+{id:"arquers",nom:"🏹 Arquers a les torres",tip:"Danya la força atacant."},
+{id:"racionar",nom:"🍲 Racionar menjar",tip:"Estalvia menjar; baixa població."},
+{id:"eixida",nom:"🌙 Eixida nocturna",tip:"Ataca el campament enemic."},
+{id:"magatzems",nom:"🧯 Protegir magatzems",tip:"Redueix incendis i saquejos."},
+{id:"curar",nom:"🏥 Curar ferits",tip:"Recupera força defensiva."},
+{id:"reforcos",nom:"📯 Cridar reforços",tip:"Arriben en 3 torns."},
+{id:"negociar",nom:"🕊️ Negociar",tip:"Pot acabar el setge amb pau."}
+];
+const cartesSetge=[
+{nom:"🌧️ Pluja sobre el campament",txt:"El fang frena les màquines.",fx:(a,d,n)=>{a.forca=clamp(a.forca-2);n.push("🌧️ Carta ESDE: l'atacant perd 2 força.");}},
+{nom:"🧀 Magatzem secret",txt:"Apareix una reserva amagada.",fx:(a,d,n)=>{d.menjar+=8;n.push("🧀 Carta ESDE: el defensor guanya 8 menjar.");}},
+{nom:"🐀 Rates als sacs",txt:"El gra està mossegat.",fx:(a,d,n)=>{d.menjar=clamp(d.menjar-6);n.push("🐀 Carta ESDE: el defensor perd 6 menjar.");}},
+{nom:"🗡️ Capità ferit",txt:"Un capità atacant cau.",fx:(a,d,n)=>{a.forca=clamp(a.forca-4);n.push("🗡️ Carta ESDE: l'atacant perd 4 força.");}},
+{nom:"🙏 Sermó a la muralla",txt:"La ciutat aguanta.",fx:(a,d,n)=>{d.forca+=4;n.push("🙏 Carta ESDE: el defensor guanya 4 força.");}},
+{nom:"🚪 Porta mal tancada",txt:"Una errada obri una bretxa.",fx:(a,d,n)=>{d.forca=clamp(d.forca-5);n.push("🚪 Carta ESDE: el defensor perd 5 força.");}}
+];
+let setge=null;
+function clamp(n){return Math.max(0,Math.round(n||0));}
+function dau(){return Math.floor(Math.random()*6)+1;}
+function comptaEdifici(r,id){return (r.edificis||[]).filter(x=>x===id).length;}
+function bonus(r,t){
+let b=0;
+if(t==="muralla")b+=comptaEdifici(r,"muralla")*4+comptaEdifici(r,"castell")*6;
+if(t==="torres")b+=comptaEdifici(r,"torre")*4+comptaEdifici(r,"muralla")*2;
+if(t==="hospital")b+=comptaEdifici(r,"esglesia")*3+comptaEdifici(r,"ciutat")*2;
+if(t==="espies")b+=comptaEdifici(r,"biblioteca")*3+comptaEdifici(r,"universitat")*5;
+if(t==="maquines")b+=comptaEdifici(r,"caserna")*4+comptaEdifici(r,"castell")*3;
+if(t==="prestigi")b+=comptaEdifici(r,"esglesia")*2+comptaEdifici(r,"universitat")*2+comptaEdifici(r,"ciutat")*2;
+if(t==="forca")b+=Math.floor((r.forca||0)/10);
+return b;
+}
+function mostrarSetge(){
+document.getElementById("setgePanel").style.display="block";
+omplirSelectorsSetge();
+document.getElementById("setgeArena").innerHTML='<div class="setge-log"><b>📜 Preparació:</b> tria atacant i defensor. V3 agafa menjar, força, població i edificis del tauler.</div>';
+document.getElementById("setgePanel").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function tancarSetgePro(){document.getElementById("setgePanel").style.display="none";}
+function omplirSelectorsSetge(){
+let a=document.getElementById("setgeAtacant"),d=document.getElementById("setgeDefensor");
+a.innerHTML="";d.innerHTML="";
+regnes.forEach((r,i)=>{a.innerHTML+=`<option value="${i}">${r.nom}</option>`;d.innerHTML+=`<option value="${i}">${r.nom}</option>`;});
+if(regnes.length>1)d.value="1";
+}
+function copiaRegne(i){
+let r=JSON.parse(JSON.stringify(regnes[i]));
+r.index=i;r.avantatge=0;r.reforcos=0;r.proteccio=0;r.magatzems=false;
+return r;
+}
+function comencarSetgePro(){
+let ai=parseInt(document.getElementById("setgeAtacant").value),di=parseInt(document.getElementById("setgeDefensor").value);
+if(ai===di){alert("Un regne no pot assetjar-se a ell mateix.");return;}
+setge={torn:1,maxTorns:10,iaDef:document.getElementById("setgeIA").checked,atacant:copiaRegne(ai),defensor:copiaRegne(di),accA:[],accD:[],log:[`⚔️ Comença el setge: ${regnes[ai].nom} ataca ${regnes[di].nom}.`],acabat:false,resultat:"",eventActual:null,imgActual:"01_assalt.png",imgTitol:"Comença el setge"};
+renderSetgePro();
+}
+function eti(r){
+if(!r.edificis||!r.edificis.length)return '<span class="badge">Sense edificis</span>';
+return r.edificis.map(id=>{let e=edificisDisponibles.find(x=>x.id===id);return `<span class="badge">${e?e.nom:id}</span>`}).join("");
+}
+function botoSetge(b,x){
+let arr=b==="A"?setge.accA:setge.accD;
+let disabled=setge.acabat||(b==="D"&&setge.iaDef);
+return `<button title="${x.tip}" class="${arr.includes(x.id)?'selected':''}" ${disabled?'disabled':''} onclick="toggleAccioSetge('${b}','${x.id}')">${x.nom}<div class="mini-help">${x.tip}</div></button>`;
+}
+function barraValor(label,v,max=100){
+let pct=Math.max(0,Math.min(100,(v/max)*100));
+return `<div class="stat-pill">${label} ${clamp(v)}<div style="height:8px;background:#d8bd80;border-radius:9px;margin-top:4px"><div style="height:8px;width:${pct}%;background:#7b2d1e;border-radius:9px"></div></div></div>`;
+}
+function renderSetgePro(){
+if(!setge)return;
+let a=setge.atacant,d=setge.defensor;
+document.getElementById("setgeArena").innerHTML=`<div><span class="torn-pill">Torn ${setge.torn}/${setge.maxTorns}</span><span class="torn-pill">${setge.iaDef?'🤖 Defensor IA':'👥 Defensor manual'}</span></div>
+<div class="setge-grid">
+<div class="setge-box"><h3>⚔️ ${a.nom} — Atacant</h3><div class="setge-stats">${barraValor('🍞',a.menjar)}${barraValor('⚔️',a.forca)}${barraValor('👥',a.poblacio)}</div>${eti(a)}<p><b>Tria 2 accions d'atac:</b></p><div class="setge-actions">${accionsAtacant.map(x=>botoSetge("A",x)).join("")}</div></div>
+<div class="setge-box"><h3>🛡️ ${d.nom} — Defensor</h3><div class="setge-stats">${barraValor('🍞',d.menjar)}${barraValor('⚔️',d.forca)}${barraValor('👥',d.poblacio)}</div>${eti(d)}<p><b>${setge.iaDef?'La IA triarà 2 defenses.':'Tria 2 accions de defensa:'}</b></p><div class="setge-actions">${accionsDefensor.map(x=>botoSetge("D",x)).join("")}</div></div>
+</div>
+${setge.eventActual?`<div class="event-card"><b>${setge.eventActual.nom}</b><br>${setge.eventActual.txt}</div>`:''}
+<div class="setge-visual"><img src="img-setge/${setge.imgActual||'01_assalt.png'}" onerror="this.style.display='none'"><div class="setge-caption">🖼️ ${setge.imgTitol||'Crònica visual del setge'}</div></div>
+<div class="setge-controls"><button onclick="resoldreTornSetge()" ${setge.acabat?'disabled':''}>🎲 Resoldre torn ${setge.torn}</button><button onclick="comencarSetgePro()">🔁 Reiniciar setge</button></div>
+${setge.acabat?`<div class="victoria">${setge.resultat}</div><button onclick="aplicarResultatSetge()">💾 Aplicar resultat al tauler</button>`:''}
+<div class="setge-log">${setge.log.slice().reverse().map(l=>`<div class="log-line">${l}</div>`).join("")}</div>`;
+}
+function toggleAccioSetge(b,id){
+let arr=b==="A"?setge.accA:setge.accD,p=arr.indexOf(id);
+if(p>=0)arr.splice(p,1);else{if(arr.length>=2){alert("Només pots triar 2 accions per bàndol.");return;}arr.push(id);}
+renderSetgePro();
+}
+function triaDefensaIA(){
+let d=setge.defensor,a=setge.atacant,opc=[];
+if(d.menjar<15)opc.push("racionar");
+if(a.forca>d.forca)opc.push("muralles");
+if(d.forca<18)opc.push("curar");
+if(a.menjar<20)opc.push("eixida");
+if(setge.torn>=6)opc.push("negociar");
+opc.push("arquers","magatzems","muralles","reforcos");
+let out=[];
+for(let x of opc){if(!out.includes(x)&&out.length<2)out.push(x);}
+while(out.length<2){let r=accionsDefensor[Math.floor(Math.random()*accionsDefensor.length)].id;if(!out.includes(r))out.push(r);}
+setge.accD=out;
+}
+
+function imatgePerTorn(accA,accD,notes){
+let img="01_assalt.png", titol="Assalt frontal";
+if(accA.includes("catapultes")){img="02_catapultes.png";titol="Catapultes contra la muralla";}
+if(accA.includes("subministraments")||accA.includes("granges")){img="03_subministraments.png";titol="Tall de subministraments";}
+if(accA.includes("incendi")){img="04_incendi.png";titol="Incendi nocturn";}
+if(accA.includes("tunel")){img="05_tunel.png";titol="Túnel sota la muralla";}
+if(accA.includes("espionatge")){img="06_espionatge.png";titol="Espionatge a les portes";}
+if(accD.includes("arquers")){img="07_arquers.png";titol="Arquers a les torres";}
+if(accD.includes("eixida")){img="08_eixida.png";titol="Eixida nocturna";}
+if(accD.includes("curar")){img="09_curar.png";titol="Curar ferits";}
+if(notes && notes.join(" ").toLowerCase().includes("fam")){img="10_fam.png";titol="Fam dins la ciutat";}
+return {img,titol};
+}
+function imatgeFinalSetge(){
+if(!setge||!setge.acabat)return;
+if((setge.resultat||"").includes("Victòria de l'atacant")){setge.imgActual="11_victoria_atacant.png";setge.imgTitol="Victòria de l'atacant";}
+else if((setge.resultat||"").includes("Defensa")||(setge.resultat||"").includes("ha resistit")){setge.imgActual="12_defensa.png";setge.imgTitol="Defensa heroica";}
+}
+
+function resoldreTornSetge(){
+if(!setge||setge.acabat)return;
+if(setge.iaDef)triaDefensaIA();
+if(setge.accA.length!==2||setge.accD.length!==2){alert("Tria exactament 2 accions d'atacant i 2 de defensor.");return;}
+let a=setge.atacant,d=setge.defensor,n=[];
+let accATorn=[...setge.accA], accDTorn=[...setge.accD];
+d.magatzems=false;d.proteccio=0;setge.eventActual=null;
+if(setge.torn%2===0){let carta=cartesSetge[Math.floor(Math.random()*cartesSetge.length)];setge.eventActual=carta;carta.fx(a,d,n);}
+let cA=Math.ceil(a.poblacio/10),cD=Math.ceil(d.poblacio/10);
+a.menjar=clamp(a.menjar-cA);d.menjar=clamp(d.menjar-cD);
+n.push(`🍞 Consum: ${a.nom} -${cA}; ${d.nom} -${cD} menjar.`);
+for(let id of setge.accD){
+if(id==="muralles"){d.menjar=clamp(d.menjar-1);d.proteccio=6+bonus(d,"muralla")+Math.floor(d.poblacio/20);n.push(`🏰 ${d.nom} reforça muralles: protecció +${d.proteccio}.`)}
+if(id==="racionar"){d.menjar+=Math.ceil(cD/2);d.poblacio=clamp(d.poblacio-1);n.push(`🍲 ${d.nom} raciona i conserva menjar, però perd 1 població.`)}
+if(id==="magatzems"){d.magatzems=true;n.push(`🧯 ${d.nom} protegeix magatzems.`)}
+if(id==="curar"){let rec=3+bonus(d,"hospital");d.menjar=clamp(d.menjar-2);d.forca+=rec;n.push(`🏥 ${d.nom} cura ferits: +${rec} força.`)}
+if(id==="reforcos"){d.menjar=clamp(d.menjar-2);if(!d.reforcos)d.reforcos=3;n.push(`📯 ${d.nom} demana reforços.`)}
+}
+for(let id of setge.accA){
+let type={assalt:"forca",catapultes:"maquines",subministraments:"espies",incendi:"espies",tunel:"forca",intimidar:"prestigi",granges:"forca",espionatge:"espies"}[id];
+let tir=dau()+dau()+bonus(a,type)+a.avantatge;
+let def=dau()+bonus(d,"muralla")+Math.floor(d.forca/12)+Math.floor(d.poblacio/25)+d.proteccio;
+if(id==="espionatge"){
+a.menjar=clamp(a.menjar-1);
+if(tir>=def){a.avantatge=4;n.push(`🕵️ Espionatge reeixit: ${a.nom} tindrà +4 al pròxim atac.`)}
+else{a.avantatge=0;n.push(`🕵️ Espies descoberts.`)}
+continue;
+}
+a.avantatge=0;
+if(id==="catapultes"){a.menjar=clamp(a.menjar-3);a.forca=clamp(a.forca-1)}
+if(id==="assalt")a.menjar=clamp(a.menjar-2);
+if(id==="incendi"||id==="granges")a.forca=clamp(a.forca-1);
+if(id==="tunel")a.menjar=clamp(a.menjar-2);
+if(tir>=def){
+if(id==="assalt"){d.forca=clamp(d.forca-8);d.poblacio=clamp(d.poblacio-4);a.forca=clamp(a.forca-2);n.push(`⚔️ Assalt reeixit: ${d.nom} -8 força i -4 població.`)}
+if(id==="catapultes"){let mal=8+bonus(a,"maquines");d.forca=clamp(d.forca-mal);n.push(`🪨 Catapultes: ${d.nom} -${mal} força.`);if(Math.random()<.25&&d.edificis.length){let perd=d.edificis.pop();n.push(`💥 Edifici destruït: ${perd}.`)}}
+if(id==="subministraments"){let mal=d.magatzems?4:10;d.menjar=clamp(d.menjar-mal);n.push(`🍞 Subministraments tallats: ${d.nom} -${mal} menjar.`)}
+if(id==="incendi"){let mal=d.magatzems?2:8;d.menjar=clamp(d.menjar-mal);d.poblacio=clamp(d.poblacio-2);n.push(`🔥 Incendi: ${d.nom} -${mal} menjar i -2 població.`)}
+if(id==="tunel"){d.forca=clamp(d.forca-12);n.push(`🕳️ Bretxa per túnel: ${d.nom} -12 força.`)}
+if(id==="intimidar"){d.poblacio=clamp(d.poblacio-3);n.push(`💀 Intimidació: ${d.nom} -3 població.`)}
+if(id==="granges"){let robat=d.magatzems?3:8;d.menjar=clamp(d.menjar-robat);a.menjar+=Math.ceil(robat/2);n.push(`🌾 Granges saquejades: ${d.nom} -${robat}; ${a.nom} +${Math.ceil(robat/2)} menjar.`)}
+}else{a.forca=clamp(a.forca-3);n.push(`🛡️ ${d.nom} resisteix ${id}: ${a.nom} -3 força.`)}
+}
+for(let id of setge.accD){
+if(id==="arquers"){let mal=4+bonus(d,"torres");a.forca=clamp(a.forca-mal);n.push(`🏹 Arquers: ${a.nom} -${mal} força.`)}
+if(id==="eixida"){d.forca=clamp(d.forca-1);let t=dau()+bonus(d,"forca")+bonus(d,"torres"),res=dau()+bonus(a,"forca");if(t>=res){a.forca=clamp(a.forca-7);a.menjar=clamp(a.menjar-5);n.push(`🌙 Eixida reeixida: ${a.nom} -7 força i -5 menjar.`)}else{d.forca=clamp(d.forca-5);n.push(`🌙 Eixida fracassada: ${d.nom} -5 força.`)}}
+if(id==="negociar"){let op=dau()+bonus(d,"prestigi")+Math.floor(d.menjar/20)-Math.floor(a.forca/20);if(op>=7){setge.acabat=true;setge.resultat=`🕊️ Pau negociada: ${a.nom} es retira amb tribut menor. ${d.nom} conserva la ciutat.`;d.menjar=clamp(d.menjar-5);a.menjar+=5;n.push(`🕊️ La negociació funciona.`)}}
+}
+if(a.menjar<=0){a.forca=clamp(a.forca-5);a.poblacio=clamp(a.poblacio-2);n.push(`☠️ Fam atacant: ${a.nom} -5 força i -2 població.`)}
+if(d.menjar<=0){d.forca=clamp(d.forca-4);d.poblacio=clamp(d.poblacio-5);n.push(`☠️ Fam dins la ciutat: ${d.nom} -4 força i -5 població.`)}
+if(d.reforcos>0){d.reforcos--;if(d.reforcos===0){let rf=8+bonus(d,"prestigi");d.forca+=rf;n.push(`📯 Arriben reforços: ${d.nom} +${rf} força.`)}}
+if(!setge.acabat){
+if(d.forca<=0||d.poblacio<=0){setge.acabat=true;setge.resultat=`⚔️ Victòria de l'atacant: ${a.nom} pren la ciutat de ${d.nom}.`;a.menjar+=10;d.menjar=clamp(d.menjar-15)}
+else if(a.forca<=0||a.poblacio<=0){setge.acabat=true;setge.resultat=`🛡️ Defensa heroica: ${d.nom} resisteix i ${a.nom} es retira.`;d.forca+=8;a.menjar=clamp(a.menjar-10)}
+else if(setge.torn>=setge.maxTorns){setge.acabat=true;setge.resultat=`🛡️ Setge esgotat: ${d.nom} ha resistit ${setge.maxTorns} torns.`;d.forca+=5;a.forca=clamp(a.forca-10)}
+}
+let vis=imatgePerTorn(accATorn,accDTorn,n);
+setge.imgActual=vis.img;setge.imgTitol=vis.titol;
+imatgeFinalSetge();
+setge.log.push(`<b>Torn ${setge.torn}</b><br>`+n.join("<br>"));
+setge.torn++;setge.accA=[];setge.accD=[];renderSetgePro();
+}
+function aplicarResultatSetge(){
+if(!setge||!setge.acabat)return;
+let a=setge.atacant,d=setge.defensor;
+["menjar","or","forca","poblacio"].forEach(k=>{regnes[a.index][k]=clamp(a[k]);regnes[d.index][k]=clamp(d[k]);});
+regnes[a.index].edificis=a.edificis||[];regnes[d.index].edificis=d.edificis||[];
+let hist=JSON.parse(localStorage.getItem("historialSetges")||"[]");
+hist.push({data:new Date().toLocaleString(),resultat:setge.resultat,log:setge.log});
+localStorage.setItem("historialSetges",JSON.stringify(hist));
+guardar(false);render();setge.log.push("💾 Resultat aplicat al tauler general.");renderSetgePro();alert("Resultat del setge aplicat al tauler.");
+}
+
+function pantallaCompleta(){
+  if(!document.fullscreenElement){
+    document.documentElement.requestFullscreen().catch(()=>alert("No s'ha pogut activar pantalla completa."));
+  }else{
+    document.exitFullscreen();
+  }
+}
+
+render();
+</script>
+</body>
+</html>

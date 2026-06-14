@@ -1,0 +1,11 @@
+[
+  {"id":"millionari","nom":"Qui vol ser milionari","emoji":"🏆"},
+  {"id":"pasapalabra","nom":"Pasapalabra","emoji":"🔤"},
+  {"id":"trivial","nom":"Trivials","emoji":"🧠"},
+  {"id":"escape_room","nom":"Escape Rooms","emoji":"🔐"},
+  {"id":"matematiques","nom":"Matemàtiques","emoji":"➗"},
+  {"id":"llengues","nom":"Llengües","emoji":"📚"},
+  {"id":"medi","nom":"Coneixement del Medi","emoji":"🌍"},
+  {"id":"esde","nom":"ESDE","emoji":"🏰"},
+  {"id":"professorat","nom":"Professorat","emoji":"👩‍🏫"}
+]

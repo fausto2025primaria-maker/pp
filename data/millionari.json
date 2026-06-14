@@ -1,0 +1,12 @@
+[
+  {"id":"mill_s01e01_alpha","serie":"El Gran Millonari","temporada":1,"episodi":1,"nom":"Megamix Alpha","fitxer":"apps/millionari/temporada1/mill_s01e01_alpha.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e02_beta","serie":"El Gran Millonari","temporada":1,"episodi":2,"nom":"Megamix Beta","fitxer":"apps/millionari/temporada1/mill_s01e02_beta.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e03_gamma","serie":"El Gran Millonari","temporada":1,"episodi":3,"nom":"Megamix Gamma","fitxer":"apps/millionari/temporada1/mill_s01e03_gamma.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e04_delta","serie":"El Gran Millonari","temporada":1,"episodi":4,"nom":"Megamix Delta","fitxer":"apps/millionari/temporada1/mill_s01e04_delta.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e05_epsilon","serie":"El Gran Millonari","temporada":1,"episodi":5,"nom":"Megamix Èpsilon","fitxer":"apps/millionari/temporada1/mill_s01e05_epsilon.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e06_zeta","serie":"El Gran Millonari","temporada":1,"episodi":6,"nom":"Megamix Zeta","fitxer":"apps/millionari/temporada1/mill_s01e06_zeta.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e07_eta","serie":"El Gran Millonari","temporada":1,"episodi":7,"nom":"Megamix Èta","fitxer":"apps/millionari/temporada1/mill_s01e07_eta.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e08_theta","serie":"El Gran Millonari","temporada":1,"episodi":8,"nom":"Megamix Theta","fitxer":"apps/millionari/temporada1/mill_s01e08_theta.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e09_iota","serie":"El Gran Millonari","temporada":1,"episodi":9,"nom":"Megamix Iota","fitxer":"apps/millionari/temporada1/mill_s01e09_iota.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"15 min"},
+  {"id":"mill_s01e10_gran_final","serie":"El Gran Millonari","temporada":1,"episodi":10,"nom":"La Gran Final","fitxer":"apps/millionari/temporada1/mill_s01e10_gran_final.html","categoria":"Qui vol ser milionari","curs":"5é-6é","duracio":"20 min"}
+]
