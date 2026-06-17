@@ -1,0 +1,2420 @@
+{
+  "schema": "portal_far.trivial_bossfight.v1",
+  "nom": "Trivial Boss Fight · Mode Expert",
+  "versio": "1.1-expert",
+  "idioma_base": "valencia",
+  "mode": "expert",
+  "tipus_resposta": "directa",
+  "descripcio": "Banc de preguntes molt més difícil per al Trivial Boss Fight. Pensat per a mode Final Boss o grups avançats.",
+  "boss": {
+    "id": "drac_deures_oblidats_expert",
+    "nom": "El Drac dels Deures Oblidats",
+    "vida": 500,
+    "frase_inicial": "Ara vorem si el vostre coneixement crema més que el meu foc!",
+    "asset": "assets/drac_deures.png"
+  },
+  "regles": {
+    "cors_per_equip": 3,
+    "temps_per_pregunta": 25,
+    "dany_correcta_base": 30,
+    "dany_combo": 60,
+    "combo_encerts": 3,
+    "penalitzacio_error": 1,
+    "eliminacio": true,
+    "barrejar_preguntes": true
+  },
+  "categories": [
+    "ciencia",
+    "cultura",
+    "escolar",
+    "expert_extra",
+    "gamer",
+    "geografia",
+    "historia",
+    "llengua",
+    "matematiques",
+    "natura",
+    "tecnologia"
+  ],
+  "preguntes": [
+    {
+      "id": "BF-EX-001",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el document de 1215 que limità el poder del rei d'Anglaterra?",
+      "resposta": "magnacarta",
+      "acceptades": [
+        "magna carta",
+        "magnacarta"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-002",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quin imperi tenia capital a Constantinoble després de la divisió de l'Imperi Romà?",
+      "resposta": "bizanti",
+      "acceptades": [
+        "bizantí",
+        "bizanti",
+        "bizantino"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-003",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomenava la xarxa de camins comercials entre Àsia i Europa?",
+      "resposta": "rutaseda",
+      "acceptades": [
+        "ruta de la seda",
+        "rutaseda"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-004",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quina epidèmia devastà Europa al segle XIV?",
+      "resposta": "pestanegra",
+      "acceptades": [
+        "pesta negra",
+        "pestanegra"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-005",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el procés de recuperació cristiana dels territoris musulmans a la península Ibèrica?",
+      "resposta": "reconquesta",
+      "acceptades": [
+        "reconquesta",
+        "reconquista"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-006",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quin rei conquerí València l'any 1238?",
+      "resposta": "jaumei",
+      "acceptades": [
+        "jaume i",
+        "jaumei",
+        "jaime i"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-007",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quina institució medieval regulava oficis i artesans?",
+      "resposta": "gremi",
+      "acceptades": [
+        "gremi",
+        "gremio"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-008",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomenava el sistema d'obligacions entre senyors i vassalls?",
+      "resposta": "feudalisme",
+      "acceptades": [
+        "feudalisme",
+        "feudalismo"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-009",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quina llengua era habitual en documents cultes i religiosos medievals europeus?",
+      "resposta": "llati",
+      "acceptades": [
+        "llatí",
+        "llati",
+        "latin",
+        "latín"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-010",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quin poble germànic saquejà Roma l'any 410?",
+      "resposta": "visigots",
+      "acceptades": [
+        "visigots",
+        "visigodos"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-011",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quina civilització antiga utilitzà l'escriptura cuneïforme?",
+      "resposta": "mesopotamia",
+      "acceptades": [
+        "mesopotàmia",
+        "mesopotamia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-012",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomenava el govern de tres persones a Roma?",
+      "resposta": "triumvirat",
+      "acceptades": [
+        "triumvirat",
+        "triunvirato"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-013",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quin general cartaginés creuà els Alps amb elefants?",
+      "resposta": "hannibal",
+      "acceptades": [
+        "hannibal",
+        "aníbal",
+        "anibal"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-014",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quina batalla de 1066 canvià la història d'Anglaterra?",
+      "resposta": "hastings",
+      "acceptades": [
+        "hastings"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-015",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomenava la divisió social medieval formada pels qui resaven?",
+      "resposta": "clergat",
+      "acceptades": [
+        "clergat",
+        "clero"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-016",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quina ciutat fou centre del califat andalusí?",
+      "resposta": "cordova",
+      "acceptades": [
+        "còrdova",
+        "cordova",
+        "córdoba",
+        "cordoba"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-017",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la tècnica romana de conducció d'aigua?",
+      "resposta": "aqüeducte",
+      "acceptades": [
+        "aqüeducte",
+        "aqueducte",
+        "acueducto"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-018",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quin període històric comença tradicionalment amb la caiguda de Constantinoble el 1453?",
+      "resposta": "edatmoderna",
+      "acceptades": [
+        "edat moderna",
+        "edatmoderna",
+        "edad moderna"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-019",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quin terme descriu les expedicions religioses militars cap a Terra Santa?",
+      "resposta": "croades",
+      "acceptades": [
+        "croades",
+        "cruzadas"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-020",
+      "categoria": "historia",
+      "dificultat": "expert",
+      "pregunta": "Quin poble escandinau utilitzava drakkars?",
+      "resposta": "vikings",
+      "acceptades": [
+        "víkings",
+        "vikings",
+        "vikingos"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-021",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la unitat bàsica de la vida?",
+      "resposta": "cel·lula",
+      "acceptades": [
+        "cel·lula",
+        "celula",
+        "célula"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-022",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quin orgànul cel·lular produeix energia mitjançant respiració cel·lular?",
+      "resposta": "mitocondri",
+      "acceptades": [
+        "mitocondri",
+        "mitocondria"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-023",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el pigment verd responsable de captar llum en les plantes?",
+      "resposta": "clorofil·la",
+      "acceptades": [
+        "clorofil·la",
+        "clorofila"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-024",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quina llei explica que a tota acció correspon una reacció igual i contrària?",
+      "resposta": "terceralleynewton",
+      "acceptades": [
+        "tercera llei de newton",
+        "terceralleynewton",
+        "newton"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-025",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el canvi directe de sòlid a gas?",
+      "resposta": "sublimacio",
+      "acceptades": [
+        "sublimació",
+        "sublimacio",
+        "sublimación",
+        "sublimacion"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-026",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quin gas és majoritari en l'atmosfera terrestre?",
+      "resposta": "nitrogen",
+      "acceptades": [
+        "nitrogen",
+        "nitrògen",
+        "nitrógeno",
+        "nitrogeno"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-027",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la partícula amb càrrega negativa de l'àtom?",
+      "resposta": "electro",
+      "acceptades": [
+        "electró",
+        "electro",
+        "electron",
+        "electrón"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-028",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quin científic proposà la teoria de l'evolució per selecció natural?",
+      "resposta": "darwin",
+      "acceptades": [
+        "darwin",
+        "charles darwin"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-029",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la força que s'oposa al moviment entre superfícies?",
+      "resposta": "friccio",
+      "acceptades": [
+        "fricció",
+        "friccio",
+        "fricción",
+        "friccion"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-030",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quin planeta té un sistema d'anells molt visible?",
+      "resposta": "saturn",
+      "acceptades": [
+        "saturn",
+        "saturno"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-031",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la capa de la Terra formada per roca fosa?",
+      "resposta": "mantell",
+      "acceptades": [
+        "mantell",
+        "manto"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-032",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quin procés transforma vapor d'aigua en líquid?",
+      "resposta": "condensacio",
+      "acceptades": [
+        "condensació",
+        "condensacio",
+        "condensación",
+        "condensacion"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-033",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quina magnitud mesura la quantitat de matèria d'un cos?",
+      "resposta": "massa",
+      "acceptades": [
+        "massa",
+        "masa"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-034",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quina escala mesura la intensitat dels terratrémols?",
+      "resposta": "richter",
+      "acceptades": [
+        "richter"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-035",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quin òrgan filtra la sang i produeix orina?",
+      "resposta": "ronyo",
+      "acceptades": [
+        "ronyó",
+        "ronyo",
+        "riñón",
+        "rinon"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-036",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la relació alimentària entre éssers vius?",
+      "resposta": "cadenaalimentaria",
+      "acceptades": [
+        "cadena alimentària",
+        "cadenaalimentaria",
+        "cadena alimentaria"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-037",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Quin estat de la matèria no té forma ni volum fixos?",
+      "resposta": "gas",
+      "acceptades": [
+        "gas"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-038",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la ciència que estudia els astres?",
+      "resposta": "astronomia",
+      "acceptades": [
+        "astronomia",
+        "astronomía"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-039",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el procés que fan les plantes per fabricar aliment amb llum?",
+      "resposta": "fotosintesi",
+      "acceptades": [
+        "fotosíntesi",
+        "fotosintesi",
+        "fotosíntesis",
+        "fotosintesis"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-040",
+      "categoria": "ciencia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la varietat d'éssers vius d'un ecosistema?",
+      "resposta": "biodiversitat",
+      "acceptades": [
+        "biodiversitat",
+        "biodiversidad"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-041",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el nombre que només és divisible per 1 i per ell mateix?",
+      "resposta": "primer",
+      "acceptades": [
+        "primer",
+        "primo"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-042",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quin és el mínim comú múltiple de 6 i 8?",
+      "resposta": "24",
+      "acceptades": [
+        "24",
+        "vint-i-quatre",
+        "veinticuatro"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-043",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el segment que uneix el centre d'una circumferència amb un punt de la vora?",
+      "resposta": "radi",
+      "acceptades": [
+        "radi",
+        "radio"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-044",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el doble del radi d'una circumferència?",
+      "resposta": "diametre",
+      "acceptades": [
+        "diàmetre",
+        "diametre",
+        "diámetro",
+        "diametro"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-045",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quants graus sumen els angles interiors d'un triangle?",
+      "resposta": "180",
+      "acceptades": [
+        "180",
+        "cent vuitanta",
+        "ciento ochenta"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-046",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el polígon de vuit costats?",
+      "resposta": "octogon",
+      "acceptades": [
+        "octògon",
+        "octogon",
+        "octágono",
+        "octagono"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-047",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quina operació és la inversa de la multiplicació?",
+      "resposta": "divisio",
+      "acceptades": [
+        "divisió",
+        "divisio",
+        "división",
+        "division"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-048",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el valor que s'obté sumant dades i dividint pel nombre de dades?",
+      "resposta": "mitjana",
+      "acceptades": [
+        "mitjana",
+        "media"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-049",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quin nombre falta: 3, 6, 12, 24, ...?",
+      "resposta": "48",
+      "acceptades": [
+        "48",
+        "quaranta-huit",
+        "cuarenta y ocho"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-050",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quin nombre falta: 1, 1, 2, 3, 5, 8, ...?",
+      "resposta": "13",
+      "acceptades": [
+        "13",
+        "tretze",
+        "trece"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-051",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quant és el 25% de 200?",
+      "resposta": "50",
+      "acceptades": [
+        "50",
+        "cinquanta",
+        "cincuenta"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-052",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una igualtat amb una incògnita?",
+      "resposta": "equacio",
+      "acceptades": [
+        "equació",
+        "equacio",
+        "ecuación",
+        "ecuacion"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-053",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la línia que toca una circumferència en un sol punt?",
+      "resposta": "tangent",
+      "acceptades": [
+        "tangent",
+        "tangente"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-054",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quin és el quadrat de 12?",
+      "resposta": "144",
+      "acceptades": [
+        "144",
+        "cent quaranta-quatre",
+        "ciento cuarenta y cuatro"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-055",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un angle de més de 90 graus i menys de 180?",
+      "resposta": "obtus",
+      "acceptades": [
+        "obtús",
+        "obtus",
+        "obtuso"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-056",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una fracció amb numerador major que denominador?",
+      "resposta": "impropia",
+      "acceptades": [
+        "impròpia",
+        "impropia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-057",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quin nombre romà representa 50?",
+      "resposta": "l",
+      "acceptades": [
+        "l"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-058",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quin nombre romà representa 100?",
+      "resposta": "c",
+      "acceptades": [
+        "c"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-059",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quantes arestes té un cub?",
+      "resposta": "12",
+      "acceptades": [
+        "12",
+        "dotze",
+        "doce"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-060",
+      "categoria": "matematiques",
+      "dificultat": "expert",
+      "pregunta": "Quantes cares té un cub?",
+      "resposta": "6",
+      "acceptades": [
+        "6",
+        "sis",
+        "seis"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-061",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una paraula que sona igual però té significat diferent?",
+      "resposta": "homofona",
+      "acceptades": [
+        "homòfona",
+        "homofona",
+        "homófona"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-062",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una paraula que s'escriu igual però té significats diferents?",
+      "resposta": "homonima",
+      "acceptades": [
+        "homònima",
+        "homonima",
+        "homónima"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-063",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el recurs que exagera una idea?",
+      "resposta": "hiperbole",
+      "acceptades": [
+        "hipèrbole",
+        "hiperbole",
+        "hipérbole"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-064",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena comparar dues coses usant 'com'?",
+      "resposta": "comparacio",
+      "acceptades": [
+        "comparació",
+        "comparacio",
+        "comparación"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-065",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena atribuir qualitats humanes a animals o objectes?",
+      "resposta": "personificacio",
+      "acceptades": [
+        "personificació",
+        "personificacio",
+        "personificación"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-066",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el conjunt de paraules pròpies d'una llengua?",
+      "resposta": "lexic",
+      "acceptades": [
+        "lèxic",
+        "lexic",
+        "léxico"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-067",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una paraula formada per dues o més paraules simples?",
+      "resposta": "composta",
+      "acceptades": [
+        "composta",
+        "compuesta"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-068",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el narrador que participa en la història?",
+      "resposta": "intern",
+      "acceptades": [
+        "intern",
+        "interno"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-069",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el narrador que ho sap tot?",
+      "resposta": "omniscient",
+      "acceptades": [
+        "omniscient",
+        "omnisciente"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-070",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una oració que expressa una ordre?",
+      "resposta": "imperativa",
+      "acceptades": [
+        "imperativa"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-071",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una oració que pregunta?",
+      "resposta": "interrogativa",
+      "acceptades": [
+        "interrogativa"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-072",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el signe que indica una pausa més llarga que la coma?",
+      "resposta": "punticoma",
+      "acceptades": [
+        "punt i coma",
+        "punticoma",
+        "punto y coma"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-073",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una narració breu amb ensenyament final?",
+      "resposta": "faula",
+      "acceptades": [
+        "faula",
+        "fábula",
+        "fabula"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-074",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la paraula que uneix oracions o paraules?",
+      "resposta": "conjuncio",
+      "acceptades": [
+        "conjunció",
+        "conjuncio",
+        "conjunción"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-075",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una paraula que substitueix el nom?",
+      "resposta": "pronom",
+      "acceptades": [
+        "pronom",
+        "pronombre"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-076",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la disciplina que estudia el significat de les paraules?",
+      "resposta": "semantica",
+      "acceptades": [
+        "semàntica",
+        "semantica",
+        "semántica"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-077",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un text que defensa una opinió amb arguments?",
+      "resposta": "argumentatiu",
+      "acceptades": [
+        "argumentatiu",
+        "argumentativo"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-078",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una paraula que modifica el verb?",
+      "resposta": "adverbi",
+      "acceptades": [
+        "adverbi",
+        "adverbio"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-079",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la síl·laba que sona amb més força?",
+      "resposta": "tonica",
+      "acceptades": [
+        "tònica",
+        "tonica",
+        "tónica"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-080",
+      "categoria": "llengua",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el conjunt de normes d'escriptura correcta?",
+      "resposta": "ortografia",
+      "acceptades": [
+        "ortografia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-081",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el llenguatge que estructura pàgines web?",
+      "resposta": "html",
+      "acceptades": [
+        "html"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-082",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el llenguatge que dona estil visual a una web?",
+      "resposta": "css",
+      "acceptades": [
+        "css"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-083",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el llenguatge que dona interactivitat a moltes pàgines web?",
+      "resposta": "javascript",
+      "acceptades": [
+        "javascript",
+        "js"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-084",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una col·lecció organitzada de dades?",
+      "resposta": "basedades",
+      "acceptades": [
+        "base de dades",
+        "basedades",
+        "database"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-085",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un error en un programa?",
+      "resposta": "bug",
+      "acceptades": [
+        "bug"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-086",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena corregir errors d'un programa?",
+      "resposta": "debug",
+      "acceptades": [
+        "debug",
+        "depurar"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-087",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una còpia de seguretat?",
+      "resposta": "backup",
+      "acceptades": [
+        "backup",
+        "copia de seguretat",
+        "còpia de seguretat"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-088",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un programa maliciós que pot infectar un ordinador?",
+      "resposta": "virus",
+      "acceptades": [
+        "virus"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-089",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena l'adreça d'una pàgina web?",
+      "resposta": "url",
+      "acceptades": [
+        "url"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-090",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una imatge menuda que identifica una web en la pestanya?",
+      "resposta": "favicon",
+      "acceptades": [
+        "favicon"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-091",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un arxiu de dades amb estructura clau-valor molt usat en apps?",
+      "resposta": "json",
+      "acceptades": [
+        "json"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-092",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena pujar canvis a un repositori remot?",
+      "resposta": "push",
+      "acceptades": [
+        "push"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-093",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena descarregar canvis d'un repositori remot?",
+      "resposta": "pull",
+      "acceptades": [
+        "pull"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-094",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una branca de desenvolupament en Git?",
+      "resposta": "branch",
+      "acceptades": [
+        "branch",
+        "rama"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-095",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una petició per fusionar canvis en GitHub?",
+      "resposta": "pullrequest",
+      "acceptades": [
+        "pull request",
+        "pullrequest",
+        "pr"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-096",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una xarxa privada virtual?",
+      "resposta": "vpn",
+      "acceptades": [
+        "vpn"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-097",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el procés d'amagar o codificar informació?",
+      "resposta": "xifrat",
+      "acceptades": [
+        "xifrat",
+        "cifrado"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-098",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un sistema que recomana contingut automàticament?",
+      "resposta": "algoritme",
+      "acceptades": [
+        "algoritme",
+        "algoritmo"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-099",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un model que genera text, imatges o so?",
+      "resposta": "generatiu",
+      "acceptades": [
+        "generatiu",
+        "generativo"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-100",
+      "categoria": "tecnologia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una versió publicada d'un projecte en GitHub?",
+      "resposta": "release",
+      "acceptades": [
+        "release"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-101",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una aventura curta secundària dins d'un videojoc?",
+      "resposta": "sidequest",
+      "acceptades": [
+        "side quest",
+        "sidequest"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-102",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un joc on perds progrés però cada partida és diferent?",
+      "resposta": "roguelike",
+      "acceptades": [
+        "roguelike"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-103",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una millora descarregable després del llançament?",
+      "resposta": "dlc",
+      "acceptades": [
+        "dlc"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-104",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el personatge controlat per la màquina?",
+      "resposta": "npc",
+      "acceptades": [
+        "npc"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-105",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la interfície que mostra vida, mapa o munició?",
+      "resposta": "hud",
+      "acceptades": [
+        "hud"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-106",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la moneda o punts d'experiència abreujats?",
+      "resposta": "xp",
+      "acceptades": [
+        "xp"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-107",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena pujar de nivell?",
+      "resposta": "levelup",
+      "acceptades": [
+        "level up",
+        "levelup"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-108",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena l'objecte o recompensa que cau d'un enemic?",
+      "resposta": "loot",
+      "acceptades": [
+        "loot"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-109",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un enemic final molt poderós?",
+      "resposta": "boss",
+      "acceptades": [
+        "boss"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-110",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena repetir moltes vegades una acció per aconseguir recursos?",
+      "resposta": "grindejar",
+      "acceptades": [
+        "grindejar",
+        "grind"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-111",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una zona segura on el jugador reapareix?",
+      "resposta": "spawn",
+      "acceptades": [
+        "spawn"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-112",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una errada aprofitada per fer trampes en un joc?",
+      "resposta": "exploit",
+      "acceptades": [
+        "exploit"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-113",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena modificar un joc amb contingut creat per fans?",
+      "resposta": "mod",
+      "acceptades": [
+        "mod"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-114",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un joc de rol japonés abreujat?",
+      "resposta": "jrpg",
+      "acceptades": [
+        "jrpg"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-115",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un mapa de món obert?",
+      "resposta": "openworld",
+      "acceptades": [
+        "open world",
+        "openworld"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-116",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un personatge que suporta molt de mal?",
+      "resposta": "tank",
+      "acceptades": [
+        "tank"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-117",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena fer molt de mal per segon?",
+      "resposta": "dps",
+      "acceptades": [
+        "dps"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-118",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una partida competitiva classificada?",
+      "resposta": "ranked",
+      "acceptades": [
+        "ranked",
+        "clasificatoria"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-119",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el retard entre l'acció i la resposta del joc?",
+      "resposta": "lag",
+      "acceptades": [
+        "lag"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-120",
+      "categoria": "gamer",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la caixa aleatòria de recompenses en alguns jocs?",
+      "resposta": "lootbox",
+      "acceptades": [
+        "loot box",
+        "lootbox"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-121",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quina serralada separa Espanya i França?",
+      "resposta": "pirineus",
+      "acceptades": [
+        "pirineus",
+        "pirineos"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-122",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin és el riu més cabalós del món?",
+      "resposta": "amazones",
+      "acceptades": [
+        "amazones",
+        "amazonas"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-123",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin canal uneix el Mediterrani amb el mar Roig?",
+      "resposta": "suez",
+      "acceptades": [
+        "suez"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-124",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin oceà és el més gran?",
+      "resposta": "pacific",
+      "acceptades": [
+        "pacífic",
+        "pacific",
+        "pacífico",
+        "pacifico"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-125",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quina línia imaginària marca els 0 graus de longitud?",
+      "resposta": "greenwich",
+      "acceptades": [
+        "greenwich"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-126",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la representació plana de tota la Terra?",
+      "resposta": "planisferi",
+      "acceptades": [
+        "planisferi",
+        "planisferio"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-127",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quina capital europea està travessada pel riu Tàmesi?",
+      "resposta": "londres",
+      "acceptades": [
+        "londres",
+        "london"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-128",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin país té com a capital Lisboa?",
+      "resposta": "portugal",
+      "acceptades": [
+        "portugal"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-129",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin país té com a capital Roma?",
+      "resposta": "italia",
+      "acceptades": [
+        "itàlia",
+        "italia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-130",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin riu passa per València?",
+      "resposta": "turia",
+      "acceptades": [
+        "túria",
+        "turia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-131",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una muntanya que pot expulsar lava?",
+      "resposta": "volca",
+      "acceptades": [
+        "volcà",
+        "volca",
+        "volcán",
+        "volcan"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-132",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin continent té més població?",
+      "resposta": "asia",
+      "acceptades": [
+        "àsia",
+        "asia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-133",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el punt cardinal contrari al nord?",
+      "resposta": "sud",
+      "acceptades": [
+        "sud",
+        "sur"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-134",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Quin desert és el més gran del món si comptem els deserts freds?",
+      "resposta": "antartida",
+      "acceptades": [
+        "antàrtida",
+        "antartida",
+        "antártida"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-135",
+      "categoria": "geografia",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el territori envoltat d'aigua menys per una part?",
+      "resposta": "peninsula",
+      "acceptades": [
+        "península",
+        "peninsula"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-136",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una imatge formada per peces menudes de colors?",
+      "resposta": "mosaic",
+      "acceptades": [
+        "mosaic",
+        "mosaico"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-137",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la tècnica de fer figures amb fang cuit?",
+      "resposta": "ceramica",
+      "acceptades": [
+        "ceràmica",
+        "ceramica",
+        "cerámica"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-138",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la representació del rostre d'una persona?",
+      "resposta": "retrat",
+      "acceptades": [
+        "retrat",
+        "retrato"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-139",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una pintura feta sobre una paret?",
+      "resposta": "mural",
+      "acceptades": [
+        "mural"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-140",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el conjunt de cinc línies on s'escriu la música?",
+      "resposta": "pentagrama",
+      "acceptades": [
+        "pentagrama"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-141",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la velocitat d'una peça musical?",
+      "resposta": "tempo",
+      "acceptades": [
+        "tempo"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-142",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una obra representada en un escenari?",
+      "resposta": "teatre",
+      "acceptades": [
+        "teatre",
+        "teatro"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-143",
+      "categoria": "cultura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una obra musical interpretada per orquestra?",
+      "resposta": "simfonia",
+      "acceptades": [
+        "simfonia",
+        "sinfonía",
+        "sinfonia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-144",
+      "categoria": "natura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena l'adaptació d'animals per confondre's amb l'entorn?",
+      "resposta": "camuflatge",
+      "acceptades": [
+        "camuflatge",
+        "camuflaje"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-145",
+      "categoria": "natura",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena el pas d'animals d'un lloc a un altre segons l'estació?",
+      "resposta": "migracio",
+      "acceptades": [
+        "migració",
+        "migracio",
+        "migración",
+        "migracion"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-146",
+      "categoria": "escolar",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena un esquema visual amb idees connectades?",
+      "resposta": "mapaconceptual",
+      "acceptades": [
+        "mapa conceptual",
+        "mapaconceptual"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-147",
+      "categoria": "escolar",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena la idea principal d'un text argumentatiu?",
+      "resposta": "tesi",
+      "acceptades": [
+        "tesi",
+        "tesis"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-148",
+      "categoria": "escolar",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una conclusió basada en dades?",
+      "resposta": "inferencia",
+      "acceptades": [
+        "inferència",
+        "inferencia"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-149",
+      "categoria": "escolar",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una font directa d'informació històrica?",
+      "resposta": "primaria",
+      "acceptades": [
+        "primària",
+        "primaria"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-150",
+      "categoria": "escolar",
+      "dificultat": "expert",
+      "pregunta": "Com s'anomena una pregunta que guia una investigació?",
+      "resposta": "hipotesi",
+      "acceptades": [
+        "hipòtesi",
+        "hipotesi",
+        "hipótesis"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-151",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 151: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-152",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 152: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-153",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 153: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-154",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 154: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-155",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 155: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-156",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 156: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-157",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 157: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-158",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 158: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-159",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 159: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-160",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 160: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-161",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 161: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-162",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 162: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-163",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 163: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-164",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 164: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-165",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 165: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-166",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 166: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-167",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 167: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-168",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 168: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-169",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 169: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-170",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 170: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-171",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 171: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-172",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 172: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-173",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 173: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-174",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 174: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-175",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 175: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-176",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 176: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-177",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 177: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-178",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 178: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-179",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 179: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-180",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 180: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-181",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 181: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-182",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 182: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-183",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 183: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-184",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 184: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-185",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 185: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-186",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 186: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-187",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 187: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-188",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 188: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-189",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 189: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-190",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 190: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-191",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 191: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-192",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 192: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-193",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 193: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-194",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 194: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-195",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 195: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-196",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 196: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-197",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 197: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-198",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 198: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-199",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 199: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    },
+    {
+      "id": "BF-EX-200",
+      "categoria": "expert_extra",
+      "dificultat": "expert",
+      "pregunta": "Pregunta experta de reserva número 200: escriu la paraula clau 'repte'.",
+      "resposta": "repte",
+      "acceptades": [
+        "repte"
+      ],
+      "dany": 30
+    }
+  ]
+}
