@@ -1,0 +1,2454 @@
+{
+  "schema": "portal_far.trivial_bossfight.v1",
+  "nom": "Trivial Boss Fight V1.1",
+  "versio": "1.1",
+  "idioma_base": "valencia",
+  "mode": "megamix",
+  "tipus_resposta": "directa",
+  "descripcio": "Banc Megamix real per al Trivial Boss Fight: preguntes de resposta directa amb alternatives acceptades.",
+  "boss": {
+    "id": "drac_deures_oblidats",
+    "nom": "El Drac dels Deures Oblidats",
+    "vida": 400,
+    "frase_inicial": "He vingut a devorar els vostres exàmens!",
+    "asset": "assets/drac_deures.png"
+  },
+  "regles": {
+    "equips": [
+      {
+        "id": "roig",
+        "nom": "Roig",
+        "color": "#ef4444"
+      },
+      {
+        "id": "blau",
+        "nom": "Blau",
+        "color": "#3b82f6"
+      },
+      {
+        "id": "verd",
+        "nom": "Verd",
+        "color": "#22c55e"
+      },
+      {
+        "id": "groc",
+        "nom": "Groc",
+        "color": "#facc15"
+      }
+    ],
+    "cors_per_equip": 3,
+    "temps_per_pregunta": 20,
+    "dany_correcta_base": 20,
+    "dany_combo": 40,
+    "combo_encerts": 3,
+    "penalitzacio_error": 1,
+    "eliminacio": true,
+    "barrejar_preguntes": true
+  },
+  "categories": [
+    "angles",
+    "anime",
+    "art",
+    "aula",
+    "ciencia",
+    "cinema",
+    "cultura",
+    "esport",
+    "fantasia",
+    "geografia",
+    "historia",
+    "internet",
+    "llengua",
+    "matematiques",
+    "menjar",
+    "tecnologia",
+    "videojocs"
+  ],
+  "preguntes": [
+    {
+      "id": "BF-MX-001",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Quin personatge de Nintendo porta gorra roja i bigot?",
+      "resposta": "mario",
+      "acceptades": [
+        "mario"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-002",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Com es diu el germà de Mario que sol vestir de verd?",
+      "resposta": "luigi",
+      "acceptades": [
+        "luigi"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-003",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Quin joc de blocs permet construir, picar i sobreviure?",
+      "resposta": "minecraft",
+      "acceptades": [
+        "minecraft"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-004",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Quin monstre verd de Minecraft explota quan s'acosta?",
+      "resposta": "creeper",
+      "acceptades": [
+        "creeper"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-005",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Quina consola de Microsoft comença per X?",
+      "resposta": "xbox",
+      "acceptades": [
+        "xbox"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-006",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Quin eriçó blau corre a gran velocitat?",
+      "resposta": "sonic",
+      "acceptades": [
+        "sonic"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-007",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Quin personatge rosa de Nintendo pot absorbir poders?",
+      "resposta": "kirby",
+      "acceptades": [
+        "kirby"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-008",
+      "categoria": "videojocs",
+      "dificultat": "facil",
+      "pregunta": "Quin joc de Nintendo enfronta personatges en curses amb karts?",
+      "resposta": "mariokart",
+      "acceptades": [
+        "mariokart",
+        "mario kart"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-009",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu l'heroi principal de la saga Zelda?",
+      "resposta": "link",
+      "acceptades": [
+        "link"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-010",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Quina saga té un personatge anomenat Pikachu?",
+      "resposta": "pokemon",
+      "acceptades": [
+        "pokemon",
+        "pokémon"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-011",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Quin joc de futbol amb cotxes es diu Rocket...?",
+      "resposta": "league",
+      "acceptades": [
+        "league",
+        "rocket league",
+        "rocketleague"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-012",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu el joc de deducció amb tripulants i impostors?",
+      "resposta": "amongus",
+      "acceptades": [
+        "among us",
+        "amongus"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-013",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Quin joc famós inclou brawlers i partides ràpides?",
+      "resposta": "brawlstars",
+      "acceptades": [
+        "brawl stars",
+        "brawlstars"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-014",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Quina plataforma permet crear i jugar experiències fetes per usuaris?",
+      "resposta": "roblox",
+      "acceptades": [
+        "roblox"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-015",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Quin joc de batalla inclou construcció i balls virals?",
+      "resposta": "fortnite",
+      "acceptades": [
+        "fortnite"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-016",
+      "categoria": "videojocs",
+      "dificultat": "mitjana",
+      "pregunta": "Quin vilà de Mario és una tortuga gegant amb closca de punxes?",
+      "resposta": "bowser",
+      "acceptades": [
+        "bowser"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-017",
+      "categoria": "videojocs",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una partida jugada molt ràpid per batre un rècord?",
+      "resposta": "speedrun",
+      "acceptades": [
+        "speedrun"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-018",
+      "categoria": "videojocs",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu el gènere amb mapa connectat, exploració i habilitats noves?",
+      "resposta": "metroidvania",
+      "acceptades": [
+        "metroidvania"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-019",
+      "categoria": "videojocs",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu la caixa aleatòria de recompenses en alguns jocs?",
+      "resposta": "lootbox",
+      "acceptades": [
+        "loot box",
+        "lootbox"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-020",
+      "categoria": "videojocs",
+      "dificultat": "dificil",
+      "pregunta": "Quina paraula anglesa indica l'àrea real on un atac del joc fa efecte?",
+      "resposta": "hitbox",
+      "acceptades": [
+        "hitbox"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-021",
+      "categoria": "anime",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena l'animació japonesa?",
+      "resposta": "anime",
+      "acceptades": [
+        "anime"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-022",
+      "categoria": "anime",
+      "dificultat": "facil",
+      "pregunta": "Quin ninja d'anime vesteix de taronja?",
+      "resposta": "naruto",
+      "acceptades": [
+        "naruto"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-023",
+      "categoria": "anime",
+      "dificultat": "facil",
+      "pregunta": "Quin personatge de Dragon Ball es transforma en supersaiyan?",
+      "resposta": "goku",
+      "acceptades": [
+        "goku"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-024",
+      "categoria": "anime",
+      "dificultat": "facil",
+      "pregunta": "Com es diu una persona molt aficionada a l'anime i al manga?",
+      "resposta": "otaku",
+      "acceptades": [
+        "otaku"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-025",
+      "categoria": "anime",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu el manga protagonitzat per pirates i Luffy?",
+      "resposta": "onepiece",
+      "acceptades": [
+        "one piece",
+        "onepiece"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-026",
+      "categoria": "anime",
+      "dificultat": "mitjana",
+      "pregunta": "Quin personatge de Demon Slayer porta un bambú a la boca?",
+      "resposta": "nezuko",
+      "acceptades": [
+        "nezuko"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-027",
+      "categoria": "anime",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena el còmic japonés?",
+      "resposta": "manga",
+      "acceptades": [
+        "manga"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-028",
+      "categoria": "anime",
+      "dificultat": "mitjana",
+      "pregunta": "Quin estudi japonés és famós per Totoro i Chihiro?",
+      "resposta": "ghibli",
+      "acceptades": [
+        "ghibli",
+        "studio ghibli"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-029",
+      "categoria": "anime",
+      "dificultat": "mitjana",
+      "pregunta": "Quin gènere d'anime sol tindre combats, aventura i superació?",
+      "resposta": "shonen",
+      "acceptades": [
+        "shonen",
+        "shōnen"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-030",
+      "categoria": "anime",
+      "dificultat": "mitjana",
+      "pregunta": "Quin personatge de One Piece porta barret de palla?",
+      "resposta": "luffy",
+      "acceptades": [
+        "luffy"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-031",
+      "categoria": "anime",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu el gènere on el protagonista apareix en un altre món?",
+      "resposta": "isekai",
+      "acceptades": [
+        "isekai"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-032",
+      "categoria": "anime",
+      "dificultat": "dificil",
+      "pregunta": "Quin terme japonés s'usa per a monstres gegants com Godzilla?",
+      "resposta": "kaiju",
+      "acceptades": [
+        "kaiju"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-033",
+      "categoria": "anime",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una història creada per fans d'una obra?",
+      "resposta": "fanfic",
+      "acceptades": [
+        "fanfic",
+        "fan fiction"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-034",
+      "categoria": "anime",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena disfressar-se d'un personatge d'anime, còmic o videojoc?",
+      "resposta": "cosplay",
+      "acceptades": [
+        "cosplay"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-035",
+      "categoria": "anime",
+      "dificultat": "dificil",
+      "pregunta": "Quin grup de Naruto porta núvols rojos a la capa?",
+      "resposta": "akatsuki",
+      "acceptades": [
+        "akatsuki"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-036",
+      "categoria": "anime",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una tira o còmic digital llegit en vertical?",
+      "resposta": "webtoon",
+      "acceptades": [
+        "webtoon"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-037",
+      "categoria": "internet",
+      "dificultat": "facil",
+      "pregunta": "Quina xarxa social és famosa pels vídeos curts i reptes?",
+      "resposta": "tiktok",
+      "acceptades": [
+        "tik tok",
+        "tiktok"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-038",
+      "categoria": "internet",
+      "dificultat": "facil",
+      "pregunta": "Quina plataforma és famosa pels vídeos, canals i tutorials?",
+      "resposta": "youtube",
+      "acceptades": [
+        "youtube"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-039",
+      "categoria": "internet",
+      "dificultat": "facil",
+      "pregunta": "Quina aplicació s'usa molt per enviar missatges a família i amics?",
+      "resposta": "whatsapp",
+      "acceptades": [
+        "whatsapp",
+        "wasap"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-040",
+      "categoria": "internet",
+      "dificultat": "facil",
+      "pregunta": "Quina xarxa social és famosa per fotos, històries i reels?",
+      "resposta": "instagram",
+      "acceptades": [
+        "instagram"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-041",
+      "categoria": "internet",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena una imatge divertida que es repeteix en internet?",
+      "resposta": "meme",
+      "acceptades": [
+        "meme",
+        "mem"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-042",
+      "categoria": "internet",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena un contingut que es comparteix moltíssim en internet?",
+      "resposta": "viral",
+      "acceptades": [
+        "viral"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-043",
+      "categoria": "internet",
+      "dificultat": "mitjana",
+      "pregunta": "Quina aplicació s'utilitza molt per parlar en comunitats gamer?",
+      "resposta": "discord",
+      "acceptades": [
+        "discord"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-044",
+      "categoria": "internet",
+      "dificultat": "mitjana",
+      "pregunta": "Quin codi quadrat es pot escanejar amb el mòbil?",
+      "resposta": "qr",
+      "acceptades": [
+        "qr",
+        "codi qr"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-045",
+      "categoria": "internet",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una emissió en directe per internet?",
+      "resposta": "directe",
+      "acceptades": [
+        "directe",
+        "directo",
+        "live"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-046",
+      "categoria": "internet",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una foto temporal d'Instagram?",
+      "resposta": "historia",
+      "acceptades": [
+        "història",
+        "historia",
+        "story"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-047",
+      "categoria": "internet",
+      "dificultat": "mitjana",
+      "pregunta": "Quina paraula s'usa per indicar que t'agrada una publicació?",
+      "resposta": "like",
+      "acceptades": [
+        "like"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-048",
+      "categoria": "internet",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena copiar un arxiu des d'internet al dispositiu?",
+      "resposta": "descarregar",
+      "acceptades": [
+        "descarregar",
+        "descargar"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-049",
+      "categoria": "internet",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu una persona que retransmet en directe per internet?",
+      "resposta": "streamer",
+      "acceptades": [
+        "streamer"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-050",
+      "categoria": "internet",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un personatge virtual usat per fer directes?",
+      "resposta": "vtuber",
+      "acceptades": [
+        "vtuber",
+        "v tuber"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-051",
+      "categoria": "internet",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena protegir dades personals en internet?",
+      "resposta": "privacitat",
+      "acceptades": [
+        "privacitat",
+        "privacidad"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-052",
+      "categoria": "internet",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un vídeo curt que es repeteix en bucle?",
+      "resposta": "gif",
+      "acceptades": [
+        "gif"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-053",
+      "categoria": "internet",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un repte viral que molta gent imita?",
+      "resposta": "challenge",
+      "acceptades": [
+        "challenge",
+        "repte"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-054",
+      "categoria": "internet",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena l'humor absurd propi de molts mems?",
+      "resposta": "surrealista",
+      "acceptades": [
+        "surrealista",
+        "absurd"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-055",
+      "categoria": "cinema",
+      "dificultat": "facil",
+      "pregunta": "Quin mag jove estudia a Hogwarts?",
+      "resposta": "harrypotter",
+      "acceptades": [
+        "harry potter",
+        "harrypotter"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-056",
+      "categoria": "cinema",
+      "dificultat": "facil",
+      "pregunta": "Com es diu l'escola de màgia de Harry Potter?",
+      "resposta": "hogwarts",
+      "acceptades": [
+        "hogwarts"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-057",
+      "categoria": "cinema",
+      "dificultat": "facil",
+      "pregunta": "Quin superheroi llança teranyines?",
+      "resposta": "spiderman",
+      "acceptades": [
+        "spider-man",
+        "spider man",
+        "spiderman"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-058",
+      "categoria": "cinema",
+      "dificultat": "facil",
+      "pregunta": "Quin superheroi de Marvel usa un martell anomenat Mjolnir?",
+      "resposta": "thor",
+      "acceptades": [
+        "thor"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-059",
+      "categoria": "cinema",
+      "dificultat": "facil",
+      "pregunta": "Quin heroi porta un escut amb una estrela?",
+      "resposta": "capitaamerica",
+      "acceptades": [
+        "capità amèrica",
+        "capitan america",
+        "capitán américa",
+        "capita america",
+        "capitaamerica"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-060",
+      "categoria": "cinema",
+      "dificultat": "mitjana",
+      "pregunta": "Quin robot menut de Star Wars fa sons i acompanya els herois?",
+      "resposta": "r2d2",
+      "acceptades": [
+        "r2-d2",
+        "r2d2"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-061",
+      "categoria": "cinema",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu el mestre jedi verd i menut?",
+      "resposta": "yoda",
+      "acceptades": [
+        "yoda"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-062",
+      "categoria": "cinema",
+      "dificultat": "mitjana",
+      "pregunta": "Quin vilà de Star Wars respira molt fort i porta casc negre?",
+      "resposta": "darthvader",
+      "acceptades": [
+        "darth vader",
+        "darthvader"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-063",
+      "categoria": "cinema",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu el regne gelat d'Elsa en Frozen?",
+      "resposta": "arendelle",
+      "acceptades": [
+        "arendelle"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-064",
+      "categoria": "cinema",
+      "dificultat": "mitjana",
+      "pregunta": "Quin superheroi és milionari i porta armadura tecnològica?",
+      "resposta": "ironman",
+      "acceptades": [
+        "iron man",
+        "ironman"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-065",
+      "categoria": "cinema",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu l'anell principal de la saga de Tolkien?",
+      "resposta": "unic",
+      "acceptades": [
+        "únic",
+        "unic",
+        "anell únic",
+        "anell unic"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-066",
+      "categoria": "cinema",
+      "dificultat": "dificil",
+      "pregunta": "Quin personatge diu 'jo soc el teu pare' en Star Wars?",
+      "resposta": "darthvader",
+      "acceptades": [
+        "darth vader",
+        "darthvader"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-067",
+      "categoria": "cinema",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu l'escola on estudia Wednesday Addams?",
+      "resposta": "nevermore",
+      "acceptades": [
+        "nevermore"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-068",
+      "categoria": "cinema",
+      "dificultat": "dificil",
+      "pregunta": "Quin personatge de Pixar és un robot compactador de fem?",
+      "resposta": "walle",
+      "acceptades": [
+        "wall-e",
+        "walle"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-069",
+      "categoria": "cinema",
+      "dificultat": "dificil",
+      "pregunta": "Quin és el cognom de la família protagonista d'Encanto?",
+      "resposta": "madrigal",
+      "acceptades": [
+        "madrigal"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-070",
+      "categoria": "cinema",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu el món digital de Tron?",
+      "resposta": "grid",
+      "acceptades": [
+        "grid",
+        "la grid"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-071",
+      "categoria": "ciencia",
+      "dificultat": "facil",
+      "pregunta": "Quin planeta és el més gran del sistema solar?",
+      "resposta": "jupiter",
+      "acceptades": [
+        "júpiter",
+        "jupiter"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-072",
+      "categoria": "ciencia",
+      "dificultat": "facil",
+      "pregunta": "Quin planeta és conegut com el planeta roig?",
+      "resposta": "mart",
+      "acceptades": [
+        "mart",
+        "marte"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-073",
+      "categoria": "ciencia",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena l'estrela del nostre sistema solar?",
+      "resposta": "sol",
+      "acceptades": [
+        "sol"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-074",
+      "categoria": "ciencia",
+      "dificultat": "facil",
+      "pregunta": "Quin satèl·lit natural gira al voltant de la Terra?",
+      "resposta": "lluna",
+      "acceptades": [
+        "lluna",
+        "luna"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-075",
+      "categoria": "ciencia",
+      "dificultat": "facil",
+      "pregunta": "Quin òrgan bombeja la sang?",
+      "resposta": "cor",
+      "acceptades": [
+        "cor",
+        "corazón",
+        "corazon"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-076",
+      "categoria": "ciencia",
+      "dificultat": "mitjana",
+      "pregunta": "Quin gas necessitem respirar per viure?",
+      "resposta": "oxigen",
+      "acceptades": [
+        "oxigen",
+        "oxígeno"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-077",
+      "categoria": "ciencia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena el canvi d'aigua líquida a vapor?",
+      "resposta": "evaporacio",
+      "acceptades": [
+        "evaporació",
+        "evaporacio",
+        "evaporación",
+        "evaporacion"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-078",
+      "categoria": "ciencia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena la força que atrau els objectes cap a la Terra?",
+      "resposta": "gravetat",
+      "acceptades": [
+        "gravetat",
+        "gravedad"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-079",
+      "categoria": "ciencia",
+      "dificultat": "mitjana",
+      "pregunta": "Quin estat de la matèria té forma i volum propis?",
+      "resposta": "solid",
+      "acceptades": [
+        "sòlid",
+        "solid",
+        "sólido",
+        "solido"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-080",
+      "categoria": "ciencia",
+      "dificultat": "mitjana",
+      "pregunta": "Quina capa d'aire envolta la Terra?",
+      "resposta": "atmosfera",
+      "acceptades": [
+        "atmosfera",
+        "atmósfera"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-081",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Quin procés fan les plantes per fabricar aliment amb llum?",
+      "resposta": "fotosintesi",
+      "acceptades": [
+        "fotosíntesi",
+        "fotosintesi",
+        "fotosíntesis",
+        "fotosintesis"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-082",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena la varietat d'éssers vius d'un ecosistema?",
+      "resposta": "biodiversitat",
+      "acceptades": [
+        "biodiversitat",
+        "biodiversidad"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-083",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el procés pel qual l'aigua circula per la natura?",
+      "resposta": "cicle",
+      "acceptades": [
+        "cicle",
+        "ciclo",
+        "cicle de l'aigua",
+        "ciclo del agua"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-084",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Quin metall és líquid a temperatura ambient?",
+      "resposta": "mercuri",
+      "acceptades": [
+        "mercuri",
+        "mercurio"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-085",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un animal que menja plantes?",
+      "resposta": "herbivor",
+      "acceptades": [
+        "herbívor",
+        "herbivor",
+        "herbívoro",
+        "herbivoro"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-086",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un animal que caça altres animals?",
+      "resposta": "depredador",
+      "acceptades": [
+        "depredador"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-087",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un animal sense columna vertebral?",
+      "resposta": "invertebrat",
+      "acceptades": [
+        "invertebrat",
+        "invertebrado"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-088",
+      "categoria": "ciencia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena la capacitat del cos per defensar-se de malalties?",
+      "resposta": "immunitat",
+      "acceptades": [
+        "immunitat",
+        "inmunidad"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-089",
+      "categoria": "historia",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena el període entre l'Edat Antiga i l'Edat Moderna?",
+      "resposta": "edatmitjana",
+      "acceptades": [
+        "edat mitjana",
+        "edatmitjana",
+        "edad media"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-090",
+      "categoria": "historia",
+      "dificultat": "facil",
+      "pregunta": "Quina civilització construïa piràmides al costat del Nil?",
+      "resposta": "egipte",
+      "acceptades": [
+        "egipte",
+        "egipto"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-091",
+      "categoria": "historia",
+      "dificultat": "facil",
+      "pregunta": "Quina civilització antiga tenia gladiadors i emperadors?",
+      "resposta": "roma",
+      "acceptades": [
+        "roma",
+        "romana",
+        "romans"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-092",
+      "categoria": "historia",
+      "dificultat": "facil",
+      "pregunta": "Com es diu una construcció defensiva amb muralles i torres?",
+      "resposta": "castell",
+      "acceptades": [
+        "castell",
+        "castillo"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-093",
+      "categoria": "historia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena el sistema medieval basat en senyors i vassalls?",
+      "resposta": "feudalisme",
+      "acceptades": [
+        "feudalisme",
+        "feudalismo"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-094",
+      "categoria": "historia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomenaven els guerrers medievals amb armadura i cavall?",
+      "resposta": "cavallers",
+      "acceptades": [
+        "cavallers",
+        "caballeros"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-095",
+      "categoria": "historia",
+      "dificultat": "mitjana",
+      "pregunta": "Quin riu era fonamental per a l'Antic Egipte?",
+      "resposta": "nil",
+      "acceptades": [
+        "nil",
+        "nilo"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-096",
+      "categoria": "historia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena l'edifici on vivien molts monjos en l'Edat Mitjana?",
+      "resposta": "monestir",
+      "acceptades": [
+        "monestir",
+        "monasterio"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-097",
+      "categoria": "historia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena un atac llarg a una ciutat emmurallada?",
+      "resposta": "setge",
+      "acceptades": [
+        "setge",
+        "asedio"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-098",
+      "categoria": "historia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena l'escut amb símbols d'un regne o família?",
+      "resposta": "heraldica",
+      "acceptades": [
+        "heràldica",
+        "heraldica"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-099",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomenava la plaça principal de les ciutats romanes?",
+      "resposta": "forum",
+      "acceptades": [
+        "fòrum",
+        "forum",
+        "foro"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-100",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Quin poble del nord d'Europa feia incursions amb vaixells llargs?",
+      "resposta": "vikings",
+      "acceptades": [
+        "víkings",
+        "vikings",
+        "vikingos"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-101",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un acord entre regnes per no atacar-se?",
+      "resposta": "treva",
+      "acceptades": [
+        "treva",
+        "tregua"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-102",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una ruta per intercanviar productes entre regnes?",
+      "resposta": "ruta comercial",
+      "acceptades": [
+        "ruta comercial",
+        "rutacomercial"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-103",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una aventura dins d'una cova o castell ple de perills?",
+      "resposta": "masmorra",
+      "acceptades": [
+        "masmorra",
+        "mazmorra"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-104",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Quin poble va fundar moltes colònies comercials al Mediterrani antic?",
+      "resposta": "fenicis",
+      "acceptades": [
+        "fenicis",
+        "fenicios"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-105",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena l'escriptura de l'Antic Egipte amb símbols?",
+      "resposta": "jeroglifics",
+      "acceptades": [
+        "jeroglífics",
+        "jeroglifics",
+        "jeroglíficos",
+        "jeroglificos"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-106",
+      "categoria": "historia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomenava el recinte romà on lluitaven gladiadors?",
+      "resposta": "amfiteatre",
+      "acceptades": [
+        "amfiteatre",
+        "anfiteatro"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-107",
+      "categoria": "geografia",
+      "dificultat": "facil",
+      "pregunta": "Quin és el continent on està Espanya?",
+      "resposta": "europa",
+      "acceptades": [
+        "europa"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-108",
+      "categoria": "geografia",
+      "dificultat": "facil",
+      "pregunta": "Com es diu la capital d'Espanya?",
+      "resposta": "madrid",
+      "acceptades": [
+        "madrid"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-109",
+      "categoria": "geografia",
+      "dificultat": "facil",
+      "pregunta": "Quin país té forma de bota?",
+      "resposta": "italia",
+      "acceptades": [
+        "itàlia",
+        "italia"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-110",
+      "categoria": "geografia",
+      "dificultat": "facil",
+      "pregunta": "Quin mar banya la costa valenciana?",
+      "resposta": "mediterrani",
+      "acceptades": [
+        "mediterrani",
+        "mediterráneo",
+        "mediterraneo"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-111",
+      "categoria": "geografia",
+      "dificultat": "mitjana",
+      "pregunta": "Quin oceà està a l'oest d'Europa?",
+      "resposta": "atlantic",
+      "acceptades": [
+        "atlàntic",
+        "atlantic",
+        "atlántico",
+        "atlantico"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-112",
+      "categoria": "geografia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una elevació gran del terreny?",
+      "resposta": "muntanya",
+      "acceptades": [
+        "muntanya",
+        "montaña"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-113",
+      "categoria": "geografia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena el conjunt de muntanyes alineades?",
+      "resposta": "serralada",
+      "acceptades": [
+        "serralada",
+        "cordillera"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-114",
+      "categoria": "geografia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una massa d'aigua envoltada de terra?",
+      "resposta": "llac",
+      "acceptades": [
+        "llac",
+        "lago"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-115",
+      "categoria": "geografia",
+      "dificultat": "dificil",
+      "pregunta": "Quin és el riu més llarg de la península Ibèrica?",
+      "resposta": "tajo",
+      "acceptades": [
+        "tajo",
+        "tejo"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-116",
+      "categoria": "geografia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena la línia imaginària que divideix la Terra en hemisferis nord i sud?",
+      "resposta": "equador",
+      "acceptades": [
+        "equador",
+        "ecuador"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-117",
+      "categoria": "geografia",
+      "dificultat": "dificil",
+      "pregunta": "Quin país té com a capital París?",
+      "resposta": "franca",
+      "acceptades": [
+        "frança",
+        "franca",
+        "francia"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-118",
+      "categoria": "geografia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el territori envoltat d'aigua per totes parts?",
+      "resposta": "illa",
+      "acceptades": [
+        "illa",
+        "isla"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-119",
+      "categoria": "geografia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el territori envoltat d'aigua menys per una part?",
+      "resposta": "peninsula",
+      "acceptades": [
+        "península",
+        "peninsula"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-120",
+      "categoria": "geografia",
+      "dificultat": "dificil",
+      "pregunta": "Quin continent és conegut pel Sàhara i el Nil?",
+      "resposta": "africa",
+      "acceptades": [
+        "àfrica",
+        "africa"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-121",
+      "categoria": "matematiques",
+      "dificultat": "facil",
+      "pregunta": "Quant fan 7 per 8?",
+      "resposta": "56",
+      "acceptades": [
+        "56"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-122",
+      "categoria": "matematiques",
+      "dificultat": "facil",
+      "pregunta": "Quant fan 9 per 9?",
+      "resposta": "81",
+      "acceptades": [
+        "81"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-123",
+      "categoria": "matematiques",
+      "dificultat": "facil",
+      "pregunta": "Quant fan 100 dividit entre 4?",
+      "resposta": "25",
+      "acceptades": [
+        "25",
+        "vint-i-cinc",
+        "veinticinco"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-124",
+      "categoria": "matematiques",
+      "dificultat": "facil",
+      "pregunta": "Quants centímetres té un metre?",
+      "resposta": "100",
+      "acceptades": [
+        "100",
+        "cent"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-125",
+      "categoria": "matematiques",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena una figura de tres costats?",
+      "resposta": "triangle",
+      "acceptades": [
+        "triangle",
+        "triángulo",
+        "triangulo"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-126",
+      "categoria": "matematiques",
+      "dificultat": "mitjana",
+      "pregunta": "Quants graus té un angle recte?",
+      "resposta": "90",
+      "acceptades": [
+        "90",
+        "noranta"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-127",
+      "categoria": "matematiques",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena la part de dalt d'una fracció?",
+      "resposta": "numerador",
+      "acceptades": [
+        "numerador"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-128",
+      "categoria": "matematiques",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena la part de baix d'una fracció?",
+      "resposta": "denominador",
+      "acceptades": [
+        "denominador"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-129",
+      "categoria": "matematiques",
+      "dificultat": "mitjana",
+      "pregunta": "Si el doble d'un nombre és 18, quin és el nombre?",
+      "resposta": "9",
+      "acceptades": [
+        "9",
+        "nou",
+        "nueve"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-130",
+      "categoria": "matematiques",
+      "dificultat": "mitjana",
+      "pregunta": "Quin nombre falta: 2, 4, 8, 16, ...?",
+      "resposta": "32",
+      "acceptades": [
+        "32",
+        "trenta-dos",
+        "treinta y dos"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-131",
+      "categoria": "matematiques",
+      "dificultat": "mitjana",
+      "pregunta": "Quin nombre falta: 5, 10, 20, 40, ...?",
+      "resposta": "80",
+      "acceptades": [
+        "80",
+        "huitanta",
+        "ochenta"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-132",
+      "categoria": "matematiques",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena la distància al voltant d'una figura?",
+      "resposta": "perimetre",
+      "acceptades": [
+        "perímetre",
+        "perimetre",
+        "perímetro",
+        "perimetro"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-133",
+      "categoria": "matematiques",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el nombre de vegades que apareix una dada?",
+      "resposta": "frequencia",
+      "acceptades": [
+        "freqüència",
+        "frequencia",
+        "frecuencia"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-134",
+      "categoria": "matematiques",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el valor central d'una sèrie ordenada?",
+      "resposta": "mediana",
+      "acceptades": [
+        "mediana"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-135",
+      "categoria": "matematiques",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el valor que més es repeteix?",
+      "resposta": "moda",
+      "acceptades": [
+        "moda"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-136",
+      "categoria": "matematiques",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena dividir un tot en 100 parts iguals?",
+      "resposta": "percentatge",
+      "acceptades": [
+        "percentatge",
+        "porcentaje"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-137",
+      "categoria": "matematiques",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una figura de quatre costats iguals i quatre angles rectes?",
+      "resposta": "quadrat",
+      "acceptades": [
+        "quadrat",
+        "cuadrado"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-138",
+      "categoria": "matematiques",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el resultat d'una multiplicació?",
+      "resposta": "producte",
+      "acceptades": [
+        "producte",
+        "producto"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-139",
+      "categoria": "llengua",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena la paraula que indica una acció?",
+      "resposta": "verb",
+      "acceptades": [
+        "verb",
+        "verbo"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-140",
+      "categoria": "llengua",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena la paraula que posa nom a persones, animals o coses?",
+      "resposta": "substantiu",
+      "acceptades": [
+        "substantiu",
+        "sustantivo",
+        "nom"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-141",
+      "categoria": "llengua",
+      "dificultat": "facil",
+      "pregunta": "Quin signe s'usa al final d'una pregunta?",
+      "resposta": "interrogant",
+      "acceptades": [
+        "interrogant",
+        "interrogació",
+        "interrogacion",
+        "interrogación"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-142",
+      "categoria": "llengua",
+      "dificultat": "facil",
+      "pregunta": "Quina lletra és la primera de l'abecedari?",
+      "resposta": "a",
+      "acceptades": [
+        "a"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-143",
+      "categoria": "llengua",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una paraula que significa el contrari d'una altra?",
+      "resposta": "antonim",
+      "acceptades": [
+        "antònim",
+        "antonim",
+        "antónimo",
+        "antonimo"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-144",
+      "categoria": "llengua",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una paraula que significa quasi el mateix que una altra?",
+      "resposta": "sinonim",
+      "acceptades": [
+        "sinònim",
+        "sinonim",
+        "sinónimo",
+        "sinonimo"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-145",
+      "categoria": "llengua",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena un text que conta una història?",
+      "resposta": "narracio",
+      "acceptades": [
+        "narració",
+        "narracio",
+        "narración",
+        "narracion"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-146",
+      "categoria": "llengua",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una paraula que acompanya el substantiu i el descriu?",
+      "resposta": "adjectiu",
+      "acceptades": [
+        "adjectiu",
+        "adjetivo"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-147",
+      "categoria": "llengua",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una explicació oral davant de la classe?",
+      "resposta": "exposicio",
+      "acceptades": [
+        "exposició",
+        "exposicio",
+        "exposición",
+        "exposicion"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-148",
+      "categoria": "llengua",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el conjunt de versos d'un poema?",
+      "resposta": "estrofa",
+      "acceptades": [
+        "estrofa"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-149",
+      "categoria": "llengua",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena repetir sons al final dels versos?",
+      "resposta": "rima",
+      "acceptades": [
+        "rima"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-150",
+      "categoria": "llengua",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena un llibre que explica la vida d'una persona?",
+      "resposta": "biografia",
+      "acceptades": [
+        "biografia"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-151",
+      "categoria": "llengua",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una persona que escriu poemes?",
+      "resposta": "poeta",
+      "acceptades": [
+        "poeta"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-152",
+      "categoria": "llengua",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena corregir un text per millorar-lo?",
+      "resposta": "revisar",
+      "acceptades": [
+        "revisar"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-153",
+      "categoria": "llengua",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu 'murciélago' en valencià?",
+      "resposta": "rata penada",
+      "acceptades": [
+        "rata penada",
+        "ratapenada"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-154",
+      "categoria": "llengua",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu 'desayuno' en valencià?",
+      "resposta": "desdejuni",
+      "acceptades": [
+        "desdejuni",
+        "esmorzar"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-155",
+      "categoria": "angles",
+      "dificultat": "facil",
+      "pregunta": "Com es diu 'gos' en anglés?",
+      "resposta": "dog",
+      "acceptades": [
+        "dog"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-156",
+      "categoria": "angles",
+      "dificultat": "facil",
+      "pregunta": "Com es diu 'gat' en anglés?",
+      "resposta": "cat",
+      "acceptades": [
+        "cat"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-157",
+      "categoria": "angles",
+      "dificultat": "facil",
+      "pregunta": "Com es diu 'roig' en anglés?",
+      "resposta": "red",
+      "acceptades": [
+        "red"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-158",
+      "categoria": "angles",
+      "dificultat": "facil",
+      "pregunta": "Com es diu 'blau' en anglés?",
+      "resposta": "blue",
+      "acceptades": [
+        "blue"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-159",
+      "categoria": "angles",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu 'escola' en anglés?",
+      "resposta": "school",
+      "acceptades": [
+        "school"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-160",
+      "categoria": "angles",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu 'amic' en anglés?",
+      "resposta": "friend",
+      "acceptades": [
+        "friend"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-161",
+      "categoria": "angles",
+      "dificultat": "mitjana",
+      "pregunta": "Com es diu 'aigua' en anglés?",
+      "resposta": "water",
+      "acceptades": [
+        "water"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-162",
+      "categoria": "angles",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu 'coneixement' en anglés?",
+      "resposta": "knowledge",
+      "acceptades": [
+        "knowledge"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-163",
+      "categoria": "angles",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu 'pregunta' en anglés?",
+      "resposta": "question",
+      "acceptades": [
+        "question"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-164",
+      "categoria": "angles",
+      "dificultat": "dificil",
+      "pregunta": "Com es diu 'escut' en anglés?",
+      "resposta": "shield",
+      "acceptades": [
+        "shield"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-165",
+      "categoria": "cultura",
+      "dificultat": "facil",
+      "pregunta": "Quin instrument té tecles blanques i negres?",
+      "resposta": "piano",
+      "acceptades": [
+        "piano"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-166",
+      "categoria": "cultura",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena una obra representada en un escenari?",
+      "resposta": "teatre",
+      "acceptades": [
+        "teatre",
+        "teatro"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-167",
+      "categoria": "cultura",
+      "dificultat": "facil",
+      "pregunta": "Quin instrument té cordes i es toca sovint amb pua?",
+      "resposta": "guitarra",
+      "acceptades": [
+        "guitarra"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-168",
+      "categoria": "cultura",
+      "dificultat": "facil",
+      "pregunta": "Quin instrument es toca colpejant-lo amb baquetes?",
+      "resposta": "tambor",
+      "acceptades": [
+        "tambor"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-169",
+      "categoria": "cultura",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena l'art de dibuixar històries amb vinyetes?",
+      "resposta": "comic",
+      "acceptades": [
+        "còmic",
+        "comic"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-170",
+      "categoria": "cultura",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una cançó que representa un país o equip?",
+      "resposta": "himne",
+      "acceptades": [
+        "himne",
+        "himno"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-171",
+      "categoria": "cultura",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una persona que dirigeix una orquestra?",
+      "resposta": "director",
+      "acceptades": [
+        "director"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-172",
+      "categoria": "cultura",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una cançó sense veu, només amb instruments?",
+      "resposta": "instrumental",
+      "acceptades": [
+        "instrumental"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-173",
+      "categoria": "cultura",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena la velocitat d'una peça musical?",
+      "resposta": "tempo",
+      "acceptades": [
+        "tempo"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-174",
+      "categoria": "cultura",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el conjunt de cinc línies on s'escriu la música?",
+      "resposta": "pentagrama",
+      "acceptades": [
+        "pentagrama"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-175",
+      "categoria": "esport",
+      "dificultat": "facil",
+      "pregunta": "Quin esport es juga amb una pilota i dues porteries?",
+      "resposta": "futbol",
+      "acceptades": [
+        "fútbol",
+        "futbol"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-176",
+      "categoria": "esport",
+      "dificultat": "facil",
+      "pregunta": "Quin esport es juga amb cistelles i botant la pilota?",
+      "resposta": "basquet",
+      "acceptades": [
+        "bàsquet",
+        "basquet",
+        "basket",
+        "baloncesto"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-177",
+      "categoria": "esport",
+      "dificultat": "facil",
+      "pregunta": "Quin esport usa una raqueta i una pilota groga?",
+      "resposta": "tenis",
+      "acceptades": [
+        "tenis",
+        "tennis"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-178",
+      "categoria": "esport",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena el torneig mundial de seleccions de futbol?",
+      "resposta": "mundial",
+      "acceptades": [
+        "mundial"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-179",
+      "categoria": "esport",
+      "dificultat": "mitjana",
+      "pregunta": "Quants jugadors té un equip de futbol al camp?",
+      "resposta": "11",
+      "acceptades": [
+        "11",
+        "onze"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-180",
+      "categoria": "esport",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una cursa de 42 quilòmetres aproximadament?",
+      "resposta": "marato",
+      "acceptades": [
+        "marató",
+        "marato",
+        "maratón",
+        "maraton"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-181",
+      "categoria": "art",
+      "dificultat": "facil",
+      "pregunta": "Quin color s'obté barrejant blau i groc?",
+      "resposta": "verd",
+      "acceptades": [
+        "verd",
+        "verde"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-182",
+      "categoria": "art",
+      "dificultat": "facil",
+      "pregunta": "Quin color s'obté barrejant roig i blau?",
+      "resposta": "morat",
+      "acceptades": [
+        "morat",
+        "morado",
+        "violeta"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-183",
+      "categoria": "art",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una pintura feta sobre una paret?",
+      "resposta": "mural",
+      "acceptades": [
+        "mural"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-184",
+      "categoria": "art",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena la tècnica de fer figures amb fang?",
+      "resposta": "ceramica",
+      "acceptades": [
+        "ceràmica",
+        "ceramica"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-185",
+      "categoria": "menjar",
+      "dificultat": "facil",
+      "pregunta": "Quina fruita valenciana és taronja i dolça?",
+      "resposta": "taronja",
+      "acceptades": [
+        "taronja",
+        "naranja"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-186",
+      "categoria": "menjar",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena el menjar típic valencià fet amb arròs i safrà?",
+      "resposta": "paella",
+      "acceptades": [
+        "paella"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-187",
+      "categoria": "tecnologia",
+      "dificultat": "facil",
+      "pregunta": "Quin aparell usem per telefonar, fer fotos i navegar per internet?",
+      "resposta": "mobil",
+      "acceptades": [
+        "mòbil",
+        "mobil",
+        "móvil",
+        "movil"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-188",
+      "categoria": "tecnologia",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena una paraula secreta per entrar a un compte?",
+      "resposta": "contrasenya",
+      "acceptades": [
+        "contrasenya",
+        "contraseña",
+        "password"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-189",
+      "categoria": "tecnologia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena una intel·ligència creada per ordinadors?",
+      "resposta": "ia",
+      "acceptades": [
+        "ia",
+        "intel·ligència artificial",
+        "inteligencia artificial"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-190",
+      "categoria": "tecnologia",
+      "dificultat": "mitjana",
+      "pregunta": "Quin dispositiu serveix per escriure a l'ordinador?",
+      "resposta": "teclat",
+      "acceptades": [
+        "teclat",
+        "teclado"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-191",
+      "categoria": "tecnologia",
+      "dificultat": "mitjana",
+      "pregunta": "Quin dispositiu movem amb la mà per controlar el cursor?",
+      "resposta": "ratoli",
+      "acceptades": [
+        "ratolí",
+        "ratoli",
+        "ratón",
+        "raton"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-192",
+      "categoria": "tecnologia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena el conjunt d'instruccions d'un programa?",
+      "resposta": "codi",
+      "acceptades": [
+        "codi",
+        "código",
+        "codigo"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-193",
+      "categoria": "aula",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena la persona que ensenya en classe?",
+      "resposta": "mestre",
+      "acceptades": [
+        "mestre",
+        "mestra",
+        "maestro"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-194",
+      "categoria": "aula",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena una prova escrita per valorar coneixements?",
+      "resposta": "examen",
+      "acceptades": [
+        "examen"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-195",
+      "categoria": "aula",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena treballar junts per aconseguir un objectiu?",
+      "resposta": "cooperar",
+      "acceptades": [
+        "cooperar"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-196",
+      "categoria": "aula",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena la capacitat d'organitzar el propi aprenentatge?",
+      "resposta": "autonomia",
+      "acceptades": [
+        "autonomia",
+        "autonomía"
+      ],
+      "dany": 25
+    },
+    {
+      "id": "BF-MX-197",
+      "categoria": "fantasia",
+      "dificultat": "facil",
+      "pregunta": "Quina criatura fantàstica llança foc i té ales?",
+      "resposta": "drac",
+      "acceptades": [
+        "drac",
+        "dragón",
+        "dragon"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-198",
+      "categoria": "fantasia",
+      "dificultat": "facil",
+      "pregunta": "Com s'anomena un mag amb vareta i encanteris?",
+      "resposta": "bruixot",
+      "acceptades": [
+        "bruixot",
+        "mago"
+      ],
+      "dany": 15
+    },
+    {
+      "id": "BF-MX-199",
+      "categoria": "fantasia",
+      "dificultat": "mitjana",
+      "pregunta": "Com s'anomena un objecte amb poder màgic?",
+      "resposta": "amulet",
+      "acceptades": [
+        "amulet",
+        "amuleto"
+      ],
+      "dany": 20
+    },
+    {
+      "id": "BF-MX-200",
+      "categoria": "fantasia",
+      "dificultat": "dificil",
+      "pregunta": "Com s'anomena una espasa famosa dins d'una llegenda?",
+      "resposta": "excalibur",
+      "acceptades": [
+        "excalibur"
+      ],
+      "dany": 25
+    }
+  ]
+}
