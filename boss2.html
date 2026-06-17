@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trivial Boss Fight Expert · Portal Far</title>
+<style>
+:root{
+  --bg:#050814;
+  --gold:#ff3d3d;
+  --red:#ef4444;
+  --green:#22c55e;
+  --blue:#3b82f6;
+  --yellow:#facc15;
+  --purple:#a855f7;
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --panel:rgba(15,23,42,.82);
+  --line:rgba(255,255,255,.18);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% 10%,rgba(239,68,68,.28),transparent 30%),
+    radial-gradient(circle at 80% 0%,rgba(168,85,247,.20),transparent 32%),
+    linear-gradient(180deg,#24030a,#050814 58%,#020205);
+  overflow-x:hidden;
+}
+body.flash-good{animation:flashGood .35s ease}
+body.flash-bad{animation:flashBad .35s ease}
+@keyframes flashGood{0%,100%{box-shadow:inset 0 0 0 transparent}50%{box-shadow:inset 0 0 90px rgba(34,197,94,.65)}}
+@keyframes flashBad{0%,100%{box-shadow:inset 0 0 0 transparent}50%{box-shadow:inset 0 0 100px rgba(239,68,68,.75)}}
+
+.app{width:min(1440px,100%);margin:0 auto;padding:18px}
+.header{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 18px;border:1px solid rgba(245,196,94,.25);border-radius:22px;
+  background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(15,23,42,.58));
+  box-shadow:0 20px 50px rgba(0,0,0,.42)
+}
+.title h1{
+  margin:0;font-size:clamp(28px,4vw,56px);line-height:.95;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;text-shadow:0 5px 18px #000,0 0 30px rgba(245,196,94,.25)
+}
+.title p{margin:6px 0 0;color:#e2e8f0;font-weight:800}
+.topActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+button{
+  border:0;border-radius:15px;padding:13px 16px;font-weight:900;cursor:pointer;
+  box-shadow:0 5px 0 rgba(0,0,0,.35);transition:.12s;font-size:15px
+}
+button:hover{transform:translateY(-2px);filter:brightness(1.06)}
+button:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.35)}
+.primary{background:var(--gold);color:#1f1300}
+.secondary{background:#ffffff18;color:white;border:1px solid rgba(255,255,255,.24)}
+.danger{background:var(--red);color:white}
+.ok{background:var(--green);color:white}
+.smallBtn{padding:9px 11px;font-size:13px;border-radius:12px}
+
+.layout{margin-top:18px;display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+@media(max-width:980px){.layout{grid-template-columns:1fr}.header{flex-direction:column;text-align:center}.topActions{justify-content:center}}
+
+.battle{
+  min-height:700px;position:relative;overflow:hidden;border-radius:28px;
+  border:1px solid rgba(245,196,94,.30);
+  background:#0f172a url("assets/arena_bossfight.png") center/cover no-repeat;
+  box-shadow:0 24px 70px rgba(0,0,0,.62), inset 0 0 150px rgba(0,0,0,.55)
+}
+.battle:before{
+  content:"";position:absolute;inset:0;background:
+    linear-gradient(180deg,rgba(2,6,23,.25),rgba(2,6,23,.15) 40%,rgba(2,6,23,.88)),
+    radial-gradient(circle at 50% 45%,transparent 0 25%,rgba(0,0,0,.28) 70%);
+  pointer-events:none
+}
+.bossTop{position:absolute;top:18px;left:20px;right:20px;z-index:3;display:grid;gap:10px}
+.bossName{
+  text-align:center;font-size:clamp(20px,3vw,36px);font-weight:1000;letter-spacing:2px;
+  color:#fff7cc;text-shadow:0 4px 14px #000,0 0 18px rgba(245,196,94,.45)
+}
+.hpWrap{
+  position:relative;display:flex;align-items:center;gap:12px;padding:10px 12px;
+  background:rgba(2,6,23,.78);border:2px solid rgba(245,196,94,.45);border-radius:999px;
+  box-shadow:inset 0 0 30px rgba(0,0,0,.6),0 10px 30px rgba(0,0,0,.4)
+}
+.hpIcon{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 2px 3px #000)}
+.hpOuter{
+  flex:1;height:28px;border-radius:999px;background:#111827;border:2px solid rgba(255,255,255,.30);
+  overflow:hidden;box-shadow:inset 0 0 12px #000
+}
+.hpInner{
+  height:100%;width:100%;background:linear-gradient(90deg,#ef4444,#f97316,#facc15);
+  border-radius:999px;box-shadow:0 0 20px rgba(239,68,68,.8);transition:width .45s ease
+}
+.hpNumber{font-weight:1000;min-width:105px;text-align:right;color:white}
+.hpAsset{
+  position:absolute;inset:-18px -25px;object-fit:fill;width:calc(100% + 50px);height:calc(100% + 36px);
+  opacity:.18;pointer-events:none;mix-blend-mode:screen
+}
+
+.bossStage{position:absolute;inset:120px 20px 165px;z-index:2;display:flex;align-items:center;justify-content:center}
+.boss{
+  max-width:min(72%,560px);max-height:100%;object-fit:contain;
+  filter:drop-shadow(0 22px 25px rgba(0,0,0,.75)) drop-shadow(0 0 24px rgba(239,68,68,.24));
+  transform-origin:center bottom
+}
+.boss.hit{animation:bossHit .45s ease}.boss.attack{animation:bossAttack .55s ease}
+@keyframes bossHit{0%,100%{transform:translateX(0) scale(1)}20%{transform:translateX(-14px) scale(1.03)}45%{transform:translateX(14px) scale(.99)}70%{transform:translateX(-8px) scale(1.02)}}
+@keyframes bossAttack{0%,100%{transform:scale(1)}40%{transform:scale(1.10) translateY(-10px)}65%{transform:scale(1.04) translateY(0)}}
+.hitFx{position:absolute;z-index:4;width:210px;opacity:0;pointer-events:none;transform:scale(.7)}
+.hitFx.show{animation:hitFx .6s ease}
+@keyframes hitFx{0%{opacity:0;transform:scale(.3) rotate(-18deg)}22%{opacity:1;transform:scale(1.1) rotate(8deg)}100%{opacity:0;transform:scale(1.7) rotate(20deg)}}
+
+.teams{
+  position:absolute;left:18px;right:18px;bottom:18px;z-index:4;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px
+}
+@media(max-width:700px){.teams{grid-template-columns:repeat(2,1fr)}.battle{min-height:760px}.bossStage{inset:135px 20px 230px}}
+.team{
+  border:2px solid rgba(255,255,255,.18);border-radius:18px;padding:11px;
+  background:rgba(2,6,23,.80);box-shadow:0 10px 26px rgba(0,0,0,.45);transition:.2s
+}
+.team.active{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.55),0 0 25px rgba(245,196,94,.35)}
+.team.dead{opacity:.36;filter:grayscale(1)}
+.teamHeader{display:flex;align-items:center;gap:8px;font-weight:1000;letter-spacing:1px}
+.dot{width:15px;height:15px;border-radius:50%}
+.roig .dot{background:#ef4444}.blau .dot{background:#3b82f6}.verd .dot{background:#22c55e}.groc .dot{background:#facc15}
+.hearts{display:flex;gap:4px;margin-top:8px;min-height:28px}
+.hearts img{width:27px;height:27px;object-fit:contain;filter:drop-shadow(0 2px 2px #000)}
+.comboMini{font-size:12px;color:#cbd5e1;font-weight:900;margin-top:6px}
+
+.panel{
+  border-radius:28px;border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(180deg,rgba(15,23,42,.92),rgba(2,6,23,.88));
+  box-shadow:0 24px 70px rgba(0,0,0,.45);padding:18px
+}
+.turnBadge{display:inline-block;padding:8px 13px;border-radius:999px;color:#111827;background:var(--gold);font-weight:1000;margin-bottom:12px}
+.questionMeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 9px;font-size:12px;font-weight:900;color:#e2e8f0;text-transform:uppercase}
+.pill img{width:20px;height:20px;object-fit:contain}
+.question{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-left:8px solid var(--gold);
+  border-radius:20px;padding:18px;min-height:160px;display:flex;align-items:center;
+  font-size:clamp(22px,2.7vw,32px);line-height:1.18;font-weight:1000;text-shadow:0 4px 10px #000
+}
+.answerRow{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+input{
+  flex:1;min-width:210px;border:3px solid rgba(245,196,94,.25);border-radius:16px;
+  padding:14px;background:#f8fafc;color:#0f172a;font-size:20px;font-weight:900
+}
+.timerBox{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.timer{font-size:44px;font-weight:1000;color:#fff7cc;text-shadow:0 0 18px rgba(245,196,94,.35),0 5px 14px #000}
+.timer.warn{color:#fecaca;animation:pulse .6s infinite alternate}
+@keyframes pulse{to{transform:scale(1.08)}}
+.stats{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:12px;text-align:center}
+.stat b{display:block;font-size:28px;color:var(--gold)}
+.stat span{font-size:12px;color:#cbd5e1;font-weight:900}
+.log{margin-top:14px;background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:12px;max-height:210px;overflow:auto}
+.log h3{margin:0 0 8px;color:var(--gold)}
+.logItem{padding:8px 0;border-top:1px dashed rgba(255,255,255,.14);color:#e2e8f0;font-weight:800}
+.feedback{margin-top:12px;min-height:46px;font-size:28px;font-weight:1000;text-align:center;text-transform:uppercase;text-shadow:0 5px 14px #000}
+.feedback.good{color:#86efac}.feedback.bad{color:#fecaca}.feedback.combo{color:#fde68a}
+
+.overlay{
+  position:fixed;inset:0;z-index:99;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.82)
+}
+.overlay.show{display:flex}
+.endBox{
+  width:min(960px,96vw);min-height:min(610px,86vh);border-radius:28px;border:2px solid rgba(245,196,94,.45);
+  box-shadow:0 30px 90px rgba(0,0,0,.8);padding:26px;text-align:center;position:relative;overflow:hidden;
+  background:#020617 center/cover no-repeat
+}
+.endBox:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.72));pointer-events:none}
+.endContent{position:relative;z-index:2;margin-top:250px;background:rgba(2,6,23,.72);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:18px}
+.endBox h2{margin:0 0 10px;font-size:clamp(32px,6vw,66px);color:var(--gold);text-shadow:0 6px 20px #000}
+.endBox p{font-size:18px;color:#e2e8f0;font-weight:900}
+.endStats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.endStats .pill{font-size:14px}
+.loader{
+  position:fixed;inset:0;z-index:120;background:#020617;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px
+}
+.loader.hidden{display:none}
+.loaderBox{max-width:650px}
+.loaderBox h2{color:var(--gold);font-size:42px;margin:0 0 12px}
+.loaderBox p{color:#cbd5e1;font-weight:800}
+
+.expertSeal{
+  display:inline-block;
+  margin-left:10px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#7f1d1d,#ef4444);
+  color:white;
+  font-size:14px;
+  font-weight:1000;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 0 18px rgba(239,68,68,.45);
+}
+
+</style>
+</head>
+<body>
+<div class="loader" id="loader">
+  <div class="loaderBox">
+    <h2>TRIVIAL BOSS FIGHT · MODE EXPERT</h2>
+    <p>Carregant preguntes EXPERT...</p>
+    <button class="primary" onclick="forceStart()">Entrar igualment</button>
+  </div>
+</div>
+
+<div class="app">
+  <header class="header">
+    <div class="title">
+      <h1>Trivial Boss Fight <span class="expertSeal">EXPERT</span></h1>
+      <p>MODE EXPERT · 200 preguntes difícils · boss 500 HP · 25 segons · dany alt.</p>
+    </div>
+    <div class="topActions">
+      <button class="primary" onclick="startGame()">Començar combat</button>
+      <button class="secondary" onclick="skipQuestion()">Passar pregunta</button>
+      <button class="secondary" onclick="showAnswer()">Resposta</button>
+      <button class="danger" onclick="resetGame()">Reiniciar</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="battle">
+      <div class="bossTop">
+        <div class="bossName" id="bossName">EL DRAC DELS DEURES OBLIDATS</div>
+        <div class="hpWrap">
+          <img src="assets/hp_frame.png" class="hpAsset" alt="">
+          <img src="assets/heart.png" class="hpIcon" alt="vida">
+          <div class="hpOuter"><div class="hpInner" id="hpInner"></div></div>
+          <div class="hpNumber" id="hpNumber">400 / 400 HP</div>
+        </div>
+      </div>
+
+      <div class="bossStage">
+        <img src="assets/drac_deures.png" class="boss" id="boss" alt="Drac dels Deures Oblidats">
+        <img src="assets/hit.png" class="hitFx" id="hitFx" alt="">
+      </div>
+
+      <div class="teams" id="teams"></div>
+    </section>
+
+    <section class="panel">
+      <div class="turnBadge" id="turnBadge">TORN: EQUIP ROIG</div>
+      <div class="questionMeta">
+        <span class="pill"><img src="assets/sword.png" alt=""> <span id="qCat">MEGAMIX</span></span>
+        <span class="pill"><img src="assets/shield.png" alt=""> <span id="qDif">NORMAL</span></span>
+        <span class="pill">Pregunta <span id="qCount">1</span>/<span id="qTotal">200</span></span>
+      </div>
+      <div class="question" id="questionText">Carregant pregunta...</div>
+      <div class="answerRow">
+        <input id="answer" placeholder="Escriu la resposta..." onkeydown="if(event.key==='Enter')checkAnswer()">
+        <button class="ok" onclick="checkAnswer()">Respondre</button>
+      </div>
+
+      <div class="timerBox">
+        <div>
+          <strong>Temps</strong><br>
+          <span style="color:#cbd5e1;font-weight:800">20 segons per torn</span>
+        </div>
+        <div class="timer" id="timer">20</div>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <div class="stats">
+        <div class="stat"><b id="hits">0</b><span>Encerts</span></div>
+        <div class="stat"><b id="fails">0</b><span>Errades</span></div>
+        <div class="stat"><b id="combo">0/3</b><span>Combo</span></div>
+      </div>
+
+      <div class="log">
+        <h3>Registre de combat</h3>
+        <div id="combatLog">
+          <div class="logItem">🐉 El drac rugeix: “He vingut a devorar els vostres exàmens!”</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="overlay" id="endOverlay">
+  <div class="endBox" id="endBox">
+    <div class="endContent">
+      <h2 id="endTitle">VICTÒRIA</h2>
+      <p id="endText">Heu derrotat el drac!</p>
+      <div class="endStats" id="endStats"></div>
+      <button class="primary" onclick="resetGame()">Tornar a jugar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const FALLBACK = {
+  boss:{nom:"El Drac dels Deures Oblidats",vida:400,frase:"He vingut a devorar els vostres exàmens!"},
+  regles:{equips:4,cors_per_equip:3,dany_correcta:20,dany_combo:40,combo_encerts:3,penalitzacio_error:1},
+  preguntes:[
+    {pregunta:"Quin planeta és el més gran del sistema solar?",resposta:"jupiter",acceptades:["jupiter","júpiter"],categoria:"ciencia",dificultat:"facil"},
+    {pregunta:"Quin personatge de Nintendo porta gorra roja i bigot?",resposta:"mario",acceptades:["mario"],categoria:"videojocs",dificultat:"facil"}
+  ]
+};
+
+let DATA = FALLBACK;
+let MAX_HP = 400;
+let DAMAGE = 20;
+let COMBO_DAMAGE = 40;
+let COMBO_NEEDED = 3;
+let MAX_TIME = 20;
+
+let bossHp = MAX_HP;
+let active = 0;
+let timer = MAX_TIME;
+let timerInterval = null;
+let hits = 0;
+let fails = 0;
+let started = false;
+let deck = [];
+let qIndex = 0;
+let currentQuestion = FALLBACK.preguntes[0];
+
+const teams = [
+  {name:"ROIG", cls:"roig", hearts:3, combo:0, alive:true, hits:0, fails:0},
+  {name:"BLAU", cls:"blau", hearts:3, combo:0, alive:true, hits:0, fails:0},
+  {name:"VERD", cls:"verd", hearts:3, combo:0, alive:true, hits:0, fails:0},
+  {name:"GROC", cls:"groc", hearts:3, combo:0, alive:true, hits:0, fails:0}
+];
+
+async function init(){
+  try{
+    const res = await fetch("preguntes_bossfight_mode_expert.json", {cache:"no-store"});
+    if(!res.ok) throw new Error("No s'ha pogut carregar el JSON");
+    DATA = await res.json();
+  }catch(e){
+    console.warn(e);
+    DATA = FALLBACK;
+    addLog("⚠️ No s'ha pogut carregar el JSON. S'usa banc intern de prova.");
+  }
+  applyConfig();
+  newDeck();
+  nextQuestion(false);
+  document.getElementById("loader").classList.add("hidden");
+  render();
+}
+function forceStart(){
+  DATA = FALLBACK;
+  applyConfig();
+  newDeck();
+  nextQuestion(false);
+  document.getElementById("loader").classList.add("hidden");
+  render();
+}
+function applyConfig(){
+  MAX_HP = DATA.boss?.vida || 400;
+  DAMAGE = DATA.regles?.dany_correcta || 20;
+  COMBO_DAMAGE = DATA.regles?.dany_combo || 40;
+  COMBO_NEEDED = DATA.regles?.combo_encerts || 3;
+  MAX_TIME = DATA.regles?.temps_per_pregunta || 20;
+  bossHp = MAX_HP;
+  document.getElementById("bossName").textContent=(DATA.boss?.nom || "El Drac dels Deures Oblidats").toUpperCase();
+  teams.forEach(t=>{t.hearts=DATA.regles?.cors_per_equip||3;t.combo=0;t.alive=true;t.hits=0;t.fails=0});
+}
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+function newDeck(){
+  deck = shuffle(DATA.preguntes || FALLBACK.preguntes);
+  qIndex = 0;
+  document.getElementById("qTotal").textContent = deck.length;
+}
+function normalize(s){
+  return (s||"").toLowerCase().trim()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[’']/g,"")
+    .replace(/[^a-z0-9ñç·]+/gi,"");
+}
+function renderTeams(){
+  const wrap=document.getElementById("teams");
+  wrap.innerHTML="";
+  teams.forEach((t,i)=>{
+    const div=document.createElement("div");
+    div.className=`team ${t.cls} ${i===active&&t.alive?"active":""} ${!t.alive?"dead":""}`;
+    const hearts = Array.from({length:t.hearts},()=>'<img src="assets/heart.png" alt="cor">').join("");
+    div.innerHTML = `
+      <div class="teamHeader"><span class="dot"></span> EQUIP ${t.name}</div>
+      <div class="hearts">${hearts || "☠️ ELIMINAT"}</div>
+      <div class="comboMini">Combo: ${t.combo}/${COMBO_NEEDED} · Encerts: ${t.hits}</div>
+    `;
+    wrap.appendChild(div);
+  });
+}
+function render(){
+  document.getElementById("hpInner").style.width = Math.max(0,(bossHp/MAX_HP)*100)+"%";
+  document.getElementById("hpNumber").textContent = `${Math.max(0,bossHp)} / ${MAX_HP} HP`;
+  document.getElementById("turnBadge").textContent = `TORN: EQUIP ${teams[active].name}`;
+  document.getElementById("hits").textContent = hits;
+  document.getElementById("fails").textContent = fails;
+  document.getElementById("combo").textContent = `${teams[active].combo}/${COMBO_NEEDED}`;
+  document.getElementById("timer").textContent = timer;
+  document.getElementById("timer").classList.toggle("warn", timer<=5);
+  renderTeams();
+}
+function addLog(text){
+  const log=document.getElementById("combatLog");
+  const item=document.createElement("div");
+  item.className="logItem";
+  item.innerHTML=text;
+  log.prepend(item);
+  while(log.children.length>8) log.removeChild(log.lastChild);
+}
+function startGame(){
+  if(started) return;
+  started = true;
+  clearInterval(timerInterval);
+  timer = MAX_TIME;
+  timerInterval = setInterval(()=>{
+    timer--;
+    if(timer<=0){ wrongAnswer("⏳ Temps esgotat"); }
+    render();
+  },1000);
+  document.getElementById("answer").focus();
+  render();
+}
+function nextQuestion(clear=true){
+  if(deck.length===0) newDeck();
+  if(qIndex >= deck.length) newDeck();
+  currentQuestion = deck[qIndex++];
+  document.getElementById("questionText").textContent = currentQuestion.pregunta;
+  document.getElementById("qCat").textContent = currentQuestion.categoria || "MEGAMIX";
+  document.getElementById("qDif").textContent = (currentQuestion.dificultat || "NORMAL") + " · " + (currentQuestion.dany || DAMAGE) + " HP";
+  document.getElementById("qCount").textContent = qIndex;
+  if(clear) document.getElementById("answer").value="";
+}
+function nextTeam(){
+  const alive = teams.map((t,i)=>t.alive?i:null).filter(x=>x!==null);
+  if(alive.length===0){ endGame(false); return; }
+  for(let step=1; step<=teams.length; step++){
+    const n=(active+step)%teams.length;
+    if(teams[n].alive){ active=n; break; }
+  }
+  timer=MAX_TIME;
+  nextQuestion(true);
+  document.getElementById("answer").focus();
+  render();
+}
+function checkAnswer(){
+  if(!started) startGame();
+  const ans=normalize(document.getElementById("answer").value);
+  const accepted=(currentQuestion.acceptades && currentQuestion.acceptades.length ? currentQuestion.acceptades : [currentQuestion.resposta]).map(normalize);
+  if(accepted.includes(ans)) correctAnswer();
+  else wrongAnswer("🔥 Fallada!");
+}
+function correctAnswer(){
+  const t=teams[active];
+  t.combo++;
+  t.hits++;
+  hits++;
+  let dmg=currentQuestion.dany || DAMAGE;
+  let comboText="";
+  if(t.combo>=COMBO_NEEDED){
+    dmg=COMBO_DAMAGE;
+    t.combo=0;
+    comboText=" ⚡ <strong>COMBO!</strong>";
+    document.getElementById("feedback").className="feedback combo";
+    document.getElementById("feedback").textContent="COMBO! ATAC ESPECIAL!";
+  } else {
+    document.getElementById("feedback").className="feedback good";
+    document.getElementById("feedback").textContent="CRÍTIC!";
+  }
+  bossHp -= dmg;
+  showHit();
+  flash("flash-good");
+  addLog(`⚔️ Equip ${t.name} encerta: <em>${currentQuestion.resposta}</em>. Drac -${dmg} HP.${comboText}`);
+  if(bossHp<=0){ bossHp=0; render(); endGame(true); return; }
+  render();
+  setTimeout(nextTeam,750);
+}
+function wrongAnswer(label){
+  if(!started) return;
+  const t=teams[active];
+  fails++;
+  t.fails++;
+  t.combo=0;
+  t.hearts--;
+  flash("flash-bad");
+  const boss=document.getElementById("boss");
+  boss.classList.remove("attack"); void boss.offsetWidth; boss.classList.add("attack");
+  document.getElementById("feedback").className="feedback bad";
+  document.getElementById("feedback").textContent=label;
+  addLog(`🔥 Equip ${t.name} falla. Resposta: <strong>${currentQuestion.resposta}</strong>. El drac lleva 1 ❤️.`);
+  if(t.hearts<=0){
+    t.hearts=0; t.alive=false;
+    addLog(`☠️ Equip ${t.name} eliminat.`);
+  }
+  const alive = teams.filter(x=>x.alive).length;
+  render();
+  if(alive===0){ endGame(false); return; }
+  setTimeout(nextTeam,1050);
+}
+function skipQuestion(){
+  if(!started) startGame();
+  addLog(`⏭️ Pregunta passada. Era: <strong>${currentQuestion.resposta}</strong>.`);
+  nextQuestion(true);
+  timer=MAX_TIME;
+  render();
+}
+function showAnswer(){
+  addLog(`👀 Solució de la pregunta actual: <strong>${currentQuestion.resposta}</strong>.`);
+}
+function showHit(){
+  const hit=document.getElementById("hitFx");
+  hit.style.left = "52%";
+  hit.style.top = "40%";
+  hit.classList.remove("show"); void hit.offsetWidth; hit.classList.add("show");
+  const boss=document.getElementById("boss");
+  boss.classList.remove("hit"); void boss.offsetWidth; boss.classList.add("hit");
+}
+function flash(cls){
+  document.body.classList.remove("flash-good","flash-bad");
+  void document.body.offsetWidth;
+  document.body.classList.add(cls);
+  setTimeout(()=>document.body.classList.remove(cls),380);
+}
+function getMVP(){
+  return [...teams].sort((a,b)=>b.hits-a.hits || a.fails-b.fails)[0];
+}
+function endGame(victory){
+  started=false;
+  clearInterval(timerInterval);
+  const mvp=getMVP();
+  const endBox=document.getElementById("endBox");
+  endBox.style.backgroundImage = victory ? 'url("assets/victory.png")' : 'url("assets/defeat.png")';
+  document.getElementById("endTitle").textContent = victory ? "🏆 DRAC DERROTAT" : "☠️ DERROTA";
+  document.getElementById("endText").textContent = victory
+    ? `Heu vençut el Drac dels Deures Oblidats. MVP: Equip ${mvp.name}.`
+    : `El drac ha devorat tots els equips. MVP de resistència: Equip ${mvp.name}.`;
+  document.getElementById("endStats").innerHTML = `
+    <span class="pill">⚔️ Encerts: ${hits}</span>
+    <span class="pill">🔥 Errades: ${fails}</span>
+    <span class="pill">🐉 HP final: ${bossHp}</span>
+    <span class="pill">⭐ MVP: ${mvp.name}</span>
+  `;
+  document.getElementById("endOverlay").classList.add("show");
+}
+function resetGame(){
+  bossHp=MAX_HP; active=0; timer=MAX_TIME; hits=0; fails=0; started=false;
+  clearInterval(timerInterval);
+  teams.forEach(t=>{t.hearts=DATA.regles?.cors_per_equip||3;t.combo=0;t.alive=true;t.hits=0;t.fails=0});
+  newDeck();
+  nextQuestion(true);
+  document.getElementById("feedback").textContent="";
+  document.getElementById("feedback").className="feedback";
+  document.getElementById("answer").value="";
+  document.getElementById("combatLog").innerHTML='<div class="logItem">🐉 El drac rugeix: “He vingut a devorar els vostres exàmens!”</div>';
+  document.getElementById("endOverlay").classList.remove("show");
+  render();
+}
+init();
+</script>
+</body>
+</html>
