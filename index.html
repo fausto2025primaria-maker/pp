@@ -1,110 +1,85 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Far · Apps Educatives</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Assassinat a Sant Marcel·lí V9</title>
 <style>
-:root{--bg:#050811;--gold:#f5c45e;--text:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,.13);--accent:#f5c45e}
+:root{--bg:#09111f;--panel:#121c31;--text:#f4f7ff;--muted:#9eb0d0;--accent:#ffd54a;--danger:#ff3b4f;--ok:#52e08b;--blue:#47b7ff}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);min-height:100vh;overflow-x:hidden;background:#07101f;background-image:radial-gradient(circle at 18% 8%,rgba(245,196,94,.18),transparent 24%),radial-gradient(circle at 85% 12%,rgba(96,165,250,.14),transparent 25%),radial-gradient(circle at 50% 105%,rgba(34,197,94,.10),transparent 35%),linear-gradient(180deg,#10213d 0%,#07101f 48%,#030711 100%);background-attachment:fixed}
-body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.11)' stroke-width='2'%3E%3Cpath d='M45 65h64v42H45zM60 80h34M60 94h24'/%3E%3Cpath d='M308 55l28 49h-56z'/%3E%3Cpath d='M318 74h-12M324 88h-22'/%3E%3Ccircle cx='78' cy='294' r='32'/%3E%3Cpath d='M78 262v64M46 294h64'/%3E%3Cpath d='M250 270c18-22 48-22 66 0-18 22-48 22-66 0z'/%3E%3Ccircle cx='283' cy='270' r='9'/%3E%3Cpath d='M188 126l18-32 18 32 36 7-25 27 4 37-33-16-33 16 4-37-25-27z'/%3E%3Cpath d='M42 185h78M81 148v78M338 171c-16 18-16 36 0 54 16-18 16-36 0-54z'/%3E%3C/g%3E%3C/svg%3E");background-size:420px 420px;opacity:.28;filter:drop-shadow(0 0 10px rgba(245,196,94,.10))}
-body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.045) 0 1px,transparent 1px 86px),radial-gradient(circle,rgba(255,255,255,.16) 0 1px,transparent 1.5px);background-size:86px 86px,130px 130px;opacity:.22;animation:stars 28s linear infinite}
-@keyframes stars{from{background-position:0 0,0 0}to{background-position:80px 80px,120px 240px}}
-a{color:inherit}.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 30px;background:linear-gradient(to bottom,rgba(2,6,23,.96),rgba(2,6,23,.66));backdrop-filter:blur(14px);border-bottom:1px solid rgba(245,196,94,.18);box-shadow:0 18px 45px rgba(0,0,0,.35)}
-.logo{text-decoration:none;font-size:25px;font-weight:900;letter-spacing:4px;color:var(--gold);text-shadow:0 0 18px rgba(245,196,94,.32)}.logo span{display:block;font-size:10px;letter-spacing:5px;color:#cbd5e1;text-align:center;text-shadow:none}.nav{display:flex;gap:10px;flex-wrap:wrap}.nav a{text-decoration:none;padding:9px 12px;border:1px solid transparent;border-radius:999px;color:#dbeafe;font-weight:800;font-size:14px;background:rgba(255,255,255,.035);transition:.18s}.nav a:hover{border-color:var(--accent);color:white;background:rgba(255,255,255,.10);box-shadow:0 0 24px color-mix(in srgb,var(--accent),transparent 60%)}.search{min-width:260px;width:30%}.search input{width:100%;padding:12px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(15,23,42,.82);color:white;font-weight:800;outline:none;box-shadow:inset 0 0 20px rgba(0,0,0,.25)}.search input:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent),transparent 82%)}
-.hero{min-height:590px;display:flex;align-items:flex-end;padding:46px 44px;position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.50),rgba(0,0,0,.10)),var(--hero) center/cover no-repeat;border-bottom:1px solid rgba(245,196,94,.18);overflow:hidden}.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 24% 70%,rgba(245,196,94,.20),transparent 28%),linear-gradient(to top,rgba(2,4,10,.95),transparent 35%)}.hero:after{content:"";position:absolute;inset:-10%;z-index:-1;background:linear-gradient(115deg,transparent 0 20%,rgba(255,255,255,.055) 32%,transparent 45% 100%);animation:heroLight 9s ease-in-out infinite;opacity:.75}@keyframes heroLight{0%,100%{transform:translateX(-12%)}50%{transform:translateX(12%)}}
-.heroBox{max-width:790px;animation:rise .8s ease both}.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-weight:900;letter-spacing:2.3px;text-transform:uppercase;background:rgba(0,0,0,.42);border:1px solid color-mix(in srgb,var(--accent),transparent 55%);padding:9px 13px;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.35)}.kicker:before,.kicker:after{content:"✦";color:#fff1b8}.hero h1{font-size:82px;line-height:.9;margin:14px 0 14px;letter-spacing:2px;background:linear-gradient(180deg,#fff7cc 0%,#f5c45e 42%,#b87318 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 6px 24px #000,0 0 34px rgba(245,196,94,.34);filter:drop-shadow(0 4px 0 rgba(0,0,0,.55))}.hero p{font-size:21px;color:#eef2ff;line-height:1.45;max-width:680px;text-shadow:0 4px 18px #000;background:linear-gradient(90deg,rgba(0,0,0,.40),rgba(0,0,0,.10));padding:14px 16px;border-left:3px solid var(--accent);border-radius:0 16px 16px 0}.btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}.btn{border:0;border-radius:15px;padding:14px 21px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-block;transition:.18s}.btn.play{background:var(--accent);color:#111827}.btn.info{background:rgba(255,255,255,.16);color:white;border:1px solid rgba(255,255,255,.22);box-shadow:0 14px 34px rgba(0,0,0,.35)}.btn:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(0,0,0,.42)}
-
-.intro{max-width:1320px;margin:34px auto 28px;padding:34px 28px;text-align:center;position:relative;overflow:hidden;border:1px solid rgba(245,196,94,.22);border-radius:30px;background:linear-gradient(180deg,rgba(15,23,42,.72),rgba(2,6,23,.48));box-shadow:0 28px 70px rgba(0,0,0,.46),inset 0 0 60px rgba(245,196,94,.045);backdrop-filter:blur(10px);animation:rise .75s ease both}.intro:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 50% 50%,rgba(245,196,94,.20),transparent 35%);opacity:.7;pointer-events:none}.intro>*{position:relative}.intro .kicker{margin-bottom:12px}.intro h1{font-size:76px;line-height:.9;margin:10px 0 14px;letter-spacing:3px;background:linear-gradient(180deg,#fff7cc 0%,#f5c45e 45%,#b87318 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 6px 24px #000,0 0 34px rgba(245,196,94,.34);filter:drop-shadow(0 4px 0 rgba(0,0,0,.55))}.intro p{font-size:20px;line-height:1.45;max-width:760px;margin:0 auto 22px;color:#eef2ff;text-shadow:0 4px 18px #000}.intro .btns{justify-content:center;margin-top:0}
-main{padding:28px 34px 58px;position:relative}.sectionTitle{max-width:1320px;margin:0 auto 24px;text-align:center}.sectionTitle .ornament{color:var(--gold);letter-spacing:10px;text-shadow:0 0 20px rgba(245,196,94,.45)}.sectionTitle h2{font-size:34px;margin:6px 0 5px;letter-spacing:2px;text-shadow:0 6px 20px #000}.sectionTitle p{margin:0;color:#cbd5e1;font-weight:800}.mainGrid{display:grid;grid-template-columns:repeat(3,minmax(220px,1fr));gap:24px;max-width:1320px;margin:auto;perspective:1200px}.bigCard{height:575px;border-radius:26px;overflow:hidden;position:relative;text-decoration:none;background:#111827;border:1px solid color-mix(in srgb,var(--accent),white 12%);box-shadow:0 22px 55px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.04) inset;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;animation:rise .75s ease both}.bigCard:nth-child(2){animation-delay:.08s}.bigCard:nth-child(3){animation-delay:.16s}.bigCard:nth-child(4){animation-delay:.24s}.bigCard:nth-child(5){animation-delay:.32s}.bigCard:hover{transform:translateY(-10px) scale(1.035) rotateX(3deg);border-color:var(--accent);box-shadow:0 34px 80px rgba(0,0,0,.62),0 0 34px color-mix(in srgb,var(--accent),transparent 58%);z-index:2}.bigCard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .32s ease,filter .32s ease}.bigCard:hover img{transform:scale(1.08);filter:saturate(1.12) contrast(1.08)}.bigCard:before{content:"";position:absolute;inset:-20% -70%;z-index:4;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.26) 48%,transparent 62%);transform:translateX(-60%);transition:.55s;pointer-events:none}.bigCard:hover:before{transform:translateX(60%)}.shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94),rgba(0,0,0,.30) 48%,rgba(0,0,0,.05) 72%)}.bigCardText{position:absolute;left:22px;right:22px;bottom:24px;z-index:5}.bigCardText:before{content:attr(data-tag);display:inline-block;margin-bottom:13px;color:var(--accent);background:rgba(0,0,0,.68);border:1px solid color-mix(in srgb,var(--accent),white 8%);border-radius:999px;padding:7px 10px;font-size:11px;font-weight:900;letter-spacing:1.3px}.bigCardText h2{font-size:31px;margin:0 0 8px;text-shadow:0 4px 12px #000,0 0 28px #000}.bigCardText p{color:#e2e8f0;margin:0;font-weight:800;line-height:1.35;text-shadow:0 3px 10px #000}.bigCard:after{content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.14);border-radius:20px;pointer-events:none;z-index:3}.row{margin:28px 0 42px}.rowTitle{font-size:27px;font-weight:900;margin:0 0 16px}.scroller{display:flex;gap:18px;overflow-x:auto;padding:10px 0 24px;scroll-snap-type:x mandatory}.scroller::-webkit-scrollbar{height:10px}.scroller::-webkit-scrollbar-thumb{background:#334155;border-radius:999px}.card{flex:0 0 230px;height:345px;border-radius:18px;overflow:hidden;background:#111827;position:relative;cursor:pointer;scroll-snap-align:start;box-shadow:0 16px 35px rgba(0,0,0,.45);border:1px solid var(--line);transition:.18s}.card:hover{transform:scale(1.06);z-index:2;border-color:var(--accent)}.card img{width:100%;height:100%;object-fit:cover;display:block}.cardGrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.05) 62%)}.cardText{position:absolute;left:14px;right:14px;bottom:14px}.cardText h3{margin:0 0 7px;font-size:18px;line-height:1.05}.cardText p{margin:0;color:#cbd5e1;font-size:13px;font-weight:700}.tag{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.72);border:1px solid color-mix(in srgb,var(--accent),white 10%);color:var(--accent);padding:6px 9px;border-radius:999px;font-size:11px;font-weight:900}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:99;align-items:center;justify-content:center;padding:24px}.modal.open{display:flex}.sheet{width:min(980px,96vw);border-radius:24px;overflow:hidden;background:#0f172a;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.75)}.sheetBanner{height:360px;background:center/cover no-repeat;position:relative}.sheetBanner:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#0f172a,rgba(15,23,42,.1))}.sheetBody{padding:26px;margin-top:-80px;position:relative;z-index:2}.sheet h2{font-size:38px;margin:0 0 8px}.sheet p{color:#dbeafe;font-size:17px;line-height:1.45}.close{float:right;background:rgba(255,255,255,.16);color:white;border:0;border-radius:10px;padding:10px 13px;cursor:pointer;font-weight:900}.back{display:inline-block;margin-bottom:20px;text-decoration:none;color:#dbeafe;font-weight:900}.empty{color:#94a3b8;font-weight:800;padding:20px;border:1px dashed var(--line);border-radius:14px}.footer{max-width:1320px;margin:34px auto 0;padding:22px;text-align:center;color:#cbd5e1;border-top:1px solid rgba(255,255,255,.12);font-weight:800}.footer strong{color:var(--gold);letter-spacing:2px}.footer span{color:#94a3b8}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:1000px){.intro h1{font-size:58px}.mainGrid{grid-template-columns:repeat(2,1fr)}.search{width:100%;min-width:0}.topbar{flex-direction:column;align-items:stretch}.nav{justify-content:center}.hero h1{font-size:58px}.bigCard{height:455px}}
-@media(max-width:600px){main{padding:20px}.intro{margin:20px auto 24px;padding:26px 18px;border-radius:24px}.intro h1{font-size:43px}.intro p{font-size:16px}.mainGrid{grid-template-columns:1fr}.hero{min-height:455px;padding:28px 20px}.hero h1{font-size:45px}.hero p{font-size:17px}.card{flex-basis:190px;height:285px}.sectionTitle h2{font-size:27px}.bigCard{height:405px}}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#1d3156 0,#07101e 55%,#030711 100%);color:var(--text);min-height:100vh}
+header{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;align-items:center;background:linear-gradient(90deg,rgba(255,213,74,.12),rgba(255,59,79,.08))}
+h1{margin:0;font-size:clamp(24px,4vw,46px)}
+.subtitle{color:var(--muted);font-weight:600}
+button{border:0;border-radius:14px;padding:12px 16px;background:var(--accent);color:#111;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+button.secondary{background:#243858;color:var(--text)}button.danger{background:var(--danger);color:white}button.ok{background:var(--ok);color:#06200e}button:hover{filter:brightness(1.08)}
+.wrap{display:grid;grid-template-columns:minmax(320px,1fr) 380px;gap:18px;padding:18px}
+.card{background:rgba(18,28,49,.86);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 12px 40px rgba(0,0,0,.35);overflow:hidden}
+.card h2,.card h3{margin:0 0 10px}.card .inner{padding:16px}
+.map-shell{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(71,183,255,.18),rgba(255,213,74,.08)),#101a2d;border-radius:22px;overflow:hidden;min-height:420px}
+.map-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82}
+.fallback-map{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:8px;padding:18px}
+.fallback-cell{border:2px dashed rgba(255,255,255,.18);border-radius:18px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);font-weight:900;text-align:center}
+.hotspot{position:absolute;border:2px solid rgba(255,255,255,.42);background:rgba(71,183,255,.12);backdrop-filter:blur(1px);border-radius:18px;color:white;display:flex;flex-direction:column;justify-content:space-between;padding:8px;min-width:80px;min-height:60px;transition:.18s}
+.hotspot:hover{transform:scale(1.035);background:rgba(255,213,74,.28);border-color:var(--accent);box-shadow:0 0 0 4px rgba(255,213,74,.18),0 12px 30px rgba(0,0,0,.35)}
+.hotspot.active{outline:4px solid rgba(82,224,139,.35);border-color:var(--ok)}
+.hotspot.alert{animation:pulse 1s infinite;background:rgba(255,59,79,.34);border-color:var(--danger)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,79,.45)}50%{box-shadow:0 0 0 14px rgba(255,59,79,0)}}
+.room-name{font-weight:1000;text-shadow:0 2px 4px #000;font-size:clamp(11px,1.3vw,18px)}
+.room-count{font-size:12px;background:rgba(0,0,0,.48);border-radius:999px;padding:4px 8px;align-self:flex-start}
+.room-mission{font-size:11px;color:#fff;opacity:.9;text-shadow:0 1px 2px #000}
+.side{display:flex;flex-direction:column;gap:14px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:rgba(255,255,255,.06);border-radius:16px;padding:12px}.stat b{font-size:24px;display:block}
+.players{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:260px;overflow:auto}.player{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:8px 10px;display:flex;justify-content:space-between;gap:6px;font-size:14px}.player.dead{opacity:.45;text-decoration:line-through}
+.badge{border-radius:999px;padding:2px 7px;background:#243858;color:#cfe1ff;font-size:11px;font-weight:900;white-space:nowrap}.badge.red{background:rgba(255,59,79,.24);color:#ffd1d6}.badge.green{background:rgba(82,224,139,.18);color:#b9ffd3}
+.log{max-height:220px;overflow:auto;font-size:14px;color:#d8e5ff}.log p{margin:0 0 8px;padding:8px;background:rgba(255,255,255,.05);border-radius:12px}
+.detail-title{font-size:28px;font-weight:1000}.mission-box{border-left:5px solid var(--accent);background:rgba(255,213,74,.09);padding:12px;border-radius:14px}.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.setup{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.setup input{width:100%;padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#09111f;color:white}.notice{color:var(--muted);line-height:1.45}
+@media(max-width:980px){.wrap{grid-template-columns:1fr}.map-shell{min-height:330px}.setup{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
-<body style="--accent:#f5c45e">
-<header class="topbar">
-  <a class="logo" href="index.html">PORTAL FAR<span>APPS EDUCATIVES</span></a>
-  <nav class="nav">
-    <a href="seccions/esde.html">🏰 ESDE</a>
-    <a href="seccions/trivials.html">❓ Trivials</a>
-    <a href="seccions/pasapalabra.html">⭕ Pasapalabra</a>
-    <a href="seccions/millionari.html">💰 Millionari</a>
-    <a href="seccions/escape_rooms.html">🔐 Escape Rooms</a>
-    <a href="seccions/generador_personatges.html">🧙 Personatges</a>
-  </nav>
-  <div class="search"><input id="search" placeholder="Busca una secció..."></div>
-</header>
-<main>
-  <section class="intro">
-    <div class="kicker">Aula d’apps educatives</div>
-    <h1>PORTAL FAR</h1>
-    <p>Un portal visual per reunir totes les apps de classe: jocs, concursos, escape rooms i el món ESDE.</p>
-    <div class="btns"><button class="btn info" onclick="document.querySelector('#grid').scrollIntoView({behavior:'smooth'})">Entrar al catàleg</button></div>
-  </section>
+<body>
+<header><div><h1>Assassinat a Sant Marcel·lí</h1><div class="subtitle">V9 · mapa clicable · mode mestre/projector</div></div><div class="controls"><button onclick="newGame()">Nova partida</button><button class="secondary" onclick="toggleSetup()">Jugadors</button></div></header>
 
-  <div class="sectionTitle">
-    <div class="ornament">✦ ✦ ✦</div>
-    <h2>TRIA EL TEU UNIVERS</h2>
-    <p>Concursos, reptes i aventures per activar la classe.</p>
-  </div>
-  <div class="mainGrid" id="grid">
-<a class="bigCard" href="seccions/esde.html" style="--accent:#f59e0b">
-  <img src="assets/thumbnails/esde.jpg" alt="🏰 ESDE">
-  <div class="shade"></div>
-  <div class="bigCardText" data-tag="MEDIEVAL">
-    <h2>🏰 ESDE</h2>
-    <p>Regnes, setges, masmorres, taulers i simulació medieval de classe.</p>
-  </div>
-</a>
-<a class="bigCard" href="seccions/trivials.html" style="--accent:#3b82f6">
-  <img src="assets/thumbnails/trivials.png" alt="❓ Trivials">
-  <div class="shade"></div>
-  <div class="bigCardText" data-tag="TRIVIALS">
-    <h2>❓ Trivials</h2>
-    <p>Preguntes classificades per temes, nivells i assignatures.</p>
-  </div>
-</a>
-<a class="bigCard" href="seccions/pasapalabra.html" style="--accent:#d946ef">
-  <img src="assets/thumbnails/pasapalabra.jpg" alt="⭕ Pasapalabra">
-  <div class="shade"></div>
-  <div class="bigCardText" data-tag="LLETRES">
-    <h2>⭕ Pasapalabra</h2>
-    <p>Rosques de vocabulari, llengua i cultura per jugar en equips.</p>
-  </div>
-</a>
-<a class="bigCard" href="seccions/millionari.html" style="--accent:#f5c45e">
-  <img src="assets/thumbnails/millionari.jpg" alt="💰 El Gran Millonari">
-  <div class="shade"></div>
-  <div class="bigCardText" data-tag="CONCURS">
-    <h2>💰 El Gran Millonari</h2>
-    <p>Concurs tipus televisiu per repassar continguts amb emoció.</p>
-  </div>
-</a>
-<a class="bigCard" href="seccions/escape_rooms.html" style="--accent:#22c55e">
-  <img src="assets/thumbnails/escape_rooms.jpg" alt="🔐 Escape Rooms">
-  <div class="shade"></div>
-  <div class="bigCardText" data-tag="REPTES">
-    <h2>🔐 Escape Rooms</h2>
-    <p>Pistes, enigmes i aventures cooperatives per a l’aula.</p>
-  </div>
-</a>
-<a class="bigCard" href="seccions/generador_personatges.html" style="--accent:#60a5fa">
-  <img src="assets/thumbnails/generador_personatges.jpg" alt="🧙 Generador de Personatges">
-  <div class="shade"></div>
-  <div class="bigCardText" data-tag="CREADOR">
-    <h2>🧙 Generador de Personatges</h2>
-    <p>Crea personatges per a jocs, històries, carnets i activitats.</p>
-  </div>
-</a></div>
-  <footer class="footer"><strong>PORTAL FAR</strong><br><span>Apps educatives de l’aula · Versió visual millorada</span></footer>
+<section id="setupPanel" class="card" style="margin:18px;display:none"><div class="inner"><h2>Jugadors</h2><p class="notice">Canvia els noms si vols. Després prem “Nova partida”.</p><div id="nameInputs" class="setup"></div></div></section>
+
+<main class="wrap">
+<section class="card"><div class="inner"><h2>Mapa del centre</h2><p class="notice">Clica una sala per veure jugadors, missió i accions. Si hi ha incident, la sala parpelleja en roig.</p></div><div class="map-shell" id="map">
+<div class="fallback-map"><div class="fallback-cell">Biblioteca</div><div class="fallback-cell">Aula 5é</div><div class="fallback-cell">Informàtica</div><div class="fallback-cell">Pati</div><div class="fallback-cell">Passadís</div><div class="fallback-cell">Menjador</div><div class="fallback-cell">Gimnàs</div><div class="fallback-cell">Direcció</div><div class="fallback-cell">Mestres</div></div>
+<img class="map-img" src="assets/mapa_sant_marceli.png" onerror="this.style.display='none'" alt="Mapa Sant Marcel·lí">
+</div></section>
+
+<aside class="side">
+<section class="card"><div class="inner"><h2>Estat de partida</h2><div class="stat-grid"><div class="stat"><b id="round">1</b>Ronda</div><div class="stat"><b id="alive">20</b>Vius</div><div class="stat"><b id="missionsDone">0</b>Missions</div><div class="stat"><b id="incidentCount">0</b>Incidents</div></div><div class="controls"><button class="ok" onclick="completeMission()">Completar missió</button><button class="danger" onclick="generateIncident()">Generar incident</button><button class="secondary" onclick="nextRound()">Següent ronda</button></div></div></section>
+<section class="card"><div class="inner" id="roomDetail"><div class="detail-title">Tria una sala</div><p class="notice">Clica damunt del mapa per obrir una sala.</p></div></section>
+<section class="card"><div class="inner"><h3>Jugadors</h3><div id="players" class="players"></div></div></section>
+<section class="card"><div class="inner"><h3>Registre</h3><div id="log" class="log"></div></div></section>
+</aside>
 </main>
+
 <script>
-document.getElementById("search").addEventListener("input", e=>{
-  const q=e.target.value.toLowerCase().trim();
-  document.querySelectorAll(".bigCard").forEach(c=>{ c.style.display = c.textContent.toLowerCase().includes(q) ? "" : "none"; });
-});
+const rooms=[{id:"biblioteca",name:"Biblioteca",icon:"📚",x:8,y:12,w:22,h:22,mission:"Ordena tres llibres per ordre alfabètic."},{id:"aula",name:"Aula 5é",icon:"🏫",x:38,y:12,w:22,h:22,mission:"Resol una operació ràpida sense calculadora."},{id:"informatica",name:"Informàtica",icon:"💻",x:68,y:12,w:22,h:22,mission:"Connecta els cables correctes."},{id:"pati",name:"Pati",icon:"⚽",x:8,y:42,w:22,h:22,mission:"Troba qui no estava on deia estar."},{id:"passadis",name:"Passadís",icon:"🚪",x:38,y:42,w:22,h:22,mission:"Segueix les petjades fins a una pista."},{id:"menjador",name:"Menjador",icon:"🍽️",x:68,y:42,w:22,h:22,mission:"Recorda els objectes de la safata."},{id:"gimnas",name:"Gimnàs",icon:"🏀",x:8,y:72,w:22,h:18,mission:"Reprodueix una seqüència de moviments."},{id:"direccio",name:"Direcció",icon:"📁",x:38,y:72,w:22,h:18,mission:"Desxifra el codi de quatre xifres."},{id:"mestres",name:"Sala de mestres",icon:"☕",x:68,y:72,w:22,h:18,mission:"Interpreta una nota misteriosa."},{id:"lavabos",name:"Lavabos",icon:"🚻",x:81,y:52,w:12,h:14,mission:"Comprova si l’alibi té sentit."}];
+const defaultNames=["Asma","Hugo","Sofia","Yana","Gabi","Jose Andres","Jawad","Elian","Eyleen","Juan Esteban","Juan Pablo","Vlad","Amir","Paola","Jad","Pablo","Álvaro","Eidan","Reynaldo","Teia"];
+let state={round:1,missionsDone:0,incidents:[],selectedRoom:null,players:[],assassin:null};
+function rand(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function toggleSetup(){const el=document.getElementById("setupPanel");el.style.display=el.style.display==="none"?"block":"none"}
+function buildSetup(){const box=document.getElementById("nameInputs");box.innerHTML="";defaultNames.forEach((n,i)=>{const input=document.createElement("input");input.id="name"+i;input.value=n;input.placeholder="Jugador "+(i+1);box.appendChild(input)})}
+function newGame(){const names=[];for(let i=0;i<20;i++){const el=document.getElementById("name"+i);names.push((el?.value||defaultNames[i]||("Jugador "+(i+1))).trim())}state.players=names.map((name,i)=>({id:i,name,alive:true,room:rooms[i%rooms.length].id,suspicion:Math.floor(Math.random()*25)}));state.assassin=rand(state.players).id;state.round=1;state.missionsDone=0;state.incidents=[];state.selectedRoom=null;document.getElementById("log").innerHTML="";addLog("Nova partida iniciada. Rols assignats en secret.");renderAll()}
+function renderMap(){const map=document.getElementById("map");map.querySelectorAll(".hotspot").forEach(e=>e.remove());rooms.forEach(r=>{const btn=document.createElement("button");btn.className="hotspot";if(state.selectedRoom===r.id)btn.classList.add("active");if(state.incidents.some(i=>i.room===r.id&&!i.resolved))btn.classList.add("alert");btn.style.left=r.x+"%";btn.style.top=r.y+"%";btn.style.width=r.w+"%";btn.style.height=r.h+"%";btn.onclick=()=>selectRoom(r.id);const count=state.players.filter(p=>p.alive&&p.room===r.id).length;btn.innerHTML=`<div class="room-name">${r.icon} ${r.name}</div><div class="room-count">👤 ${count}</div><div class="room-mission">Missió</div>`;map.appendChild(btn)})}
+function selectRoom(id){state.selectedRoom=id;renderAll()}
+function renderRoom(){const box=document.getElementById("roomDetail");const r=rooms.find(x=>x.id===state.selectedRoom);if(!r){box.innerHTML=`<div class="detail-title">Tria una sala</div><p class="notice">Clica damunt del mapa per obrir una sala.</p>`;return}const ps=state.players.filter(p=>p.alive&&p.room===r.id);const incident=state.incidents.find(i=>i.room===r.id&&!i.resolved);box.innerHTML=`<div class="detail-title">${r.icon} ${r.name}</div><p><b>Jugadors dins:</b> ${ps.length?ps.map(p=>p.name).join(", "):"Cap"}</p><div class="mission-box"><b>Missió:</b><br>${r.mission}</div>${incident?`<p style="color:#ffd1d6"><b>⚠ Incident:</b> ${incident.victim} ha sigut eliminat/da ací. Objecte: ${incident.object}.</p>`:""}<div class="controls"><button class="ok" onclick="completeMission()">Completar missió</button><button class="danger" onclick="generateIncident('${r.id}')">Incident ací</button><button class="secondary" onclick="movePlayers('${r.id}')">Moure jugadors</button></div>`}
+function renderPlayers(){const box=document.getElementById("players");box.innerHTML="";state.players.forEach(p=>{const room=rooms.find(r=>r.id===p.room)?.name||"?";const div=document.createElement("div");div.className="player"+(!p.alive?" dead":"");div.innerHTML=`<span>${p.name}</span><span class="badge ${p.id===state.assassin?'red':'green'}">${p.alive?room:"fora"}</span>`;div.title=p.id===state.assassin?"Assassí/na (només mestre)":"Innocent";box.appendChild(div)})}
+function renderStats(){document.getElementById("round").textContent=state.round;document.getElementById("alive").textContent=state.players.filter(p=>p.alive).length;document.getElementById("missionsDone").textContent=state.missionsDone;document.getElementById("incidentCount").textContent=state.incidents.length}
+function completeMission(){state.missionsDone++;const r=rooms.find(x=>x.id===state.selectedRoom);addLog(`Missió completada${r?" en "+r.name:""}. Total: ${state.missionsDone}.`);renderAll()}
+const objects=["retolador roig","regla metàl·lica","motxilla negra","clau mestra","llibre de registre","cable USB","xiulet del pati","carpeta verda"];
+const clues=["Algú va eixir corrent del passadís.","La víctima havia discutit durant la ronda anterior.","S’ha trobat una nota arrugada.","Una càmera no funcionava en eixe moment.","Hi havia petjades prop de la porta.","Un testimoni diu que va sentir el timbre."];
+function generateIncident(roomId=null){const alive=state.players.filter(p=>p.alive&&p.id!==state.assassin);if(!alive.length){addLog("No queden víctimes possibles.");return}const victim=rand(alive);victim.alive=false;const room=roomId||victim.room||rand(rooms).id;const incident={id:Date.now(),round:state.round,victim:victim.name,room,object:rand(objects),clue:rand(clues),resolved:false};state.incidents.push(incident);state.selectedRoom=room;addLog(`⚠ Incident en ${rooms.find(r=>r.id===room).name}: víctima ${victim.name}. Pista: ${incident.clue}`);renderAll()}
+function movePlayers(roomId){state.players.filter(p=>p.alive).forEach(p=>{if(Math.random()<0.45)p.room=roomId;else p.room=rand(rooms).id});addLog("Els jugadors s’han redistribuït pel centre.");renderAll()}
+function nextRound(){state.round++;state.players.filter(p=>p.alive).forEach(p=>p.room=rand(rooms).id);state.incidents.forEach(i=>i.resolved=true);addLog("Comença la ronda "+state.round+". Les sales canvien i els incidents anteriors passen a l'historial.");renderAll()}
+function addLog(text){const log=document.getElementById("log");if(!log)return;const p=document.createElement("p");p.textContent=text;log.prepend(p)}
+function renderAll(){renderStats();renderMap();renderRoom();renderPlayers();save()}
+function save(){localStorage.setItem("asm_v9_state",JSON.stringify(state))}
+function load(){try{const saved=JSON.parse(localStorage.getItem("asm_v9_state"));if(saved&&saved.players&&saved.players.length)state=saved}catch(e){}}
+buildSetup();load();if(!state.players.length)newGame();else renderAll();
 </script>
-</body></html>
+</body>
+</html>
