@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Assassinat a Sant Marcel·lí - V1</title>
+<style>
+  :root{
+    --bg:#080b14;
+    --panel:#11192b;
+    --panel2:#18243c;
+    --ink:#f4f7ff;
+    --muted:#aeb8d6;
+    --red:#ff3b4f;
+    --yellow:#ffd166;
+    --green:#46e891;
+    --blue:#5cc8ff;
+    --purple:#b88cff;
+    --chalk:#f7f3df;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 10%, rgba(92,200,255,.16), transparent 32%),
+      radial-gradient(circle at 85% 5%, rgba(255,59,79,.18), transparent 28%),
+      linear-gradient(135deg, #070911, #10172a 55%, #05070e);
+  }
+  .app{max-width:1180px;margin:0 auto;padding:22px}
+  header{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    margin-bottom:18px;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{
+    width:64px;height:64px;border-radius:18px;
+    background:linear-gradient(135deg,var(--red),#790019);
+    display:grid;place-items:center;font-size:34px;
+    box-shadow:0 0 30px rgba(255,59,79,.35);
+  }
+  h1{font-size:clamp(28px,4vw,52px);line-height:1;margin:0;text-transform:uppercase;letter-spacing:1px}
+  .subtitle{color:var(--muted);font-weight:700;margin-top:4px}
+  .statusbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+  .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;font-weight:800;color:var(--chalk)}
+  .panel{
+    background:linear-gradient(180deg, rgba(24,36,60,.96), rgba(12,18,32,.96));
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:24px;
+    box-shadow:0 18px 60px rgba(0,0,0,.38);
+    padding:24px;
+    margin:16px 0;
+  }
+  .hidden{display:none!important}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .two{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+  @media(max-width:850px){.two{grid-template-columns:1fr} header{align-items:flex-start;flex-direction:column}.statusbar{justify-content:flex-start}}
+  label{font-weight:900;color:var(--yellow);display:block;margin:8px 0}
+  textarea,input,select{
+    width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.18);
+    background:#090d18;color:var(--ink);font-size:16px;outline:none;
+  }
+  textarea{min-height:260px;resize:vertical;line-height:1.45}
+  button{
+    border:0;border-radius:16px;padding:13px 18px;margin:6px 6px 6px 0;
+    font-weight:950;font-size:16px;cursor:pointer;color:#06101d;background:var(--yellow);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .08s ease, filter .15s ease;
+  }
+  button:hover{filter:brightness(1.08)} button:active{transform:translateY(2px)}
+  button.red{background:var(--red);color:white} button.green{background:var(--green)} button.blue{background:var(--blue)} button.purple{background:var(--purple)} button.ghost{background:transparent;color:var(--ink);border:1px solid rgba(255,255,255,.18);box-shadow:none}
+  .bigcard{
+    border:2px dashed rgba(247,243,223,.32);border-radius:24px;padding:28px;text-align:center;
+    background:rgba(0,0,0,.20);
+  }
+  .bigtitle{font-size:clamp(30px,5vw,62px);font-weight:1000;margin:8px 0;color:var(--chalk);text-shadow:0 3px 0 rgba(0,0,0,.4)}
+  .role{font-size:clamp(36px,7vw,86px);font-weight:1000;margin:20px 0;text-transform:uppercase;letter-spacing:2px}
+  .role.assassi{color:var(--red)} .role.detectiu{color:var(--blue)} .role.conserge{color:var(--yellow)} .role.testimoni{color:var(--purple)} .role.investigador{color:var(--green)}
+  .schoolmap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px}
+  @media(max-width:850px){.schoolmap{grid-template-columns:repeat(2,1fr)}}
+  .room{min-height:96px;border-radius:18px;background:#0b1020;border:1px solid rgba(255,255,255,.13);padding:12px;display:flex;flex-direction:column;justify-content:space-between}
+  .room.active{outline:3px solid var(--yellow);box-shadow:0 0 25px rgba(255,209,102,.28)}
+  .roomname{font-weight:950}.room small{color:var(--muted)}
+  .missionbox{font-size:24px;font-weight:900;color:var(--chalk);line-height:1.25}
+  .answer{font-size:18px;color:var(--green);margin-top:10px;font-weight:800}
+  .players{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+  .player{padding:12px;border-radius:16px;background:#0b1020;border:1px solid rgba(255,255,255,.12);font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .player.dead{opacity:.42;text-decoration:line-through}.badge{font-size:12px;border-radius:999px;padding:4px 8px;background:rgba(255,255,255,.1);color:var(--muted)}
+  .danger{border-left:8px solid var(--red)} .hint{border-left:8px solid var(--yellow)} .ok{border-left:8px solid var(--green)}
+  .log{max-height:260px;overflow:auto;background:#060912;border-radius:16px;padding:12px;color:var(--muted);font-size:14px;line-height:1.45}
+  .voteRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;align-items:center}
+  @media(max-width:650px){.voteRow{grid-template-columns:1fr}}
+  .final{font-size:clamp(36px,6vw,78px);font-weight:1000;text-align:center;margin:18px 0}.tiny{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand">
+      <div class="logo">🔎</div>
+      <div>
+        <h1>Assassinat a Sant Marcel·lí</h1>
+        <div class="subtitle">Joc escolar de misteri, sabotatges i votacions · V1</div>
+      </div>
+    </div>
+    <div class="statusbar">
+      <div class="pill" id="roundPill">Ronda 0</div>
+      <div class="pill" id="alivePill">Vius: 20</div>
+      <div class="pill" id="phasePill">Inici</div>
+    </div>
+  </header>
+
+  <section id="setup" class="panel">
+    <div class="two">
+      <div>
+        <h2>1. Escriu els 20 jugadors</h2>
+        <p class="tiny">Un nom per línia. Si en poses menys, el joc omplirà noms ficticis. Si en poses més, agafarà els primers 20.</p>
+        <textarea id="namesInput">Jugador 1
+Jugador 2
+Jugador 3
+Jugador 4
+Jugador 5
+Jugador 6
+Jugador 7
+Jugador 8
+Jugador 9
+Jugador 10
+Jugador 11
+Jugador 12
+Jugador 13
+Jugador 14
+Jugador 15
+Jugador 16
+Jugador 17
+Jugador 18
+Jugador 19
+Jugador 20</textarea>
+        <button class="green" onclick="startGame()">Crear partida</button>
+      </div>
+      <div class="bigcard">
+        <div class="bigtitle">Regles V1</div>
+        <p><b>20 jugadors individuals.</b></p>
+        <p><b>1 assassí</b>, 1 detectiu, 1 conserge, 1 testimoni i 16 investigadors.</p>
+        <p>Els investigadors guanyen si voten l'assassí. L'assassí guanya si queden 5 vius o arriba al final.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="roles" class="panel hidden">
+    <h2>2. Repartiment secret de rols</h2>
+    <div class="bigcard" id="roleCard">
+      <div class="bigtitle" id="rolePlayer">Jugador</div>
+      <div id="roleHidden">
+        <p>Passa la pantalla al jugador indicat.</p>
+        <button class="blue" onclick="showRole()">Mostrar rol secret</button>
+      </div>
+      <div id="roleShown" class="hidden">
+        <div id="roleName" class="role investigador">Investigador</div>
+        <p id="roleText"></p>
+        <button class="ghost" onclick="hideAndNextRole()">Ocultar i passar al següent</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="game" class="hidden">
+    <div class="two">
+      <div class="panel">
+        <h2>Mapa del centre</h2>
+        <div id="map" class="schoolmap"></div>
+      </div>
+      <div class="panel">
+        <h2>Ronda actual</h2>
+        <div id="roundBox" class="bigcard hint">
+          <div class="bigtitle" id="currentRoom">Sala</div>
+          <div class="missionbox" id="currentMission">Missió</div>
+          <div class="answer hidden" id="currentAnswer"></div>
+        </div>
+        <button class="green" onclick="completeMission()">Missió completada</button>
+        <button class="blue" onclick="toggleAnswer()">Mostrar/ocultar resposta</button>
+        <button class="red" onclick="openSabotage()">Sabotatge / assassinat</button>
+        <button class="purple" onclick="openVoting()">Anar a votació</button>
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h2>Jugadors vius i eliminats</h2>
+        <div id="playersList" class="players"></div>
+      </div>
+      <div class="panel">
+        <h2>Registre de partida</h2>
+        <div id="log" class="log"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sabotage" class="panel hidden danger">
+    <h2>Sabotatge / assassinat fictici</h2>
+    <p><b>Sabotatge:</b> <span id="sabotageText"></span></p>
+    <label>Víctima fictícia eliminada</label>
+    <select id="victimSelect"></select>
+    <button class="red" onclick="confirmVictim()">Confirmar eliminació</button>
+    <button class="ghost" onclick="closeSabotage()">Tornar sense eliminar</button>
+    <p class="tiny">El mestre pot usar açò quan toque narrativament. No mostra qui és l'assassí.</p>
+  </section>
+
+  <section id="voting" class="panel hidden">
+    <h2>Votació</h2>
+    <p>Selecciona el vot de cada jugador viu. Els eliminats no voten.</p>
+    <div id="voteRows"></div>
+    <button class="purple" onclick="countVotes()">Comptar vots</button>
+    <button class="ghost" onclick="closeVoting()">Tornar al mapa</button>
+  </section>
+
+  <section id="result" class="panel hidden">
+    <h2>Resultat de la votació</h2>
+    <div id="voteResult" class="bigcard"></div>
+    <button class="green" onclick="nextRound()">Següent ronda</button>
+  </section>
+
+  <section id="end" class="panel hidden">
+    <div id="finalText" class="final"></div>
+    <div id="finalReveal" class="bigcard"></div>
+    <button onclick="location.reload()">Nova partida</button>
+  </section>
+</div>
+
+<script>
+const rooms = ["Aula de 5é","Biblioteca","Aula d'informàtica","Pati","Menjador","Gimnàs","Passadís","Lavabos","Direcció","Sala de mestres"];
+const missions = [
+  {q:"Resol: 48 ÷ 6 + 7", a:"15"},
+  {q:"Troba la falta: 'El xiquet anava a l'escola molt contenta.'", a:"Ha de ser 'content', perquè parla del xiquet."},
+  {q:"Ordena: pati / al / tots / van / alumnes / els", a:"Tots els alumnes van al pati."},
+  {q:"Quina paraula és correcta en valencià: 'llapis' o 'lapiz'?", a:"llapis"},
+  {q:"Quin òrgan impulsa la sang pel cos?", a:"El cor."},
+  {q:"Completa la sèrie: 3, 6, 12, 24, ...", a:"48"},
+  {q:"Desxifra: A=1, B=2, C=3. Què és 13-1-20-5-19?", a:"MATES"},
+  {q:"Quin objecte va amb Biblioteca: baló, llibre o cullera?", a:"llibre"},
+  {q:"Contradicció: 'No vaig entrar a informàtica, però vaig vore l'ordinador encés.'", a:"Diu que no va entrar, però afirma haver vist l'ordinador."},
+  {q:"Enigma: Sempre entra a classe però mai s'asseu. Què és?", a:"La llum / el timbre / l'aire. Accepta resposta raonada."},
+  {q:"Calcula: 25% de 80", a:"20"},
+  {q:"Canvia al plural: 'la classe misteriosa'", a:"les classes misterioses"},
+  {q:"Quin és el subjecte? 'El conserge va tancar la porta.'", a:"El conserge"},
+  {q:"Quin planeta és conegut com el planeta roig?", a:"Mart"},
+  {q:"Quina paraula sobra: bolígraf, quadern, cadira, retolador?", a:"cadira"}
+];
+const sabotages = [
+  "La pissarra digital no funciona.","Ha desaparegut el llibre de registre.","S'ha anat la llum.","El timbre sona sense parar.","Els ordinadors s'han penjat.","El pati queda tancat.","Algú ha canviat les notes.","La biblioteca està bloquejada.","El menjador s'ha quedat sense culleres.","El mapa del centre ha desaparegut."
+];
+const roleInfo = {
+  "Assassí": "Has de sobreviure sense ser descobert. Saboteja, despista i acusa amb calma.",
+  "Detectiu": "Una vegada per partida pots demanar al mestre una pista sobre un jugador viu.",
+  "Conserge": "Una vegada per partida pots anul·lar un sabotatge.",
+  "Testimoni": "Quan hi ha una víctima, pots rebre una pista extra del mestre.",
+  "Investigador": "Completa missions, observa comportaments i vota amb criteri."
+};
+let players=[], roleIndex=0, round=0, missionDone=0, currentMission=null, currentRoom=null, assassinName="", maxRounds=8;
+function shuffle(arr){return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);}
+function $(id){return document.getElementById(id)}
+function setPhase(t){$('phasePill').textContent=t}
+function updatePills(){
+  $('roundPill').textContent='Ronda '+round;
+  $('alivePill').textContent='Vius: '+players.filter(p=>p.alive).length;
+}
+function startGame(){
+  let names=$('namesInput').value.split('\n').map(n=>n.trim()).filter(Boolean);
+  while(names.length<20) names.push('Jugador '+(names.length+1));
+  names=names.slice(0,20);
+  const roles=shuffle(["Assassí","Detectiu","Conserge","Testimoni",...Array(16).fill("Investigador")]);
+  players=names.map((name,i)=>({name, role:roles[i], alive:true, votedOut:false}));
+  assassinName=players.find(p=>p.role==="Assassí").name;
+  roleIndex=0; round=0; missionDone=0;
+  $('setup').classList.add('hidden'); $('roles').classList.remove('hidden'); setPhase('Rols secrets'); updatePills(); prepareRoleCard();
+}
+function prepareRoleCard(){
+  $('rolePlayer').textContent=players[roleIndex].name;
+  $('roleHidden').classList.remove('hidden'); $('roleShown').classList.add('hidden');
+}
+function showRole(){
+  const p=players[roleIndex];
+  $('roleName').textContent=p.role;
+  $('roleName').className='role '+p.role.toLowerCase().replace('í','i').replace('é','e');
+  $('roleText').textContent=roleInfo[p.role];
+  $('roleHidden').classList.add('hidden'); $('roleShown').classList.remove('hidden');
+}
+function hideAndNextRole(){
+  roleIndex++;
+  if(roleIndex>=players.length){
+    $('roles').classList.add('hidden'); $('game').classList.remove('hidden'); buildMap(); renderPlayers(); log('Comença el misteri. Els rols ja estan repartits.'); nextRound();
+  } else prepareRoleCard();
+}
+function buildMap(){
+  $('map').innerHTML='';
+  rooms.forEach(r=>{
+    const div=document.createElement('div'); div.className='room'; div.id='room_'+r;
+    div.innerHTML='<div class="roomname">'+r+'</div><small>Possible escena del crim</small>';
+    $('map').appendChild(div);
+  });
+}
+function nextRound(){
+  if(checkEnd()) return;
+  round++;
+  if(round>maxRounds){endGame(false,'Final de rondes: l\'assassí ha escapat.');return;}
+  currentRoom=rooms[Math.floor(Math.random()*rooms.length)];
+  currentMission=missions[Math.floor(Math.random()*missions.length)];
+  document.querySelectorAll('.room').forEach(x=>x.classList.remove('active'));
+  const roomEl=$('room_'+currentRoom); if(roomEl) roomEl.classList.add('active');
+  $('currentRoom').textContent=currentRoom;
+  $('currentMission').textContent=currentMission.q;
+  $('currentAnswer').textContent='Resposta: '+currentMission.a;
+  $('currentAnswer').classList.add('hidden');
+  $('result').classList.add('hidden'); $('game').classList.remove('hidden');
+  setPhase('Investigació'); updatePills(); log('Ronda '+round+': investigació en '+currentRoom+'.');
+}
+function completeMission(){missionDone++; log('Missió completada. Total missions: '+missionDone+'.'); if(missionDone>=10) endGame(true,'Missions resoltes: el centre ha descobert la veritat.');}
+function toggleAnswer(){$('currentAnswer').classList.toggle('hidden')}
+function renderPlayers(){
+  $('playersList').innerHTML='';
+  players.forEach(p=>{
+    const d=document.createElement('div'); d.className='player '+(p.alive?'':'dead');
+    d.innerHTML='<span>'+p.name+'</span><span class="badge">'+(p.alive?'viu':'eliminat')+'</span>';
+    $('playersList').appendChild(d);
+  });
+  updatePills();
+}
+function openSabotage(){
+  $('sabotageText').textContent=sabotages[Math.floor(Math.random()*sabotages.length)];
+  const sel=$('victimSelect'); sel.innerHTML='';
+  players.filter(p=>p.alive && p.role!=="Assassí").forEach(p=>{let o=document.createElement('option');o.value=p.name;o.textContent=p.name;sel.appendChild(o)});
+  $('sabotage').classList.remove('hidden'); setPhase('Alerta'); log('Sona una alerta: possible sabotatge.');
+}
+function closeSabotage(){$('sabotage').classList.add('hidden'); setPhase('Investigació')}
+function confirmVictim(){
+  const name=$('victimSelect').value; const p=players.find(x=>x.name===name); if(!p)return;
+  p.alive=false; log('Víctima fictícia eliminada: '+name+'.'); closeSabotage(); renderPlayers(); checkEnd();
+}
+function openVoting(){
+  const alive=players.filter(p=>p.alive);
+  $('voteRows').innerHTML='';
+  alive.forEach(voter=>{
+    const row=document.createElement('div'); row.className='voteRow';
+    const sel=document.createElement('select'); sel.dataset.voter=voter.name;
+    alive.forEach(target=>{let o=document.createElement('option');o.value=target.name;o.textContent=target.name;sel.appendChild(o)});
+    row.innerHTML='<div><b>'+voter.name+'</b> vota a:</div>';
+    row.appendChild(sel); $('voteRows').appendChild(row);
+  });
+  $('voting').classList.remove('hidden'); setPhase('Votació');
+}
+function closeVoting(){$('voting').classList.add('hidden'); setPhase('Investigació')}
+function countVotes(){
+  const counts={}; document.querySelectorAll('#voteRows select').forEach(s=>{counts[s.value]=(counts[s.value]||0)+1});
+  const entries=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  if(entries.length===0)return;
+  const top=entries[0][1]; const winners=entries.filter(e=>e[1]===top);
+  $('voting').classList.add('hidden'); $('game').classList.add('hidden'); $('result').classList.remove('hidden');
+  if(winners.length>1){
+    $('voteResult').innerHTML='<div class="bigtitle">Empat</div><p>Ningú és expulsat.</p><p>'+winners.map(w=>w[0]+' ('+w[1]+')').join(', ')+'</p>';
+    log('Votació empatada. Ningú és expulsat.'); return;
+  }
+  const expelled=players.find(p=>p.name===winners[0][0]); expelled.alive=false; expelled.votedOut=true;
+  if(expelled.role==="Assassí"){
+    $('voteResult').innerHTML='<div class="bigtitle">L\'heu descobert!</div><p>'+expelled.name+' era l\'assassí.</p>';
+    log('Votació: '+expelled.name+' ha sigut expulsat i era l\'assassí.'); renderPlayers(); endGame(true,'Cas resolt: l\'assassí ha sigut descobert.');
+  } else {
+    $('voteResult').innerHTML='<div class="bigtitle">Persona expulsada</div><p>'+expelled.name+' ha sigut expulsat/da.</p><p>No era l\'assassí.</p>';
+    log('Votació: '+expelled.name+' expulsat/da. No era l\'assassí.'); renderPlayers(); checkEnd();
+  }
+}
+function checkEnd(){
+  const alive=players.filter(p=>p.alive).length;
+  const assassinAlive=players.find(p=>p.role==="Assassí")?.alive;
+  if(!assassinAlive){endGame(true,'Cas resolt: l\'assassí ja no està en joc.');return true;}
+  if(alive<=5){endGame(false,'Queden només 5 vius: l\'assassí domina el centre.');return true;}
+  return false;
+}
+function endGame(investigatorsWin,msg){
+  ['setup','roles','game','sabotage','voting','result'].forEach(id=>$(id).classList.add('hidden'));
+  $('end').classList.remove('hidden'); setPhase('Final'); updatePills();
+  $('finalText').textContent=investigatorsWin?'GUANYEN ELS INVESTIGADORS':'GUANYA L\'ASSASSÍ';
+  $('finalReveal').innerHTML='<h2>'+msg+'</h2><p><b>Assassí/na:</b> '+assassinName+'</p><p><b>Rondes jugades:</b> '+round+'</p><p><b>Missions completades:</b> '+missionDone+'</p>';
+}
+function log(t){
+  const div=document.createElement('div'); div.textContent='• '+t; $('log').prepend(div);
+}
+</script>
+</body>
+</html>
